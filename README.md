@@ -1,7 +1,7 @@
-# grupo_14_proyecto_integrador
-Proyecto integrador DH. Confección de un ecommerse.
+# grupo_14_Digital-Delux
+Proyecto integrador DH. Confección de un e-commerce.
 
-El proyecto consiste en un e-commers dedicado a compra y venta de electrodomésticos usados (en buen estado).
+El proyecto consiste en un e-commerce dedicado a compra y venta de electrodomésticos usados (en buen estado).
 Muchas compañías dejan de utilizar equipos, no por su mal funcionamiento sino por adquirir productos más nuevos. Estos equipos suelen quedar almacenados en lugares donde se pierde noción de su existencia.
 Proponemos un espacio donde tanto las compañías, como aquellas personas que disponen de equipos en desuso, los puedan comercializar y obtener ganancias sobre ellos.
 
@@ -12,6 +12,7 @@ El equipo está formado por alumnos del curso Full Stack entusiasmados con brind
 
 
 Inspiración en referentes del mercado:
+
 https://www.mercadolibre.com.ar/ <!-- Página de compra y venta de todo tipo de productos, se toma como ejemplo de diseño por su facilidad y funcionalidades-->
 
 https://www.facebook.com/marketplace/?ref=bookmark <!-- Página de compra y venta de todo tipo de productos, se toma como ejemplo de diseño-->
