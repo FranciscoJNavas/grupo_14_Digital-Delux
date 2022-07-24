@@ -13,10 +13,13 @@ El equipo está formado por alumnos del curso Full Stack entusiasmados con brind
 
 Inspiración en referentes del mercado:
 https://www.mercadolibre.com.ar/ <!-- Página de compra y venta de todo tipo de productos, se toma como ejemplo de diseño por su facilidad y funcionalidades-->
+
 https://www.facebook.com/marketplace/?ref=bookmark <!-- Página de compra y venta de todo tipo de productos, se toma como ejemplo de diseño-->
+
 https://www.apple.com/la/ <!-- Compra y venta de productos apple, se toma como ejemplo de diseño-->
 
 https://www.pcdiscount.com.ar/ <!-- Página de compra y venta de notebooks usadas, se toma como referente del tema-->
+
 https://www.olx.com.ar/ <!-- Página de compra y venta de productos nuevos y usados, se toma como referente del tema-->
 
 
