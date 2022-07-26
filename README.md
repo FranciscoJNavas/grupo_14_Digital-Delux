@@ -21,6 +21,8 @@ Tengo capacidad para hallar problemas y encontrar soluciones.
 Siempre me gustó la programación y me propuse aprender con lo que pude encontrar el curso de Full Stack de Digital House.
 Con dedicación estoy formando mis conocimientos y experiencia para poder encarar los proyectos que se presenten."
 
+"Mi nombre es Juan Diego tamayo, tengo 18 años, actualmente soy estudiante de ingeniería Mecánica en la universidad de Antioquia, resido en Medellín/Colombia, me considero un inquieto de la tecnología, desde pequeño he seguido cada uno de los grandes hitos de la exploración espacial, no se me dificalta el hecho de aprender cosas nuevas,  inicialmente decidí  hacer el curso de programación Web Full Stack en Digital House ya que complementa y mezcla mi pasión por la programación con la carrera que actualmente curso, mi proyección a futuro es ampliar y diversificar las ramas de mi conocimiento, conseguir un empleo estable en lo que me gusta y lograr aportar mi conocimiento a los conflictos globales que tienen lugar en la actualidad."
+
 Inspiración en referentes del mercado:
 
 https://www.mercadolibre.com.ar/ <!-- Página de compra y venta de todo tipo de productos, se toma como ejemplo de diseño por su facilidad y funcionalidades-->
