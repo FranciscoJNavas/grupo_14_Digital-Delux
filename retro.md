@@ -1,5 +1,5 @@
 # **RETROSPECTIVA SPRINT 1** <!-- Basado en la metodología de estrella de mar-->
-==================
+
 
 ## Comenzar a hacer <!--Aquí van todas aquellas cosas innovadoras o que por cierta curiosidad queremos probar. O tal vez son soluciones comprobadas que notamos que deberíamos usar.-->
 
