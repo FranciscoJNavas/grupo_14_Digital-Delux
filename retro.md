@@ -8,7 +8,11 @@
 
 ## Hacer más <!-- Aquí van todas aquellas cosas que estamos usando o haciendo y que queremos que mejoren. Son prácticas que creemos que requiere más refinamiento y que nos gustan mucho, por ello, hay que darles más. -->
 
-- En conveniente continuar reuniéndonos para planificar y avanzar de manera más seguida.
+- Es conveniente continuar reuniéndonos para planificar y avanzar de manera más seguida.
+
+- Es conveniente tratar de organizar algunos días fijos en la semana para conectarnos vía zoom y poder seguir avanzando. 
+
+
 
 
 ## Continuar haciendo <!-- Es aquello que venimos haciendo y que nos brinda valor. Debemos seguir haciéndolo pero no será preocupación mejorarlo. Está bien como está.-->
@@ -19,13 +23,18 @@
 
 - Estar abierto a las opiniones de los demás.
 
+- Resolver de manera efectiva los obstáculos que se nos fueron presentando. 
+
 
 ## Hacer menos <!-- Aquí debemos colocar aquello que tal vez en un retrospectiva fue "Comenzar a hacer" pero no tuvo buenos resultados. Aquello que se intentó pero no da tanto beneficio. Algo que se le desee dar una segunda oportunidad, pero no es prioridad. Quitar alguna parte de una práctica.-->
 
 - Dejar pasar los días hasta que todos puedan conectarse.
 
 
+
 ## Dejar de hacer <!-- En este punto se colocarán aquellas cosas que no dan valor o simplemente no les gusta y se puede optar por eliminarla-->
+
+
 
 
 
