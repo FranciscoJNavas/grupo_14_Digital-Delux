@@ -9,3 +9,26 @@ Gris claro: #D9D9D9;
 === Tipografía ===
 Poppins
 Inter
+
+=== Íconos ===
+
+<script src="https://kit.fontawesome.com/145bc1f50c.js" crossorigin="anonymous"></script>
+
+Búsqueda    <i class="fa-solid fa-magnifying-glass"></i>
+Usuario     <i class="fa-solid fa-user"></i>
+Like        <i class="fa-solid fa-thumbs-up"></i>
+Carrito     <i class="fa-solid fa-cart-shopping"></i>
+Whatsapp    <i class="fa-brands fa-whatsapp"></i>
+Facebook    <i class="fa-brands fa-facebook"></i>
+Instagram   <i class="fa-brands fa-instagram"></i>
+Linkedin    <i class="fa-brands fa-linkedin-in"></i>
+Mayor       <i class="fa-solid fa-angle-right"></i>
+Menor       <i class="fa-solid fa-angle-left"></i>
+Copyright   <i class="fa-solid fa-copyright"></i>
+Burger-menu <i class="fa-solid fa-bars"></i>
+Eliminar    <i class="fa-solid fa-trash-can"></i>
+
+
+
+
+
