@@ -1,0 +1,64 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header{
+    height: 10vh;
+
+}
+
+main{
+    height: 80vh;
+}
+
+footer{
+    height: 10vh;
+}
+.foto-detalle-caract{
+    border: 1px solid red;
+    /* display: flex; */
+}
+
+.producto-principal{
+    display: flex;
+    border: 1px solid rgb(7, 211, 72);
+    align-items: center;
+}
+
+.foto-principal{
+    width: 50%;
+    border: 1px solid black;
+}
+
+.foto-principal img{
+    width: 50%;
+    margin-left: 20%;
+}
+
+.descripcion{
+    width: 50%;
+    border: 1px solid black;
+}
+
+.fotos-secundarias{
+    display: flex;
+    margin-left: 5%;
+}
+
+.fotos-secundarias img{
+    width: 8%;
+}
+
+.a{
+    display: flex;
+}
+
+.info{
+    width: 50%;
+}
+
+.otros{
+    width: 50%;
+}
