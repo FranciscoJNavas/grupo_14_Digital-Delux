@@ -1,0 +1,9 @@
+body main div.banner-top {
+    width: 100%;
+}
+
+body main div.banner-top div.banner-slider{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

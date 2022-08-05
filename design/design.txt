@@ -24,6 +24,7 @@ Instagram   <i class="fa-brands fa-instagram"></i>
 Linkedin    <i class="fa-brands fa-linkedin-in"></i>
 Mayor       <i class="fa-solid fa-angle-right"></i>
 Menor       <i class="fa-solid fa-angle-left"></i>
+Círculo     <i class="fa-solid fa-circle"></i>
 Copyright   <i class="fa-solid fa-copyright"></i>
 Burger-menu <i class="fa-solid fa-bars"></i>
 Eliminar    <i class="fa-solid fa-trash-can"></i>
