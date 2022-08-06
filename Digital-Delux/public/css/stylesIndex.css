@@ -1,9 +1,68 @@
-body main div.banner-top {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Estilos del body */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #01000E;
+    padding: 10px;
+    
+}
+
+body main div.top-banner {
     width: 100%;
 }
 
-body main div.banner-top div.banner-slider{
+body main div.top-banner div.banner-slider{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    color: #DD5D20;
+}
+
+body main div.banner-image-select {
+    text-align: center;
+}
+
+body main div.banner-image-select i {
+    color: #D9D9D9;
+}
+
+body main div.banner-image-select i#first {
+    color: #DD5D20;
+}
+
+body main section.filter {
+    max-width: 33%;
+    background-color: #FFFFFF;
+    color: #000;
+    padding: 10px;
+    margin: 10px;
+}
+
+body main section.filter div.category {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 10px;
+}
+
+body main section.filter div.category label {
+    display: block;
+    margin: 5px 0;
+}
+
+body main section h3 {
+    color: #DD5D20;
+
+}
+
+body main section article {
+    width: 80%;
+    background-color: #FFFFFF;
+    color: #000;
+    padding: 10px;
+    margin: 10px;
 }

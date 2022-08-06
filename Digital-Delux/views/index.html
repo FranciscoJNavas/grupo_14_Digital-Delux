@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- logo en el navegador -->
+    <link rel="icon" href="/images/Logo (símbolo sin letras).png"/>
     <title>Digital Delux</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Poppins:ital,wght@0,400;1,300&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/145bc1f50c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/stylesIndex.css">
 </head>
@@ -14,6 +17,8 @@
     </header>
 
     <main>
+        
+        <!-- Sección para el banner -->
         <div class="top-banner">
             <img src="" alt="Imagen banner">
             <div class="banner-slider">
@@ -21,6 +26,7 @@
                 <i class="fa-solid fa-angle-right"></i>
             </div>
         </div>
+        <!-- Slider para indicar el orden de imagen que tiene el banner -->
         <div class="banner-image-select">
             <i id="first" class="fa-solid fa-circle"></i>
             <i id="second" class="fa-solid fa-circle"></i>
@@ -28,6 +34,101 @@
             <i id="fourth" class="fa-solid fa-circle"></i>
             <i id="fifth" class="fa-solid fa-circle"></i>
         </div>
+
+        <div class="main-products">
+            <!-- Filtro de producto (convenientemente debería verse solo en tablet o desktop) -->
+            <section class="filter">
+                <h4>Aplicar filtros</h4>
+                
+                <div class="category">
+                    <h5>Producto</h5>
+                    <label><input type="checkbox" name="product" value="product1">Producto1</label>
+                    <label><input type="checkbox" name="product" value="product2">Producto2</label>
+                    <label><input type="checkbox" name="product" value="product3">Producto3</label>
+                    <label><input type="checkbox" name="product" value="product4">Producto4</label>
+                </div>
+
+                <div class="category">
+                    <h5>Marca</h5>
+                    <label><input type="checkbox" name="brand" value="brand1">Marca1</label>
+                    <label><input type="checkbox" name="brand" value="brand2">Marca2</label>
+                    <label><input type="checkbox" name="brand" value="brand3">Marca3</label>
+                    <label><input type="checkbox" name="brand" value="brand4">Marca4</label>
+                </div>
+
+                <div class="category">
+                    <h5>Modelo</h5>
+                    <label><input type="checkbox" name="model" value="model1">Modelo1</label>
+                    <label><input type="checkbox" name="model" value="model2">Modelo2</label>
+                    <label><input type="checkbox" name="model" value="model3">Modelo3</label>
+                    <label><input type="checkbox" name="model" value="model4">Modelo4</label>
+                </div>
+
+            </section>
+            <section class="home-products">
+                <section class="first-category">
+                    <h3 class="featured-category">Lo más destacado...</h3>
+                    <article class="product">
+                        <img src="" alt="Imagen del producto">
+                        <div class="main-features">
+                            <h4 class="description">Producto #</h4>
+                            <p class="price">$####.##</p>
+                        </div>
+                    </article>
+                    <article class="product">
+                        <img src="" alt="Imagen del producto">
+                        <div class="main-features">
+                            <h4 class="description">Producto #</h4>
+                            <p class="price">$####.##</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="second-category">
+                    <h3 class="featured-category">Visto recientemente...</h3>
+                    <article class="product">
+                        <img src="" alt="Imagen del producto">
+                        <div class="main-features">
+                            <h4 class="description">Producto #</h4>
+                            <p class="price">$####.##</p>
+                        </div>
+                    </article>
+                    <article class="product">
+                        <img src="" alt="Imagen del producto">
+                        <div class="main-features">
+                            <h4 class="description">Producto #</h4>
+                            <p class="price">$####.##</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="third-category">
+                    <h3 class="featured-category">Novedades...</h3>
+                    <article class="product">
+                        <img src="" alt="Imagen del producto">
+                        <div class="main-features">
+                            <h4 class="description">Producto #</h4>
+                            <p class="price">$####.##</p>
+                        </div>
+                    </article>
+                    <article class="product">
+                        <img src="" alt="Imagen del producto">
+                        <div class="main-features">
+                            <h4 class="description">Producto #</h4>
+                            <p class="price">$####.##</p>
+                        </div>
+                    </article>
+                    <article class="product">
+                        <img src="" alt="Imagen del producto">
+                        <div class="main-features">
+                            <h4 class="description">Producto #</h4>
+                            <p class="price">$####.##</p>
+                        </div>
+                    </article>
+                </section>
+            </section>
+        </div>
+
     </main>
 
     <footer>

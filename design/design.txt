@@ -7,8 +7,13 @@ Azul: #060E55;
 Gris claro: #D9D9D9;
 
 === Tipografía ===
-Poppins
-Inter
+Poppins 
+Inter 
+Roboto
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Poppins:ital,wght@0,400;1,300&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+font-family: 'Inter', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Poppins', sans-serif;
 
 === Íconos ===
 
@@ -27,6 +32,7 @@ Menor       <i class="fa-solid fa-angle-left"></i>
 Círculo     <i class="fa-solid fa-circle"></i>
 Copyright   <i class="fa-solid fa-copyright"></i>
 Burger-menu <i class="fa-solid fa-bars"></i>
+Filtro      <i class="fa-solid fa-filter"></i>
 Eliminar    <i class="fa-solid fa-trash-can"></i>
 
 
