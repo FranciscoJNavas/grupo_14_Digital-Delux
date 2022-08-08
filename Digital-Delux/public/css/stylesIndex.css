@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 
@@ -8,34 +9,45 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #01000E;
-    padding: 10px;
+    width: 100%;    
     
 }
 
-body main div.top-banner {
+header {
+    width: 100%;
+    background-color: #DD5D20;
+    color: #D9D9D9;
+    border: 2px solid green;
+}
+ header .top-header .logo img {
+    width: 100%;
+ }
+
+
+main div.top-banner {
     width: 100%;
 }
 
-body main div.top-banner div.banner-slider{
+main div.top-banner div.banner-slider{
     width: 100%;
     display: flex;
     justify-content: space-between;
     color: #DD5D20;
 }
 
-body main div.banner-image-select {
+main div.banner-image-select {
     text-align: center;
 }
 
-body main div.banner-image-select i {
+main div.banner-image-select i {
     color: #D9D9D9;
 }
 
-body main div.banner-image-select i#first {
+main div.banner-image-select i#first {
     color: #DD5D20;
 }
 
-body main section.filter {
+main section.filter {
     max-width: 33%;
     background-color: #FFFFFF;
     color: #000;
@@ -43,26 +55,32 @@ body main section.filter {
     margin: 10px;
 }
 
-body main section.filter div.category {
+main section.filter div.category {
     width: 100%;
     padding: 10px;
     margin: 5px 10px;
 }
 
-body main section.filter div.category label {
+main section.filter div.category label {
     display: block;
     margin: 5px 0;
 }
 
-body main section h3 {
+main section h3 {
     color: #DD5D20;
 
 }
 
-body main section article {
+main section article {
     width: 80%;
     background-color: #FFFFFF;
     color: #000;
     padding: 10px;
     margin: 10px;
+}
+
+footer {
+    background-color: #DD5D20;
+    color: #000;
+    width: 100%;
 }
