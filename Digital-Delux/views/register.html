@@ -51,6 +51,14 @@
             <label class="titulo">Fecha de Nacimiento</label>
             <input type="date" nombre="fechaDeNacimiento" class="control" required>
         </div>
+
+        <div>
+            <h3 class="obligatorio">
+                * Todos los campos son obligatorios
+            </h3>
+        </div>
+
+
         <br>
     
         <button input type="submit" class="boton-formulario">Enviar</button>
@@ -58,12 +66,17 @@
         
     
         <div>
-            <br>
+        
             <h3 class="pregunta-de-registro">¿Ya estás registrado?</h3>
         </div>
-    
-        <button input type="submit" class="otra-opciones-de-registro">Haz click aquí</button>
-    
     </form>
+
+        <form action= "/login" method="post">
+        <button input type="submit" class="otra-opciones-de-registro">Haz click aquí</button>
+        </form>
+    
+        
+    
+    
 </body>
 </html>
