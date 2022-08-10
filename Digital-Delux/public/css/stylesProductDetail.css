@@ -2,63 +2,84 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    /* color: white; */
 }
 
-header{
-    height: 10vh;
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #01000E;
+    width: 100%;
 
-}
-
-main{
-    height: 80vh;
-}
-
-footer{
-    height: 10vh;
-}
-.foto-detalle-caract{
-    border: 1px solid red;
-    /* display: flex; */
 }
 
 .producto-principal{
     display: flex;
-    border: 1px solid rgb(7, 211, 72);
     align-items: center;
 }
 
 .foto-principal{
-    width: 50%;
-    border: 1px solid black;
+    width: 80%;
 }
 
 .foto-principal img{
-    width: 50%;
-    margin-left: 20%;
+    width: 80%;
+
 }
 
 .descripcion{
     width: 50%;
-    border: 1px solid black;
+    color: #dd5d20;
 }
 
 .fotos-secundarias{
+    margin-top: 30px;
     display: flex;
-    margin-left: 5%;
+    justify-content: center;
 }
 
 .fotos-secundarias img{
-    width: 8%;
+    width: 10%;
 }
 
-.a{
+.contenedor-info-otros{
     display: flex;
+    margin-top: 70px;
 }
 
 .info{
     width: 50%;
 }
 
+.info div{
+    margin-top: 70px;
+}
+
+.info div h4,
+.info div p{
+    color: white;
+}
+
 .otros{
     width: 50%;
+}
+
+.otros div article img{
+    width: 50%;
+}
+
+.otros-articulos{
+    display: flex;
+    margin-top: 20px;
+}
+
+.otros-articulos article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+
+}
+
+.otros-articulos article div p{
+    color: black;
 }
