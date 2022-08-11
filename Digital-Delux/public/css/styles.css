@@ -33,7 +33,7 @@
 
 .control{
    
-        width:100%;
+        width:95%;
         padding: 8px 8px;
     }
 
@@ -53,9 +53,7 @@
     margin:10px;
     padding:10px;
     position: relative;
-    top:-45px;
-
-    
+    top:-48px;
 }
 
 body{
@@ -68,4 +66,5 @@ background-color: #473f4a;
     color:black;
     font-weight: bold;
 }
+
 

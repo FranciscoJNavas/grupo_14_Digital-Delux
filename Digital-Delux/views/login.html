@@ -9,59 +9,43 @@
     <title>Digital Delux</title>
 </head>
 <body>
-    <form action="/crear-formulario" method="post" class="formulario">
-        <h3 class="frase">Bienvenido a Digital Delux. </h3>
-        <p class="frase2">Registrate y sé parte de nuestra tienda online.</p>
-            
-        <br>
-        <div class="control-formulario">
-            <label class="titulo">Email</label>
-            <input type="email" name="email" class="control" required>
-        </div>
-    
-        <div class="control-formulario">
-            <label class="titulo" >Contraseña</label>
-            <input type="password" name="contraseña" class="control" required>
-            
-        </div>
-    
-        <div class="control-formulario">
-        <label class="titulo">Confirmar contraseña</label>
-        <input type="password" name="confirmar-contraseña" class="control" required>
-        </div>
-    
-        <div class="control-formulario">
-            <label class="titulo">Nombre</label>
-            <input type="text" name="nombre" class="control" required>
+    <form action="/login" method="post" class="formulario">
         
+        <h3 class="frase-login">¡Hola!, favor de ingresar usuario y contraseña </h3>
+        
+        <br>
+        <div class="login-formulario">
+            <label class="titulo-login">Usuario</label>
+            <input type="text" name="usuario" required>
         </div>
     
-        <div class="control-formulario">
-            <label class="titulo">Apellido</label>
-            <input type="text" name="apellido" class="control" required>
+        <div class="login-formulario">
+            <label class="titulo-login" >Contraseña</label>
+            <input type="password" name="contraseña" required>
+            
         </div>
+
+        <h3 class="pregunta">¿Olvidaste tu contraseña?</h3>
     
-        <div class="control-formulario">
-            <label class="titulo">DNI</label>
-            <input type="number" name="dni" class="control" required>
-        </div>
-    
-        <div class="control-formulario">
-            <label class="titulo">Fecha de Nacimiento</label>
-            <input type="date" nombre="fechaDeNacimiento" class="control" required>
-        </div>
         <br>
     
-        <button input type="submit" class="boton-formulario">Enviar</button>
-    
+        <button input type="submit" class="boton-login">Ingresar</button>
+
+        <br>
+
+        <button input type="submit" class="boton-apps">Ingresar con Google</button>
+        <br>
+
+        <button input type="submit" class="boton-apps">Ingresar con Facebook</button>
+
+        <br>
         
-    
         <div>
             <br>
-            <h3 class="pregunta-de-registro">¿Ya estás registrado?</h3>
+            <h3 class="pregunta-de-login">¿Todavía no estás registrado?</h3>
         </div>
     
-        <button input type="submit" class="otra-opciones-de-registro">Haz click aquí</button>
+        <button input type="submit" class="otra-opciones-de-login">Haz click aquí</button>
     
     </form>
 </body>
