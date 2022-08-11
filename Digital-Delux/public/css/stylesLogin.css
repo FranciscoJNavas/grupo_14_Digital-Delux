@@ -1,4 +1,84 @@
-.body{
-font-family: 'Roboto', sans-serif;
-background-color: #473f4a;
-}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #473f4a;
+    }
+    
+    
+    .formulario{
+        position: relative;
+        left: 100px;
+        background-color: #473f4a;
+        margin-top: 40px;
+        margin-bottom: 110px;
+        width: 200px;
+        height: 500px;
+    }
+    
+    .frase-login{
+        position: relative;
+        top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .titulo-login{
+        position: relative;
+        left: 25px;
+    }
+
+    .login-formulario input{
+        position: relative;
+        left: 25px;
+        width: 150px;
+        height: 25px;
+        margin-bottom: 20px;
+    }
+    
+    .pregunta{
+        text-align: center;
+        font-size: 12px;
+        color: #060E55;
+        margin-top: -8px;
+    }
+
+    .boton-login{
+        margin-bottom: 20px;
+        border-radius: 7px;
+        position: relative;
+        left: 70px;
+        background-color: #DD5D20; 
+        height: 30px;
+        width: 60px;
+        border: none;
+     }
+
+     .boton-apps{
+        margin-bottom: 10px;
+        border-radius: 7px;
+        position: relative;
+        left: 25px;
+        background-color: #DD5D20; 
+        height: 30px;
+        width: 150px;
+        border: none;
+     }
+
+    .pregunta2{
+        position: relative;
+        left: 45px;
+        text-decoration: none;
+        color: #060E55;
+        font-size: 15px;
+    }
+    
+    .pregunta3{
+        position: relative;
+        left: 40px;
+        color: #060E55;
+        font-size: 15px;
+    }
+
+    .pregunta3, pregunta2{
+        margin-top: -15px;
+    }
+

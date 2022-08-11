@@ -1,10 +1,15 @@
 .frase{
+    position: relative;
+    left: 70px;
     color: #dd5d20;
-}
+    font-size: 17px;
+ }
 
 .frase2{
     color: #dd5d20;
     font-size: 16px;
+    position: relative;
+    left: 90px;
 }
 
 .titulo{
@@ -14,6 +19,8 @@
 }
 
 .boton-formulario{
+    left: 140px;
+    position: relative;
     background-color: #dd5d20;
     border:none;
     font-size: 20px;
@@ -23,7 +30,11 @@
 }
 
 .formulario{
-    padding:20px 15px;
+  position: relative;
+  left: 20px;
+  margin-top: 30px;
+  width: 200px;
+  height: 730px;
 }
 
 .control-formulario{
@@ -33,13 +44,16 @@
 
 .control{
    
-        width:95%;
+        width: 350px;
         padding: 8px 8px;
     }
 
 .pregunta-de-registro{
+    position: relative;
+    left: 100px;
     color: #060e55;
     font-size: 16px;
+    margin-top: 15px;
 }
 
 .otra-opciones-de-registro{
@@ -49,11 +63,10 @@
     font-weight: bold;
     text-decoration: underline;
     background-color: #473f4a;
-    text-align: left;
-    margin:10px;
     padding:10px;
     position: relative;
-    top:-48px;
+    left: 120px;
+    top: 15px
 }
 
 body{
@@ -66,5 +79,3 @@ background-color: #473f4a;
     color:black;
     font-weight: bold;
 }
-
-
