@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- logo en el navegador -->
     <link rel="icon" href="/images/Logo (símbolo sin letras).png"/>
-    <link rel="stylesheet" href="css/stylesLogin.css">
+    <!-- <link rel="stylesheet" href="css/stylesLogin.css"> -->
     <title>Digital Delux</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Poppins:ital,wght@0,400;1,300&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/145bc1f50c.js" crossorigin="anonymous"></script>
@@ -30,8 +30,12 @@
                         Nombre Usuario
                         </h5>
                 </div>
+                <div class="ilike">    
                     <i id="like" class="fa-solid fa-thumbs-up"></i>
+                </div> 
+                <div class="icarrito">   
                     <i id="carrito" class="fa-solid fa-cart-shopping"></i>
+                </div>
             </div>
         </div>
 
@@ -46,14 +50,12 @@
                     </ul>
                 </nav>
         </div>
-        </div>
     </header>
     <main>
         <form action="/register" method="POST" class="formulario">
             <h3 class="frase">Bienvenido a Digital Delux.</h3>
-            <p class="frase2">Registrate y sé parte de nuestra tienda online.</p>
+            <p class="frase2">Regístrate y sé parte de nuestra tienda online.</p>
                 
-            <br>
             <div class="control-formulario">
                 <label class="titulo">Email</label>
                 <input type="email" name="email" class="control" required>
@@ -96,16 +98,10 @@
                     * Todos los campos son obligatorios
                 </h3>
             </div>
-    
-    
-            <br>
         
             <button input type="submit" class="boton-formulario">Enviar</button>
-        
-            
-        
+
             <div>
-            
                 <h3 class="pregunta-de-registro">¿Ya estás registrado?</h3>
             </div>
             <a href="/login" class="otra-opciones-de-registro">Haz click aquí</a>

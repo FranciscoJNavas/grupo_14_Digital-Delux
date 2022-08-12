@@ -41,9 +41,6 @@ header div.top-header .logo img {
 header div.top-header .search-bar {
     width: 40%;
     position: relative;
-    
-    /* display: flex;
-    text-align: center; */
 }
 
 header div.top-header .search-bar .form{
@@ -53,13 +50,11 @@ header div.top-header .search-bar .form{
     border-radius: 5px;
     border: none;
     width: 80%;
-    /* height: 50%; */
     font-size: 12px;
     position:absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
 }
 
 header div.top-header .search-bar #icono-busqueda {
@@ -88,20 +83,30 @@ header div.top-header div.iconos i {
     color: #DD5D20;
     text-align: center;
     padding: 5px;
+    margin: 0 auto;
     
 }
 
-header div.top-header div.iconos div.user-login {
+header .top-header .iconos .user-login {
     display: flex;
+    width: 30%;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-header div.top-header div.iconos div.user-login h5 {
+header .top-header .iconos .ilike, 
+header .top-header .iconos .icarrito{
+    width: 30%;
+    text-align: center;
+}
+
+
+header .top-header .iconos .user-login h5 {
     font-size: calc(6px + 0.7vw);
     font-weight: normal;
     color: #FFFFFF;
+    width: max-content;
 }
 
 header div.bottom-header {

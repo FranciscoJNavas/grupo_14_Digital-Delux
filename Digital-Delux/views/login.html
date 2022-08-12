@@ -29,8 +29,12 @@
                         Nombre Usuario
                         </h5>
                 </div>
+                <div class="ilike">    
                     <i id="like" class="fa-solid fa-thumbs-up"></i>
+                </div> 
+                <div class="icarrito">   
                     <i id="carrito" class="fa-solid fa-cart-shopping"></i>
+                </div>
             </div>
         </div>
 
@@ -45,14 +49,12 @@
                     </ul>
                 </nav>
         </div>
-        </div>
     </header>
     <main>
         <form action="/login" method="post" class="formulario">
           
           <h3 class="frase-login">¡Hola!, favor de ingresar usuario y contraseña </h3>
           
-          <br>
           <div class="login-formulario">
               <label class="titulo-login">Usuario</label>
               <input type="text" name="usuario" required>
@@ -65,22 +67,14 @@
           </div>
     
           <h3 class="pregunta">¿Olvidaste tu contraseña?</h3>
-      
-          <br>
-      
-          <button input type="submit" class="boton-login">Ingresar</button>
     
-          <br>
+          <button type="submit" class="boton-login">Ingresar</button>
     
-          <button input type="submit" class="boton-apps">Ingresar con Google</button>
-          <br>
+          <button type="submit" class="boton-apps">Ingresar con Google</button>
     
-          <button input type="submit" class="boton-apps">Ingresar con Facebook</button>
-    
-          <br>
+          <button type="submit" class="boton-apps">Ingresar con Facebook</button>
           
-          <div>
-              <br>
+          <div class="preguntas">
               <h3 class="pregunta3">¿Todavía no estas registrado?</h3>
               <a href="/register" class="pregunta2">Haz click aquí</a>
           </div>
