@@ -16,21 +16,22 @@ header {
     background-color: #000000;
 }
 
-.producto-principal{
+main section article.producto-principal{
     display: flex;
     /* align-items: center; */
 }
 
-.foto-principal{
+main section article.producto-principal div.foto-principal{
     width: 60%;
 }
 
-.foto-principal img{
-    width: 90%;
+main section article.producto-principal div.foto-principal img{
+    width: 70%;
+    margin-left: 5%;
 
 }
 
-div.descripcion{
+main section article.producto-principal div.descripcion{
     width: 40%;
     color: #dd5d20;
     display: flex;

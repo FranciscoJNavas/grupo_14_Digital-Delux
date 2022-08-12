@@ -7,15 +7,47 @@
     <!-- logo en el navegador -->
     <link rel="icon" href="/images/Logo (símbolo sin letras).png"/>
     <title>Digital Delux</title>
-    <link rel="stylesheet" href="css/stylesProductDetail.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Poppins:ital,wght@0,400;1,300&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/145bc1f50c.js" crossorigin="anonymous"></script>
 
-    <!-- <link rel="stylesheet" href="css/stylesIndex.css"> -->
+    <link rel="stylesheet" href="css/stylesHeaderFooter.css">
+    <link rel="stylesheet" href="css/stylesProductDetail.css">
 </head>
 <body>
     <header>
-        <p>HEADER</p>
+        <div class="top-header">
+            <div class="logo">
+                <img src="/images/Logo Digital-Delux (original letras gris y blanca).png" alt="Logo Digital-Delux">
+            </div>
+            <div class="search-bar">
+                <input class="form" action="#" method="GET" placeholder="Buscar..."/>
+                <i id= "icono-busqueda" class="fa-solid fa-magnifying-glass" ></i>
+            </div>
+            <div class="iconos">
+                <div class="user-login">
+                        <i id="usuario" class="fa-solid fa-user"></i>
+                        <h5 class="nombre-usuario">
+                        Nombre Usuario
+                        </h5>
+                </div>
+                    <i id="like" class="fa-solid fa-thumbs-up"></i>
+                    <i id="carrito" class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
+
+        <div class="bottom-header">
+                <i id="navbar" class="fa-solid fa-bars"></i>
+                <nav class="barra-de-navegacion">
+                    <ul class="opciones">
+                        <li><a class="celulares" href="#">Celulares</a></li>
+                        <li ><a class="computacion" href="#">Computación</a></li>
+                        <li><a class="televisores" href="#">Televisores</a></li>
+                        <li><a class="otros" href="#">Otros</a></li>
+                    </ul>
+                </nav>
+        </div>
+        </div>
     </header>
 
     <main>
@@ -117,7 +149,15 @@
     </main>
 
     <footer>
-        <p>FOOTER</p>
+        <div class="redes-sociales">
+            <i id="wpp" class="fa-brands fa-whatsapp"></i>
+            <i id="insta" class="fa-brands fa-instagram"></i>
+            <i id="face" class="fa-brands fa-facebook"></i>
+        </div>
+        <div class="copyright">
+            <i id="copy" class="fa-solid fa-copyright"></i>
+            <h3>Todos los derechos reservados</h3>
+        </div>
     </footer>
     
 </body>
