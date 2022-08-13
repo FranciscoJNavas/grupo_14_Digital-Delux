@@ -48,6 +48,10 @@ main div.banner-image-select i#first {
     color: #DD5D20;
 }
 
+main .main-products {
+    width: 100%;
+    margin: 0 10px;
+}
 
 main section.filter {
     width: 80%;
@@ -55,7 +59,7 @@ main section.filter {
     background-color: #FFFFFF;
     color: #000;
     padding: 10px;
-    margin: 10px;
+    margin: 10px 0;
 }
 
 main section.filter div.category {
@@ -77,9 +81,41 @@ main section h3 {
 
 main section article {
     width: 80%;
-    max-width: 240px;
     background-color: #FFFFFF;
     color: #000;
     padding: 10px;
-    margin: 10px;
+    margin: 1%;
 }
+
+@media (min-width: 481px) { /* tablets & larger smartphones */
+    main .main-products{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    main .main-products .filter {
+        width: 35%;
+    }
+    main .main-products .home-products {
+        width: 65%;
+    }
+    main .main-products .home-products .category {
+        width: 100%;
+        display:flex;
+        flex-wrap: wrap;
+        margin: 10px;
+        justify-content: flex-start;
+    }
+    main .main-products .home-products .category .featured-category {
+        width: 100%;
+    }
+    main .main-products .home-products .category article {
+        width: 45%;
+    }
+}
+
+/* 
+0-480		    smaller smartphones
+481-768	        tablets & larger smartphones
+769-1279	    laptops, larger tablets in landscape, and small desktops
+1280+		    larger desktops and monitors
+ */

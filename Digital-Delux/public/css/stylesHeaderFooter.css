@@ -115,7 +115,7 @@ header div.bottom-header {
     display: flex;
     justify-content: flex-start;
     color: #DD5D20;
-    font-size: 10px;
+    font-size: 14px;
         
 }
 
@@ -137,6 +137,7 @@ header div.bottom-header nav ul {
 header div.bottom-header nav ul li a{
     text-decoration: none;
     color: #DD5D20;
+    width: max-content;
 }
 
 /* 

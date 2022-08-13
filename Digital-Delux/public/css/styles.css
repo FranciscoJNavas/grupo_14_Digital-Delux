@@ -9,6 +9,7 @@ main .formulario{
   margin: 20px auto;
   width: 50%;
   min-width: 330px;
+  max-width: 500px;
   padding: 10px;
   background-color: #473f4a;
   text-align: center;
