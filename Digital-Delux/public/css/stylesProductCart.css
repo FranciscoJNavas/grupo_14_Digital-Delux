@@ -122,6 +122,18 @@ footer{
     height: 40px;
 }
 
+.foto1{
+    position: relative;
+    left:12%;
+    top: 85px;
+}
+
+.foto2{
+    position: relative;
+    left:12%;
+    top: 85px;
+}
+
 @media (min-width:400px){
     .comprar{
         font-size: 25px;
