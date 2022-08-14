@@ -20,6 +20,10 @@ app.get('/login', function(req, res){
     res.sendFile(path.join(__dirname, '/views/login.html'))
 })
 
+app.get('/productCart', function(req, res){
+    res.sendFile(path.join(__dirname, '/views/productCart.html'))
+})
+
 app.listen(3000, ()=>{
     console.log('Servidor corriendo en el puerto 3000');
 })
@@ -29,5 +33,9 @@ app.post('/register', (req,res)=>{
 });
 
 app.post('/login', (req,res)=>{
+    res.sendFile(__dirname + '/views/index.html');
+});
+
+app.post('/productCart', (req,res)=>{
     res.sendFile(__dirname + '/views/index.html');
 });
