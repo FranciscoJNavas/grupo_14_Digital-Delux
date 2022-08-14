@@ -6,8 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- logo en el navegador -->
     <title>Digital Delux</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Poppins:ital,wght@0,400;1,300&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/145bc1f50c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/stylesHeaderFooter.css">
+    <link rel="stylesheet" href="css/stylesProductCart.css">
 </head>
 <body>
-    <h2>HOLA</h2>
+
+    <header>
+        <div class="top-header">
+            <div class="logo">
+                <a href="/" class="inicio">
+                    <img src="/images/Logo Digital-Delux (original letras gris y blanca).png" alt="Logo Digital-Delux">
+                </a>
+            </div>
+            <div class="search-bar">
+                <input class="form" action="#" method="GET" placeholder="Buscar..."/>
+                <i id= "icono-busqueda" class="fa-solid fa-magnifying-glass" ></i>
+            </div>
+            <div class="iconos">
+                <div class="user-login">
+                        <a href="/login" class="login">
+                            <i id="usuario" class="fa-solid fa-user"></i>
+                        </a>
+                        <h5 class="nombre-usuario">
+                        Nombre Usuario
+                        </h5>
+                </div>
+                <div class="ilike">    
+                    <i id="like" class="fa-solid fa-thumbs-up"></i>
+                </div> 
+                <div class="icarrito">   
+                    <a href="/productCart" class="carrito">
+                        <i id="carrito" class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-header">
+                <i id="navbar" class="fa-solid fa-bars"></i>
+                <nav class="barra-de-navegacion">
+                    <ul class="opciones">
+                        <li><a class="celulares" href="#">Celulares</a></li>
+                        <li ><a class="computacion" href="#">Computación</a></li>
+                        <li><a class="televisores" href="#">Televisores</a></li>
+                        <li><a class="otros" href="#">Otros</a></li>
+                    </ul>
+                </nav>
+        </div>
+    </header>
+    <main class="main">
+       <h3 class="nombreproducto1">Nombre Producto</h3>
+       <p class="destacada1">Característica destacada</p>
+       <p class="price1">$ 99.999</p><i id="borrar1" class="fa-solid fa-trash-can"></i>
+       <br>
+       <h3 class="nombreproducto2">Nombre Producto</h3>
+       <p class="destacada2">Característica destacada</p>
+       <p class="price2">$ 99.999</p><i id="borrar2" class="fa-solid fa-trash-can"></i>
+       <br>
+
+       <h3 class="envio">Envío</h3>
+       <p class="price3">$99.999</p>
+       <a href="" class="cambiarDireccion">Cambiar dirección de envío</a>
+       <br>
+       <h3 class="total">Total</h3>
+       <p class="price4">$99.999</p>
+       <br>
+       <button input type="submit" class="comprar"C>Comprar</button>
+
+
+        
+    </main>
+    
+    <footer>
+        <div class="redes-sociales">
+            <i id="wpp" class="fa-brands fa-whatsapp"></i>
+            <i id="insta" class="fa-brands fa-instagram"></i>
+            <i id="face" class="fa-brands fa-facebook"></i>
+        </div>
+        <div class="copyright">
+            <i id="copy" class="fa-solid fa-copyright"></i>
+            <h3>Todos los derechos reservados</h3>
+        </div>
+    </footer>
+
 </body>
 </html>
