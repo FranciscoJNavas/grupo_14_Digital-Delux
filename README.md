@@ -39,3 +39,6 @@ https://www.pcdiscount.com.ar/ <!-- Página de compra y venta de notebooks usada
 https://www.olx.com.ar/ <!-- Página de compra y venta de productos nuevos y usados, se toma como referente del tema-->
 
 
+**Tablero de Trello**
+
+https://trello.com/b/31610gLg/proyecto-dh-digital-delux
