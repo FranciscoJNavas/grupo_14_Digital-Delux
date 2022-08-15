@@ -11,23 +11,22 @@ body {
 
 }
 
-main section article.producto-principal{
+/* main section article.producto-principal{
     display: flex;
-    /* align-items: center; */
-}
+} */
 
 main section article.producto-principal div.foto-principal{
-    width: 60%;
+    width: 100%;
+    margin-left: 5%;
 }
 
 main section article.producto-principal div.foto-principal img{
-    width: 70%;
-    margin-left: 5%;
+    width: 90%;
 
 }
 
 main section article.producto-principal div.descripcion{
-    width: 40%;
+    width: 100%;
     color: #dd5d20;
     display: flex;
     flex-direction: column;
@@ -38,12 +37,14 @@ main section article.producto-principal div.descripcion{
 
 .cantidad{
     display: flex;
+    align-items: center;
 }
 
 .cantidad input{
     width: 15%;
     margin-left: 10px;
     margin-right: 10px;
+    height: 100%;
 }
 
 .cantidad i{
@@ -52,12 +53,31 @@ main section article.producto-principal div.descripcion{
 
 .agregar{
     display: flex;
+    align-items: center;
 }
 
 .agregar i{
     border-radius: 20%;
-    margin-left: 10px;
     font-size: 25px;
+}
+
+.descripcion .cantidad button{
+    font-size: 20px;
+    width: 20%;
+    background:  #dd5d20;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.descripcion .agregar button{
+    font-size: 20px;
+    width: 30%;
+    background:  #dd5d20;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 7%;
 }
 
 .descripcion button{
@@ -70,24 +90,15 @@ main section article.producto-principal div.descripcion{
 }
 
 .fotos-secundarias{
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    width: 60%;
-}
-
-.fotos-secundarias img{
-    width: 20%;
-    padding: 3px;
+    display: none;
 }
 
 .contenedor-info-otros{
-    display: flex;
     margin-top: 70px;
 }
 
 .info{
-    width: 50%;
+    width: 100%;
 }
 
 .info div{
@@ -100,7 +111,7 @@ main section article.producto-principal div.descripcion{
 }
 
 .otros{
-    width: 50%;
+    width: 100%;
     color: white;
 }
 
@@ -130,3 +141,50 @@ main section article.producto-principal div.descripcion{
     color: black;
     font-size: 11px;
 }
+
+@media (min-width: 481px){ /* tablets & larger smartphones */
+    
+    main section article.producto-principal{
+        display: flex;
+    }
+    
+    main section article.producto-principal div.foto-principal{
+        width: 60%;
+    }
+
+    main section article.producto-principal div.foto-principal img{
+        width: 70%;
+        margin-left: 5%;
+    
+    }
+
+    main section article.producto-principal div.descripcion{
+        width: 40%;
+    }
+
+    .contenedor-info-otros{
+        display: flex;
+    }
+
+    .info{
+        width: 50%;
+    }
+
+    .otros{
+        width: 50%;
+    }
+
+    .fotos-secundarias{
+        margin-top: 30px;
+        display: flex;
+        /* justify-content: center; */
+        width: 100%;
+    }
+
+    .fotos-secundarias img{
+        width: 12%;
+        padding: 3px;
+    }
+ 
+
+} 
