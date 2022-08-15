@@ -115,7 +115,7 @@ header div.bottom-header {
     display: flex;
     justify-content: flex-start;
     color: #DD5D20;
-    font-size: 14px;
+    font-size: 12px;
         
 }
 
@@ -124,7 +124,7 @@ header div.bottom-header #navbar {
 }
 
 header div.bottom-header nav{
-    width: 70%;
+    width: 80%;
     /* padding-left: 15px; */
 }
 

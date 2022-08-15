@@ -8,7 +8,7 @@
     <title>Digital Delux</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Poppins:ital,wght@0,400;1,300&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/145bc1f50c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/stylesFooterHeaderCart.css">
+    <link rel="stylesheet" href="css/stylesHeaderFooter.css">
     <link rel="stylesheet" href="css/stylesProductCart.css">
 </head>
 <body>
@@ -56,29 +56,50 @@
                 </nav>
         </div>
     </header>
-    <main class="main">
-        <img src="images/img-tv-samsung-smart.jpg" alt="imagen-principal" width="30px" height="30px" class="foto1">
-       <h3 class="nombreproducto1">Nombre Producto</h3>
-       <p class="destacada1">Característica destacada</p>
-       <p class="price1">$ 99.999</p><i id="borrar1" class="fa-solid fa-trash-can"></i>
-       <br>
-       <img src="images/img-tv-samsung-smart.jpg" alt="imagen-principal" width="30px" height="30px" class="foto2">
-       <h3 class="nombreproducto2">Nombre Producto</h3>
-       <p class="destacada2">Característica destacada</p>
-       <p class="price2">$ 99.999</p><i id="borrar2" class="fa-solid fa-trash-can"></i>
-       <br>
+    <main>
+        <div class="producto">
+            <div class="imagen-nombre">
+                <img src="images/img-tv-samsung-smart.jpg" alt="imagen-principal" width="30px" height="30px" class="imagen">
+                <div class="nombre-caract">
+                    <h3 class="nombreproducto">Nombre Producto</h3>
+                    <p class="destacada">Característica destacada</p>
+                </div>
+            </div> 
+            <div class="precio-borrar">
+                <p class="price">$ 99.999</p>
+                <i class="fa-solid fa-trash-can"></i>
+            </div>  
+        </div>
+        <div class="producto">
+            <div class="imagen-nombre">
+                <img src="images/img-tv-samsung-smart.jpg" alt="imagen-principal" width="30px" height="30px" class="imagen">
+                <div class="nombre-caract">
+                    <h3 class="nombreproducto">Nombre Producto</h3>
+                    <p class="destacada">Característica destacada</p>
+                </div>
+            </div> 
+            <div class="precio-borrar">
+                <p class="price">$ 99.999</p>
+                <i class="fa-solid fa-trash-can"></i>
+            </div>  
+        </div>    
 
-       <h3 class="envio">Envío</h3>
-       <p class="price3">$99.999</p>
-       <a href="" class="cambiarDireccion">Cambiar dirección de envío</a>
-       <br>
-       <h3 class="total">Total</h3>
-       <p class="price4">$99.999</p>
-       <br>
-       <button input type="submit" class="comprar"C>Comprar</button>
+        <div class="envio">
+            <div>
+                <h3>Envío</h3>
+                <a href="#" class="cambiarDireccion">Cambiar dirección de envío</a>
+            </div>
+                <p class="price3">$99.999</p>
+        </div>
 
+        <div class="total">
+            <h3 class="total">Total</h3>
+            <p class="price4">$99.999</p>
+        </div>
 
-        
+        <div>
+            <button type="submit" class="comprar">Comprar</button>
+        </div>
     </main>
     
     <footer>
@@ -92,6 +113,5 @@
             <h3>Todos los derechos reservados</h3>
         </div>
     </footer>
-
 </body>
 </html>

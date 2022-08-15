@@ -1,22 +1,100 @@
-footer{
+/* footer{
     margin-top:90%;
-}
+} */
 
 
-.main{
+main {
     background-color: #473F4A;
+    color:#dd5d20;
+    padding: 15px;
+    font-size: 14px;
     
 }
 
-*{
-    color:#dd5d20;
+main .producto {
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+main .producto .imagen-nombre {
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+main .producto .imagen-nombre .nombre-caract {
+    margin-left: 10px;
 }
 
 
+main .producto .imagen-nombre .nombre-caract p {
+    font-size: 8px;
 
- .nombreproducto1{
+}
+
+main .producto .precio-borrar {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+main .producto .precio-borrar i {
+    margin: auto 10px;
+}
+
+main .envio {
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 12px;
+}
+
+main .envio div {
+    width: 65%;
+    padding-right: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+
+main .envio div a {
+    font-size: 8px;
+}
+
+main .envio p{
+    width: 35%; 
+}
+
+main .total {
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+main .total h3{
+    width: 65%;
+    padding-right: 10%;
+
+}
+
+main .total p{
+    width: 35%;
+  
+}
+
+
+/* .nombreproducto1{
     color:#dd5d20;
-    font-size: 16px;
     position: relative;
     left:15%;
     top:50px;
@@ -24,7 +102,6 @@ footer{
 
 
 .destacada1{
-    font-size: 10px;
     position: relative;
     left:15%;
     top:50px;
@@ -132,9 +209,9 @@ footer{
     position: relative;
     left:12%;
     top: 85px;
-}
+} */
 
-@media (min-width:400px){
+/* @media (min-width:400px){
     .comprar{
         font-size: 25px;
         position: relative;
@@ -199,4 +276,4 @@ footer{
         left:80%;
         top:10%;
     }
-}
+} */
