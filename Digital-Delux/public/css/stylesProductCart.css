@@ -12,14 +12,14 @@ main {
 }
 
 main .producto {
-    width: 90%;
-    margin: 10px auto;
+    width: 100%;
+    margin: 5px 0;
     display: flex;
     justify-content: space-between;
 }
 
 main .producto .imagen-nombre {
-    width: 60%;
+    width: 40%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -33,6 +33,36 @@ main .producto .imagen-nombre .nombre-caract {
 main .producto .imagen-nombre .nombre-caract p {
     font-size: 8px;
 
+}
+
+main .producto .cantidad {
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 10px;
+    margin: 0 1%;
+}
+
+main .producto .cantidad p {
+    width: 100%;
+}
+
+main .producto .cantidad input {
+    width: 25px;
+    height: 20px;
+    margin: 0 10px;
+    /* height: 100%; */
+}
+
+
+main .producto .cantidad div {
+    display: flex;
+    flex-direction: column;
+}
+
+main .producto .cantidad div i{
+    margin: 4px 0;
 }
 
 main .producto .precio-borrar {
