@@ -52,16 +52,16 @@ main .envio {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 main .envio div {
-    width: 65%;
+    /* width: 35%; */
     padding-right: 10%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+    /* justify-content: center; */
+    align-items: center;
 
 }
 
@@ -83,13 +83,28 @@ main .total {
 
 main .total h3{
     width: 65%;
-    padding-right: 10%;
+    padding-right: 20%;
 
 }
 
 main .total p{
     width: 35%;
   
+}
+
+main .comprar {
+    margin-left: 55%;
+}
+
+main .comprar button{
+    font-size: 20px;
+    width: 90%;
+    max-width: 150px;
+    background:  #dd5d20;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
 }
 
 

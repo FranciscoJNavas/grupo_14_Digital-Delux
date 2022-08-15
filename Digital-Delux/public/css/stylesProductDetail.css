@@ -11,113 +11,197 @@ body {
 
 }
 
-main section article.producto-principal{
+/* main section article.producto-principal{
     display: flex;
-    /* align-items: center; */
+} */
+
+main {
+    padding: 10px;
 }
 
-main section article.producto-principal div.foto-principal{
-    width: 60%;
+main section .producto-principal .foto-principal{
+    width: 100%;
+    /* margin-left: 5%; */
 }
 
-main section article.producto-principal div.foto-principal img{
-    width: 70%;
-    margin-left: 5%;
+main section .producto-principal .foto-principal img{
+    width: 90%;
+    margin: 5px auto;
 
 }
 
-main section article.producto-principal div.descripcion{
-    width: 40%;
+main section .producto-principal .descripcion{
+    width: 100%;
     color: #dd5d20;
     display: flex;
     flex-direction: column;
-   
     justify-content: space-between;
+    border: none;
     
 }
 
-.cantidad{
+main section .producto-principal .cantidad {
     display: flex;
+    align-items: center;
 }
 
-.cantidad input{
-    width: 15%;
-    margin-left: 10px;
-    margin-right: 10px;
+main section .producto-principal .cantidad input {
+    width: 35px;
+    margin: 0 10px;
+    /* height: 100%; */
 }
 
-.cantidad i{
-    font-size: 25px;
-}
 
-.agregar{
+main section .producto-principal .cantidad div {
     display: flex;
+    flex-direction: column;
 }
 
-.agregar i{
-    border-radius: 20%;
-    margin-left: 10px;
-    font-size: 25px;
+main section .producto-principal .cantidad div i{
+    font-size: 17px;
+    margin: 4px 0;
 }
 
-.descripcion button{
+main section .producto-principal .agregar{
+    display: flex;
+    align-items: center;
+}
+
+main section .producto-principal .agregar i{
+    border-radius: 5px;
     font-size: 20px;
-    width: 50%;
-    margin-left: 30px;
+    width: 40px;
+    background:  #dd5d20;
+    color: white;
+    padding: 5px;
+    margin: 0 15px;
+}
+
+/* .descripcion .cantidad button{
+    font-size: 20px;
+    width: 20%;
     background:  #dd5d20;
     color: white;
     border-radius: 10px;
+    padding: 5px;
+} */
+
+/* .descripcion .agregar button{
+    font-size: 20px;
+    width: 30%;
+    border-radius: 10px;
+    margin-left: 7%;
+} */
+
+main section .producto-principal .descripcion button{
+    font-size: 20px;
+    width: 90%;
+    max-width: 150px;
+    background: #dd5d20;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    margin: 10px auto;
 }
 
 .fotos-secundarias{
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-}
-
-.fotos-secundarias img{
-    width: 10%;
+    display: none;
 }
 
 .contenedor-info-otros{
-    display: flex;
-    margin-top: 70px;
+    margin: 10px auto;
+    width: 100%;
 }
 
-.info{
-    width: 50%;
+.contenedor-info-otros .info{
+    width: 100%;
 }
 
-.info div{
-    margin-top: 70px;
+.contenedor-info-otros .info div{
+    margin: 10px 0;
 }
 
-.info div h4,
-.info div p{
+.contenedor-info-otros .info div h4,
+.contenedor-info-otros .info div p{
     color: white;
 }
 
-.otros{
-    width: 50%;
+.contenedor-info-otros .otros{
+    width: 100%;
+    color: white;
 }
 
-.otros div article img{
-    width: 50%;
+.contenedor-info-otros .otros div article img{
+    width: 90%;
 }
 
-.otros-articulos{
+.contenedor-info-otros .otros .otros-articulos{
     display: flex;
-    margin-top: 20px;
+    margin: 10px auto;
 }
 
-.otros-articulos article{
+.contenedor-info-otros .otros .otros-articulos article{
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
+    margin: 0px 4px;
+}
 
+.otros-articulos article div{
+    border-top: solid 1px gray;
+    width: 100%;
 }
 
 .otros-articulos article div p{
     color: black;
+    font-size: 11px;
 }
+
+@media (min-width: 481px){ /* tablets & larger smartphones */
+    
+    main section article.producto-principal{
+        display: flex;
+    }
+    
+    main section article.producto-principal div.foto-principal{
+        width: 60%;
+    }
+
+    /* main section article.producto-principal div.foto-principal img{
+        width: 70%;
+        margin: 0 3%;
+    
+    } */
+
+    main section article.producto-principal div.descripcion{
+        width: 40%;
+    }
+
+    .contenedor-info-otros{
+        display: flex;
+    }
+
+    .info{
+        width: 50%;
+    }
+
+    .otros{
+        width: 50%;
+    }
+
+    .fotos-secundarias{
+        margin-top: 30px;
+        display: flex;
+        /* justify-content: center; */
+        width: 100%;
+    }
+
+    .fotos-secundarias img{
+        width: 12%;
+        padding: 3px;
+    }
+ 
+
+} 
