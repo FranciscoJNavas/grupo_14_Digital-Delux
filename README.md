@@ -42,3 +42,7 @@ https://www.olx.com.ar/ <!-- Página de compra y venta de productos nuevos y usa
 **Tablero de Trello**
 
 https://trello.com/b/31610gLg/proyecto-dh-digital-delux
+
+**App en Heroku**
+
+https://app-digital-delux-dh.herokuapp.com/
