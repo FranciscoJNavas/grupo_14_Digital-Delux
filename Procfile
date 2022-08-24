@@ -1,1 +1,1 @@
-web: node Digital-Delux/app.js
+web: node app.js

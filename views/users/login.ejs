@@ -1,0 +1,44 @@
+<%- include('../partials/head') %>
+    <link rel="stylesheet" href="css/stylesLogin.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <form action="/login" method="post" class="formulario">
+          
+          <h3 class="frase-login">¡Hola!, favor de ingresar usuario y contraseña </h3>
+          
+          <div class="login-formulario">
+              <label class="titulo-login">Usuario</label>
+              <input type="text" name="usuario" required>
+          </div>
+      
+          <div class="login-formulario">
+              <label class="titulo-login" >Contraseña</label>
+              <input type="password" name="contraseña" required>
+              
+          </div>
+    
+          <h3 class="pregunta">¿Olvidaste tu contraseña?</h3>
+    
+          <button type="submit" class="boton-login">Ingresar</button>
+    
+          <button type="submit" class="boton-apps">Ingresar con Google</button>
+    
+          <button type="submit" class="boton-apps">Ingresar con Facebook</button>
+          
+          <div class="preguntas">
+              <h3 class="pregunta3">¿Todavía no estas registrado?</h3>
+              <a href="/register" class="pregunta2">Haz click aquí</a>
+          </div>
+      </form>
+    </main>
+    
+    <%- include('../partials/footer') %>
+</body>
+</html>
+
+
+
+
+
