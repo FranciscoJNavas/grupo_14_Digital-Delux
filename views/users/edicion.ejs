@@ -1,0 +1,40 @@
+<%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/styleEdicion.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+    <form class="formularioEdicion">
+        <div id="edicionNombredelProducto">
+            <b><label id="label1">Nombre del producto:</label></b><br>
+            <input type="text" name="edicion" id="inputNombreP">
+        </div>
+        <div id="edicionCategoria">
+            <b><label id="label2" >Categoría:</label></b><br>
+            <input type="text" name="categoria" id="inputCategoria">
+        </div>
+        <div id="edicionColor">
+            <b><label id="label3" >Color:</label></b><br>
+            <input type="text" name="Color" id="inputColor">
+        </div>
+        <div id="edicionPrecio">
+            <b><label id="label4">Precio:</label></b><br>
+            <input type="text" name="Precio" id="inputPrecio">
+        </div>
+        <div class="edicionImagen">
+            <b><label id="label5">Imagen:</label></b><br>
+            <input type="file" name="imgProducto" id="imagenProducto" accept=".jpg">
+        </div>
+        <div class="edicionDescripcion">
+            <b><label id="label6">Descripción:</label></b><br>
+            <textarea id="textArea"></textarea>
+        </div>
+        <div>
+             <button id="button" type="submit">Guardar producto</button>
+        </div>
+    </form>
+</main>
+    
+    <%- include('../partials/footer') %>
+</body>
+</html>
