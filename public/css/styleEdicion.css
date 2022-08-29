@@ -1,0 +1,145 @@
+.formularioEdicion{
+    background-color:  #473f4a;
+    color: black;
+}
+
+#inputNombreP{
+    display: flex;
+    position: relative;
+    left: 10%;
+    top: 4px;
+    height: 40px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+#inputCategoria{
+    display: flex;
+    position: relative;
+    left: 60%;
+    top: -78px;
+    height: 40px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+#inputMarca{
+    position: relative;
+    top:90px;
+    left:150px;
+    height: 40px;
+    width: 500px;
+    border-radius: 10px;
+  }
+
+#inputColor{
+    display: flex;
+    position: relative;
+    top: -110px;
+    left: 10%;
+    height: 40px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+#inputPrecio{
+    display: flex;
+    position: relative;
+    left: 60%;
+    top: -195px;
+    height: 40px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+#imagenProducto{
+    display: flex;
+    position: relative;
+    top: -148px;
+    left: 60%;
+   font-size: 20px;
+}
+
+#textArea{
+    display: flex;
+    position: relative;
+    left: 10%;
+    top: -65px;
+    height: 75px;
+    width: 1290px;
+    border-radius: 10px;
+}
+
+#label1{
+    top: 20px;
+    display: flex;
+    position: relative;
+    left: 10%;
+    font-size: 20px
+}
+
+#label2{
+    display: flex;
+    position: relative;
+    top: -60px;
+    left: 60%;
+    font-size: 20px
+}
+
+#label3{
+    display: flex;
+    position: relative;
+    left: 10%;
+    top: -95px;
+    font-size: 20px
+}
+
+#label4{
+    display: flex;
+    position: relative;
+    left: 60%;
+    top: -177px;
+    font-size: 20px
+}
+
+#label5{
+    display: flex;
+    position: relative;
+    top: -137px;
+    left: 60%;
+    font-size: 20px
+}
+
+#label6{
+    display: flex;
+    position: relative;
+    top: -60px;
+    left: 50%;
+    font-size: 20px
+}
+
+#label7{
+    position: relative;
+    top:90px;
+    left: 10%;
+    font-size: 20px;
+}
+
+#button{
+    display: flex;
+    position: relative;
+    left: 46%;
+    top: -30px;
+    background-color: #dd5d20;
+    border-radius: 10px;
+    font-size: 25px;
+    padding: 5px 10px;
+}
+
+.tituloFormularioDeEdicion{
+    font-size: 20px;
+    position: relative;
+    left:44%;
+    top:10px;
+   text-decoration: underline ;
+}

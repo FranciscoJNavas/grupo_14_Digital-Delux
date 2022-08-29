@@ -36,12 +36,25 @@ app.set('puerto', process.env.PORT || 3000);
 //     res.sendFile(__dirname + '/views/index.ejs');
 // });
 
-// app.post('/login', (req,res)=>{
-//     res.sendFile(__dirname + '/views/index.ejs');
-// });
 
-// app.post('/product-cart', (req,res)=>{
-//     res.sendFile(__dirname + '/views/index.ejs');
-// });
+app.post('/login', (req,res)=>{
+    res.sendFile(__dirname + '/views/index.ejs');
+});
+
+app.get('/edicion', function(req, res){
+    res.render('users/edicion')
+})
+
+app.get("/creacion",function(req,res){
+    res.render("users/creacion")
+})
+
+app.get('/product-cart', function(req, res){
+    res.render('products/product-cart')
+})
+
+app.post('/product-cart', (req,res)=>{
+    res.sendFile(__dirname + '/views/index.ejs');
+});
 
 app.listen(app.get('puerto'), ()=> console.log(`Servidor corriendo de manera satisfactoria ${app.get('puerto')}` ));
