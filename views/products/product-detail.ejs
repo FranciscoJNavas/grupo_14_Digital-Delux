@@ -52,54 +52,21 @@
                 <section class="otros">
                     <h4>Productos del mismo vendedor</h4>
                     <div class="otros-articulos">
-                        <article>
-                            <img src="images/img-cafetera-moulinex.jpg" alt="">
-                            <div>
-                                <p class="precio">$230.000</p>
-                                <p>Descripción</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="images/img-cafetera-moulinex.jpg" alt="">
-                            <div>
-                                <p class="precio">$230.000</p>
-                                <p>Descripción</p>
-                            </div>
-                        </article>
+                        <% for( let index = 0; index < 2; index++ ) { %>
+                            <%- include('../partials/product') %>
+                        <% } %>
                     </div>
                     <h4>Podría interesarte</h4>
                     <div class="otros-articulos">
-                        <article>
-                            <img src="images/img-samsung-galaxy-s10.jpg" alt="">
-                            <div>
-                                <p class="precio">$230.000</p>
-                                <p>Descripción</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="images/img-samsung-galaxy-s10.jpg" alt="">
-                            <div>
-                                <p class="precio">$230.000</p>
-                                <p>Descripción</p>
-                            </div>
-                        </article>
+                        <% for( let index = 0; index < 2; index++ ) { %>
+                            <%- include('../partials/product') %>
+                        <% } %>
                     </div>
                     <h4>Productos relacionados</h4>
                     <div class="otros-articulos">
-                        <article>
-                            <img src="images/img-macbook-pro-2019.jpg" alt="">
-                            <div>
-                                <p class="precio">$230.000</p>
-                                <p>Descripción</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="images/img-macbook-pro-2019.jpg" alt="">
-                            <div>
-                                <p class="precio">$230.000</p>
-                                <p>Descripción</p>
-                            </div>
-                        </article>
+                        <% for( let index = 0; index < 2; index++ ) { %>
+                            <%- include('../partials/product') %>
+                        <% } %>
                     </div>
                 </section>
             </section>
