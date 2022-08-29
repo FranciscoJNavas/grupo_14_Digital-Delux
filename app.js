@@ -29,6 +29,10 @@ app.get('/edicion', function(req, res){
     res.render('users/edicion')
 })
 
+app.get("/creacion",function(req,res){
+    res.render("users/creacion")
+})
+
 app.get('/product-cart', function(req, res){
     res.render('products/product-cart')
 })

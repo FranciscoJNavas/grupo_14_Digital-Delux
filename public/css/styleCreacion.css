@@ -13,6 +13,15 @@
     border-radius: 10px;
 }
 
+#inputMarca{
+  position: relative;
+  top:90px;
+  left:150px;
+  height: 40px;
+  width: 500px;
+  border-radius: 10px;
+}
+
 #inputCategoria{
     display: flex;
     position: relative;
@@ -22,15 +31,6 @@
     width: 500px;
     border-radius: 10px;
 }
-
-#inputMarca{
-    position: relative;
-    top:90px;
-    left:150px;
-    height: 40px;
-    width: 500px;
-    border-radius: 10px;
-  }
 
 #inputColor{
     display: flex;
@@ -136,7 +136,7 @@
     padding: 5px 10px;
 }
 
-.tituloFormularioDeEdicion{
+.FormularioCreacion{
     font-size: 20px;
     position: relative;
     left:44%;
