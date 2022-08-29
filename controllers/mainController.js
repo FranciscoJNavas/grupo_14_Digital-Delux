@@ -5,13 +5,12 @@ const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
-	cart: (req, res) => {
-        console.log("En cart");
-		res.render('cart');
+	index: (req, res) => {
+		res.render('index',{products:products});
 	},
-	detail: (req, res) => {
-		res.render('product-detail',{products:products});
-	}
+	search: (req, res) => {
+		
+	},
 };
 
 module.exports = controller;

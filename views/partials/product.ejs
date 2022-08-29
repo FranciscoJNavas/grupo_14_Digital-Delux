@@ -1,7 +1,7 @@
 <article class="product">
-    <img src="images/<%#= product.image %>" alt="Imagen del producto">
+    <img src="/images/<%= producto.image %>" alt="Imagen del producto">
     <div class="main-features">
-        <a href="/product<%#= product.id %>"><h4 class="description">Producto # <%#= product.name %></h4></a>
-        <p class="price">$<%#= product.price %></p>
+        <a href="/products/detail/<%= producto.id %>"><h4 class="description"><%= producto.name %></h4></a>
+        <p class="price">$<%= producto.price %></p>
     </div>
 </article>
