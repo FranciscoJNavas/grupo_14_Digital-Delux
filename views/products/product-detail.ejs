@@ -1,8 +1,8 @@
-<%- include('./partials/head') %>
+<%- include('../partials/head') %>
     <link rel="stylesheet" href="/css/stylesProductDetail.css">
 </head>
 <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
 
     <main>
         <section>
@@ -53,19 +53,19 @@
                     <h4>Productos del mismo vendedor</h4>
                     <div class="otros-articulos">
                         <% for( let index = 0; index < 2; index++ ) { %>
-                            <%- include('./partials/product') %>
+                            <%- include('../partials/product') %>
                         <% } %>
                     </div>
                     <h4>Podría interesarte</h4>
                     <div class="otros-articulos">
                         <% for( let index = 0; index < 2; index++ ) { %>
-                            <%- include('./partials/product') %>
+                            <%- include('../partials/product') %>
                         <% } %>
                     </div>
                     <h4>Productos relacionados</h4>
                     <div class="otros-articulos">
                         <% for( let index = 0; index < 2; index++ ) { %>
-                            <%- include('./partials/product') %>
+                            <%- include('../partials/product') %>
                         <% } %>
                     </div>
                 </section>
@@ -74,7 +74,7 @@
         </section>
     </main>
 
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
     
 </body>
 </html>

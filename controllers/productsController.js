@@ -7,10 +7,10 @@ let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const controller = {
 	cart: (req, res) => {
         console.log("En cart");
-		res.render('cart');
+		res.render('products/cart');
 	},
 	detail: (req, res) => {
-		res.render('product-detail',{products:products});
+		res.render('products/product-detail',{products:products});
 	}
 };
 
