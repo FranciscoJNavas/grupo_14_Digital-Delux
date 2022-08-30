@@ -1,6 +1,7 @@
-.formularioEdicion{
+main{
     background-color:  #473f4a;
     color: black;
+    padding: 10px;
 }
 
 #inputNombreP{
@@ -141,5 +142,19 @@
     position: relative;
     left:44%;
     top:10px;
-   text-decoration: underline ;
+    text-decoration: underline ;
+}
+
+.button{
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    width: 180px;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: #dd5d20;
+    text-align: center;
+    color: black;
+    padding: 10px;
+    margin-left: 85%;
 }

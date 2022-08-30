@@ -1,5 +1,5 @@
     <%- include('./partials/head') %>
-    <link rel="stylesheet" href="css/stylesIndex.css">
+    <link rel="stylesheet" href="/css/stylesIndex.css">
 </head>
 <body>
     <%- include('./partials/header') %>
@@ -55,23 +55,29 @@
             <section class="home-products">
                 <section class="category">
                     <h3 class="featured-category">Lo más destacado...</h3>
-                    <% for( let index = 0; index < 2; index++ ) { %>
-                        <%- include('./partials/product') %>
-                    <% } %>
+                    <% for(producto of products){ %>
+                        <% if(producto.category == "lo más destacado") { %>
+                            <%- include('./partials/product') %>
+                        <%}%>
+			        <%}%>
                 </section>
     
                 <section class="category">
                     <h3 class="featured-category">Visto recientemente...</h3>
-                    <% for( let index = 0; index < 2; index++ ) { %>
-                        <%- include('./partials/product') %>
-                    <% } %>
+                    <% for(producto of products){ %>
+                        <% if(producto.category == "visto recientemente") { %>
+                            <%- include('./partials/product') %>
+                        <%}%>
+			        <%}%>
                 </section>
     
                 <section class="category">
                     <h3 class="featured-category">Novedades...</h3>
-                    <% for( let index = 0; index < 4; index++ ) { %>
-                        <%- include('./partials/product') %>
-                    <% } %>
+                    <% for(producto of products){ %>
+                        <% if(producto.category == "novedades") { %>
+                            <%- include('./partials/product') %>
+                        <%}%>
+			        <%}%>
                 </section>
             </section>
         </div>
