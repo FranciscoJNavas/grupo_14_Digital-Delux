@@ -159,6 +159,11 @@ main section .producto-principal .descripcion button{
     font-size: 11px;
 }
 
+.user-button{
+    display: flex;
+    justify-content: space-around;
+}
+
 @media (min-width: 481px){ /* tablets & larger smartphones */
     
     main section article.producto-principal{
