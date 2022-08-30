@@ -41,6 +41,16 @@ body{
         margin-top: -8px;
     }
 
+    main .formulario .remember {
+        color: #060E55;
+        font-size: 12px;
+    }
+
+    main .formulario .remember input {
+        margin: 0 10px;
+        padding: 5px auto;
+    }
+
     main .formulario .boton-login{
         margin: 20px auto;
         border-radius: 7px;

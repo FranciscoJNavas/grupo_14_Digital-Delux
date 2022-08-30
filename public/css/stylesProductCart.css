@@ -1,13 +1,10 @@
-/* footer{
-    margin-top:90%;
-} */
-
 
 main {
     background-color: #473F4A;
     color:#dd5d20;
     padding: 15px;
     font-size: 14px;
+    min-height: 495px;
     
 }
 
