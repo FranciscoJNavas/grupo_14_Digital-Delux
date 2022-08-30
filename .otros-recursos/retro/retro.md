@@ -35,6 +35,14 @@
 ## Dejar de hacer <!-- En este punto se colocarán aquellas cosas que no dan valor o simplemente no les gusta y se puede optar por eliminarla-->
 
 
+# **RETROSPECTIVA SPRINT 2** <!-- Basado en la metodología Plus & Delta-->
+
+Plus: División de tareas según habilidades de cada uno. (Maquetado, Estilos, código)
+Delta: Reuniones diarias para plantear que hizo cada uno en el día anterior y que problemas tuvo y que va a hacer en el día actual.
+Plus: Comunicacion activa mediante el grupo de Whatsapp para definir lineamientos generales.
+Plus: Realizar reuniones en la semana sin importar que estén todos los participantes (es muy dificil gralmente que coincidan todos), de igual manera los avances eran notificados por Whatsapp.
+
+
 
 
 
