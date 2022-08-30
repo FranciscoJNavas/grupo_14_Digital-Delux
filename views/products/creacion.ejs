@@ -1,45 +1,50 @@
 <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/styleCreacion.css">
+    <link rel="stylesheet" href="/css/styleCreacionYedicion.css">
 </head>
 <body>
     <%- include('../partials/header') %>
     <main>
         
     <form class="formularioEdicion">
-        <div>
+        <div class="nombreFormulario">
             <h3 class="FormularioCreacion"> Formulario de creación:</h3>
         </div>
-        <div id="edicionNombredelProducto">
-            <b><label id="label1">Nombre del producto:</label></b><br>
-            <input type="text" name="edicion" id="inputNombreP">
-        </div>
-        <div id="edicionCategoria">
-            <b><label id="label2" >Modelo:</label></b><br>
-            <input type="text" name="Modelo" id="inputCategoria">
-        </div>
 
-        <div id="edicionMarca">
-            <b><label id="label7" >Marca:</label></b><br>
-            <input type="text" name="marca" id="inputMarca">
-        </div>
+       <div class="campoPrincipal">
 
-        <div id="edicionColor">
-            <b><label id="label3" >Color:</label></b><br>
-            <input type="text" name="Color" id="inputColor">
+     
+            <div class="campoEditable">
+                <b><label id="label1">Nombre del producto:</label></b><br>
+                <input type="text" name="edicion" id="input">
+            </div>
+            <div class="campoEditable">
+                <b><label id="label2" >Modelo:</label></b><br>
+                <input type="text" name="Modelo" id="input">
+            </div>
+
+            <div class="campoEditable">
+                <b><label id="label7" >Marca:</label></b><br>
+                <input type="text" name="marca" id="input">
+            </div>
+
+            <div class="campoEditable">
+                <b><label id="label3" >Color:</label></b><br>
+                <input type="text" name="Color" id="input">
+            </div>
+            <div class="campoEditable">
+                <b><label id="label4">Precio:</label></b><br>
+                <input type="text" name="Precio" id="input">
+            </div>
+            <div class="campoEditable">
+                <b><label id="label5">Imagen:</label></b><br>
+                <input type="file" name="imgProducto" id="imagenProducto" accept=".jpg">
+            </div>
         </div>
-        <div id="edicionPrecio">
-            <b><label id="label4">Precio:</label></b><br>
-            <input type="text" name="Precio" id="inputPrecio">
-        </div>
-        <div class="edicionImagen">
-            <b><label id="label5">Imagen:</label></b><br>
-            <input type="file" name="imgProducto" id="imagenProducto" accept=".jpg">
-        </div>
-        <div class="edicionDescripcion">
+        <div class="campoEditable">
             <b><label id="label6">Descripción:</label></b><br>
             <textarea id="textArea"></textarea>
         </div>
-        <div>
+        <div class="guardarProducto">
              <button id="button" type="submit">Guardar producto</button>
         </div>
     </form>
