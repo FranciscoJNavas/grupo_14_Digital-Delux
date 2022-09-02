@@ -8,11 +8,11 @@
         <section>
             <article class="producto-principal">
                 <div class="foto-principal">
-                    <img src="/images/img-tv-samsung-smart.jpg" alt="imagen-principal">
+                    <img src="/images/<%= productFilter.image %>" alt="imagen-principal">
                 </div>
                 <div class="descripcion">
-                    <h3>Nombre Producto</h3>
-                    <h3 class="precio">$230.000</h3>
+                    <h3><%= productFilter.name  %></h3>
+                    <h3 class="precio">$<%= productFilter.price  %></h3>
                     <div class="cantidad">
                         <p>Cantidad</p>
                         <input type="text">
@@ -30,27 +30,25 @@
                     </div>
                     <button>Comprar</button>
                     <div class="user-button">
-                        <button><a href="/products/edit">EDITAR PRODUCTO</a></button>
+                        <button><a href="/products/edit/<%= productFilter.id %>">EDITAR PRODUCTO</a></button>
                         <button>Eliminar</button>
                     </div>
                 </div>
             </article>
             <div class="fotos-secundarias">
-                <img src="/images/img-tv-samsung-smart.jpg" alt="imagen-sec-1">
-                <img src="/images/img-tv-samsung-smart.jpg" alt="imagen-sec-2">
-                <img src="/images/img-tv-samsung-smart.jpg" alt="imagen-sec-3">
-                <img src="/images/img-tv-samsung-smart.jpg" alt="imagen-sec-4">
-                <img src="/images/img-tv-samsung-smart.jpg" alt="imagen-sec-5">
+                <% for (let i=0; i<5 ; i++ ) { %>
+                    <img src="/images/<%= productFilter.image  %>" alt="imagen-sec-1">
+                <% } %>
             </div>
             <section class="contenedor-info-otros">
                 <section class="info">
                     <div>
                         <h4>Detalles del producto</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores ut saepe pariatur molestiae? Harum magnam culpa aspernatur, soluta, porro perferendis laudantium libero sequi mollitia, ipsam iste id odio atque dicta?</p>
+                        <p><%= productFilter.description  %></p>
                     </div>
                     <div>
                         <h4>Caracteristicas</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores ut saepe pariatur molestiae? Harum magnam culpa aspernatur, soluta, porro perferendis laudantium libero sequi mollitia, ipsam iste id odio atque dicta?</p>
+                        <p><%= productFilter.features  %></p>
                     </div>
                 </section>
                 <section class="otros">

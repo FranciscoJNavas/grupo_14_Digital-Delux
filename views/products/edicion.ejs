@@ -5,7 +5,7 @@
     <%- include('../partials/header') %>
 
     <main>
-    <form class="formularioEdicion">
+    <form action="/products/edit/<%= productToEdit.id %>?_method=PUT" method="POST" class="formularioEdicion" enctype="multipart/form-data">
         <div class="nombreFormulario">
             <h3 class="FormularioCreacion"> Formulario de edición:</h3>
         </div>
@@ -15,7 +15,7 @@
      
             <div class="campoEditable">
                 <b><label id="label1">Nombre del producto:</label></b><br>
-                <input type="text" name="edicion" id="input">
+                <input type="text" name="edicion" id="input" value="<%= productToEdit.name %>">
             </div>
             <div class="campoEditable">
                 <b><label id="label2" >Modelo:</label></b><br>
@@ -33,7 +33,7 @@
             </div>
             <div class="campoEditable">
                 <b><label id="label4">Precio:</label></b><br>
-                <input type="text" name="Precio" id="input">
+                <input type="text" name="Precio" id="input" value="<%= productToEdit.price %>">
             </div>
             <div class="campoEditable">
                 <b><label id="label5">Imagen:</label></b><br>
@@ -42,7 +42,7 @@
         </div>
         <div class="campoEditable">
             <b><label id="label6">Descripción:</label></b><br>
-            <textarea id="textArea"></textarea>
+            <textarea id="textArea"><%= productToEdit.description %></textarea>
         </div>
         <div class="guardarProducto">
              <button id="button" type="submit">Guardar producto</button>
