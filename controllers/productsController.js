@@ -10,10 +10,15 @@ const controller = {
 		res.render('products/cart');
 	},
 	detail: (req, res) => {
-		res.render('products/product-detail',{products:products});
+		const productFilter = products.find((p) => p.id == req.params.id);
+		res.render('products/product-detail',{products:products,productFilter:productFilter});
 	},
 	edit: (req, res) => {
-		res.render('products/edicion');
+		const productToEdit = products.find((p) => p.id == req.params.id);
+		res.render('products/edicion',{productToEdit:productToEdit});
+	},
+	upgrade: (req, res) => {
+		// hacer la magia
 	},
 	create: (req, res) => {
 		res.render('products/creacion');

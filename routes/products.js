@@ -5,8 +5,12 @@ const router = express.Router();
 const productsController = require('../controllers/productsController');
 
 router.get('/cart', productsController.cart);
+
 router.get('/detail/:id/', productsController.detail);
-router.get('/edit', productsController.edit);
+
+router.get('/edit/:id/', productsController.edit);
+router.put('/edit/:id/', productsController.upgrade);
+
 router.get('/create', productsController.create);
 
 
