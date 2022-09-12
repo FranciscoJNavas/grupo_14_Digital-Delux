@@ -22,6 +22,31 @@ const controller = {
 	},
 	create: (req, res) => {
 		res.render('products/creacion');
+	},
+	newProduct: (req, res) => {
+		console.log("en new");
+		console.log(req.body);
+		let newProduct={
+			id: 44,
+  			name: req.body.name,
+  			price: req.body.price,
+  			discount: req.body.discount,
+  			category: req.body.category,
+  			description: req.body.description,
+  			image: "img-cafetera-moulinex.jpg",
+  			features:req.body.features,
+  			vendor:"",
+  			section: req.body.section,
+  			brand: req.body.brand,
+  			visited:""
+		};
+		products.push(newProduct);
+		fs.writeFileSync(productsFilePath,JSON.stringify(products));
+		res.redirect('/');
+	},
+	products: (req, res) => {
+		let productsToShow = products.filter((product) => product.section == req.query.section)
+		res.render('index',{products: productsToShow, url:"navbar"});
 	}
 };
 
