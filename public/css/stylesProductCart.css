@@ -135,6 +135,13 @@ main .comprar button{
 }
 
 
+@media (max-width:415px){
+    main{
+        height: 705px;
+       
+    }
+}
+
 /* .nombreproducto1{
     color:#dd5d20;
     position: relative;
