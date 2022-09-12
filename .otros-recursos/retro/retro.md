@@ -42,6 +42,13 @@ Delta: Reuniones diarias para plantear que hizo cada uno en el día anterior y q
 Plus: Comunicacion activa mediante el grupo de Whatsapp para definir lineamientos generales.
 Plus: Realizar reuniones en la semana sin importar que estén todos los participantes (es muy dificil gralmente que coincidan todos), de igual manera los avances eran notificados por Whatsapp.
 
+# **RETROSPECTIVA SPRINT 3** <!-- Basado en la metodología Plus & Delta-->
+
+Plus: En esta ocasión tratamos de realizar casi todo el sprint juntos para terminar de comprender bien los temas, obviamente que hubieron momentos en los cuáles nos dividimos algunas tareas. 
+Delta: Tuvimos reuniones diarias para poder seguir resolviendo el sprint y también si alguno realizaba algún cambio lo comentaba por el grupo de Whatsapp.
+Plus: Nuevamente tuvimos una comunicación activa por medio del grupo de Whatsapp. 
+Como pusimos en la retrospectiva del sprint 2, a veces es complicado que todos puedan el mismo día y en el mismo horario, entonces lo que tratabamos de hacer es conectarnos obviamente cuando todos podían, pero en algunas ocasiones eso era bastante complicado entonces nos conectabamos igual para poder seguir avanzando con el sprint y luego se le comunicaba los cambios o los avances que habíamos tenido.
+
 
 
 
