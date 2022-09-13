@@ -3,7 +3,7 @@ main{
     background-color:  #473f4a;
     color: black;
     padding: 10px;
-    min-height: 758px;
+    /* min-height: 758px; */
 }
 
 .FormularioCreacion{
@@ -17,8 +17,6 @@ main{
 .nombreFormulario{
     width: 70%;
     margin:0 auto;
-
-
 }
 
 .campoEditable{
@@ -27,7 +25,8 @@ main{
 }
 
 .campoEditable input, 
-.campoEditable textarea {
+.campoEditable textarea,
+.campoEditable select {
     width: 100%
     
 }

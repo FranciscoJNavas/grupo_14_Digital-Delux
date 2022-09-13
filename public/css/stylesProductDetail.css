@@ -167,11 +167,12 @@ main section .producto-principal .descripcion button{
 @media (min-width: 481px){ /* tablets & larger smartphones */
     
     main section article.producto-principal{
+        padding: 15px;
         display: flex;
     }
     
     main section article.producto-principal div.foto-principal{
-        width: 60%;
+        width: 55%;
     }
 
     /* main section article.producto-principal div.foto-principal img{
@@ -182,6 +183,7 @@ main section .producto-principal .descripcion button{
 
     main section article.producto-principal div.descripcion{
         width: 40%;
+        padding: 15px;
     }
 
     .contenedor-info-otros{
@@ -190,10 +192,12 @@ main section .producto-principal .descripcion button{
 
     .info{
         width: 50%;
+        padding: 15px;
     }
 
     .otros{
         width: 50%;
+        padding: 15px;
     }
 
     .fotos-secundarias{
@@ -205,7 +209,7 @@ main section .producto-principal .descripcion button{
 
     .fotos-secundarias img{
         width: 12%;
-        padding: 3px;
+        padding: 3px 15px;
     }
  
 

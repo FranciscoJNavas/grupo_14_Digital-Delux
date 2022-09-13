@@ -5,7 +5,7 @@
     <%- include('../partials/header') %>
     <main>
 
-    <form class="formularioEdicion" action="/products/create" method="POST" >
+    <form class="formularioEdicion" action="/products/create" method="POST" enctype="multipart/form-data">
         <div class="nombreFormulario">
             <h3 class="FormularioCreacion"> Formulario de creación:</h3>
         </div>
@@ -55,7 +55,7 @@
             
             <div class="campoEditable">
                 <b><label for="image">Imagen:</label></b><br>
-                <input type="file" name="image" id="image" accept=".jpg">
+                <input type="file" name="imageProduct" id="image" accept=".jpg">
             </div>
         </div>
         <div class="campoEditable">

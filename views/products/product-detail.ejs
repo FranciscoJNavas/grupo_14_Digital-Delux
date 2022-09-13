@@ -31,7 +31,11 @@
                     <button>Comprar</button>
                     <div class="user-button">
                         <button><a href="/products/edit/<%= productFilter.id %>">EDITAR PRODUCTO</a></button>
-                        <button>Eliminar</button>
+                        
+                        <form action="/products/delete/<%= productFilter.id %>?_method=DELETE" method="POST">
+                            <button type="submit">ELIMINAR</button>
+                        </form>
+
                     </div>
                 </div>
             </article>
