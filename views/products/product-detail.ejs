@@ -7,46 +7,65 @@
     <main>
         <section>
             <article class="producto-principal">
+
                 <div class="foto-principal">
                     <img src="/images/<%= productFilter.image %>" alt="imagen-principal">
                 </div>
+
                 <div class="descripcion">
+
                     <h3><%= productFilter.name  %></h3>
                     <h3 class="precio">$<%= productFilter.price  %></h3>
+
                     <div class="cantidad">
+
                         <p>Cantidad</p>
                         <input type="text">
+
                         <div>
                             <!-- <button type="button"><i class="fas fa-plus-circle"></i></button>
                             <button type="button"><i class="fas fa-minus-circle"></i></button> -->
                             <i class="fas fa-plus-circle"></i>
                             <i class="fas fa-minus-circle"></i>
                         </div>
+
                     </div>
+
                     <div class="agregar">
+
                         <p>Agregar al carrito</p>
                         <!-- <button type="button"><i class="fas fa-cart-plus"></i></button> -->
                         <i class="fas fa-cart-plus"></i>
-                    </div>
-                    <button>Comprar</button>
-                    <div class="user-button">
-                        <button><a href="/products/edit/<%= productFilter.id %>">EDITAR PRODUCTO</a></button>
-                        
-                        <form action="/products/delete/<%= productFilter.id %>?_method=DELETE" method="POST">
-                            <button type="submit">ELIMINAR</button>
-                        </form>
 
                     </div>
+
+                    <button class="comprar">Comprar</button>
+
                 </div>
             </article>
-            <div class="fotos-secundarias">
-                <% for (let i=0; i<5 ; i++ ) { %>
-                    <img src="/images/<%= productFilter.image  %>" alt="imagen-sec-1">
-                <% } %>
+            
+            <div class="fotos-sec-user-b">
+                <div class="fotos-secundarias">
+                    <% for (let i=0; i<5 ; i++ ) { %>
+                        <img src="/images/<%= productFilter.image  %>" alt="imagen-sec-1">
+                        <% } %>
+                </div>
+
+                <div class="user-button">
+
+                    <a href="/products/edit/<%= productFilter.id %>">
+                        <button>EDITAR PRODUCTO</button>
+                    </a>
+                    
+                    <form action="/products/delete/<%= productFilter.id %>?_method=DELETE" method="POST">
+                        <button type="submit">ELIMINAR</button>
+                    </form>
+
+                </div>
             </div>
-            <section class="contenedor-info-otros">
-                <section class="info">
-                    <div>
+                <section class="contenedor-info-otros">
+                    <section class="info">
+                        <div>
                         <h4>Detalles del producto</h4>
                         <p><%= productFilter.description  %></p>
                     </div>

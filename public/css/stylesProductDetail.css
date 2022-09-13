@@ -11,26 +11,21 @@ body {
 
 }
 
-/* main section article.producto-principal{
-    display: flex;
-} */
-
 main {
     padding: 10px;
 }
 
-main section .producto-principal .foto-principal{
+.producto-principal .foto-principal{
     width: 100%;
     /* margin-left: 5%; */
 }
 
-main section .producto-principal .foto-principal img{
+.producto-principal .foto-principal img{
     width: 90%;
     margin: 5px auto;
-
 }
 
-main section .producto-principal .descripcion{
+.producto-principal .descripcion{
     width: 100%;
     color: #dd5d20;
     display: flex;
@@ -40,17 +35,16 @@ main section .producto-principal .descripcion{
     
 }
 
-main section .producto-principal .cantidad {
+.producto-principal .cantidad {
     display: flex;
     align-items: center;
 }
 
-main section .producto-principal .cantidad input {
+.producto-principal .cantidad input {
     width: 35px;
     margin: 0 10px;
     /* height: 100%; */
 }
-
 
 main section .producto-principal .cantidad div {
     display: flex;
@@ -93,7 +87,7 @@ main section .producto-principal .agregar i{
     margin-left: 7%;
 } */
 
-main section .producto-principal .descripcion button{
+.producto-principal .descripcion .comprar{
     font-size: 20px;
     width: 90%;
     max-width: 150px;
@@ -138,15 +132,17 @@ main section .producto-principal .descripcion button{
 
 .contenedor-info-otros .otros .otros-articulos{
     display: flex;
+    flex-wrap: wrap;
     margin: 10px auto;
 }
 
 .contenedor-info-otros .otros .otros-articulos article{
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
-    margin: 0px 4px;
+    margin: 5px 4px;
 }
 
 .otros-articulos article div{
@@ -161,13 +157,37 @@ main section .producto-principal .descripcion button{
 
 .user-button{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.user-button a,
+.user-button form {
+    width: 80%;
+    text-align: center;
+}
+
+.user-button button {
+    /* text-decoration: none; */
+    font-size: 20px;
+    width: 85%;
+    max-width: 240px;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: #dd5d20;
+    text-align: center;
+    color: black;
+    padding: 5px;
+    margin: 5px auto;
+    /* margin-left: 85%; */
 }
 
 @media (min-width: 481px){ /* tablets & larger smartphones */
     
     main section article.producto-principal{
-        padding: 15px;
+        padding: 10px;
         display: flex;
     }
     
@@ -182,8 +202,8 @@ main section .producto-principal .descripcion button{
     } */
 
     main section article.producto-principal div.descripcion{
-        width: 40%;
-        padding: 15px;
+        width: 45%;
+        padding: 5px;
     }
 
     .contenedor-info-otros{
@@ -200,16 +220,35 @@ main section .producto-principal .descripcion button{
         padding: 15px;
     }
 
-    .fotos-secundarias{
-        margin-top: 30px;
+    .contenedor-info-otros .otros .otros-articulos article {
+        width: 45%;
+    }
+
+    .fotos-sec-user-b {
         display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+        align-items: center;
+    }
+
+    .user-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 45%;
+    }
+
+    .fotos-secundarias{
+        display: flex;
+        align-items: center;
         /* justify-content: center; */
-        width: 100%;
+        width: 55%;
     }
 
     .fotos-secundarias img{
-        width: 12%;
-        padding: 3px 15px;
+        width: 18%;
+        padding: 3px 5px;
     }
  
 
