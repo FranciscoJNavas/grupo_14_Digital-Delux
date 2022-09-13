@@ -22,7 +22,28 @@ const controller = {
 		res.render('products/edicion',{productToEdit:productToEdit});
 	},
 	upgrade: (req, res) => {
-		// hacer la magia
+		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+		let productToUpgrade = products.find((p) => p.id == req.params.id);
+
+		let index = products.indexOf(productToUpgrade);
+
+		console.log(index);
+		products[index].name = req.body.name;
+		products[index].price = req.body.price;
+		products[index].discount = req.body.discount;
+		products[index].category = req.body.category;
+		products[index].description = req.body.description;
+		if(req.file){
+			fs.unlinkSync(join(productImagePath, products[index].image));
+			products[index].image = req.file.filename;
+		}
+		products[index].features = req.body.features;
+		products[index].section = req.body.section;
+		products[index].brand = req.body.brand;
+
+		fs.writeFileSync(productsFilePath,JSON.stringify(products));
+		res.redirect("/");
 	},
 	create: (req, res) => {
 		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -53,6 +74,7 @@ const controller = {
 	products: (req, res) => {
 		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		let productsToShow = products.filter((product) => product.section == req.query.section)
+
 		res.render('index',{products: productsToShow, url:"navbar"});
 	},
 	delete: (req,res)=>{
@@ -65,7 +87,7 @@ const controller = {
 		products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		//borrar foto
 		fs.unlinkSync(join(productImagePath, productToDelete.image));
-		//res.render("index", {products: products, url:"inicio"});
+
 		res.redirect("/");
 	} 
 };

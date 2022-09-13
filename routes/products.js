@@ -15,6 +15,7 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 })
+const uploadFile = multer({ storage });
 
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
@@ -28,10 +29,9 @@ router.get('/detail/:id/', productsController.detail);
 // Editar producto
 
 router.get('/edit/:id/', productsController.edit);
-router.put('/edit/:id/', productsController.upgrade);
+router.put('/edit/:id/', uploadFile.single('imageProduct'), productsController.upgrade);
 
 // Crear producto
-const uploadFile = multer({ storage });
 router.get('/create', productsController.create);
 router.post('/create', uploadFile.single('imageProduct') ,productsController.newProduct);
 

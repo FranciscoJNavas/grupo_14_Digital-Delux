@@ -17,14 +17,14 @@
         "id": 7,
         "name": "Notebook Lenovo I3 Intel 8gb Ram",
         "description": "PROCESADOR / CHIPSET. CPU: Intel Core i3(8a generación) 8130U / 2.2 GHz. Velocidad turbo máxima: 3, 4 GHz. Numero de núcleos: Doble núcleo. Cache: 4 MB. Arquitectura de 64 bit: ss. MEMORIA CACHÉ. Tamaño instalada: 4 MB. ALMACENAMIENTO. Interfaz Serial ATA - 600",
-        "price": 36700,
-        "discount": 5,
+        "price": "45000",
+        "discount": "5",
         "image": "img-laptop-lenovo.jpg",
         "category": "novedades",
-        "features": "",
+        "features": "14\"",
         "vendor": "",
-        "section": "computacion",
-        "brand": "",
+        "section": "otro",
+        "brand": "Lenovo",
         "visited": ""
     },
     {
@@ -104,7 +104,7 @@
         "price": 34990,
         "discount": 0,
         "image": "img-tv-samsung-smart.jpg",
-        "category": "visto recientemente",
+        "category": "in-sale",
         "features": "",
         "vendor": "",
         "section": "television",
@@ -151,6 +151,20 @@
         "vendor": "",
         "section": "otro",
         "brand": "",
+        "visited": ""
+    },
+    {
+        "id": 1663067640993,
+        "name": "Heladera",
+        "price": "100000",
+        "discount": "20",
+        "category": "novedades",
+        "description": "Heladera editada",
+        "image": "imageProduct-1663067766310.jpg",
+        "features": "Otras características",
+        "vendor": "",
+        "section": "otro",
+        "brand": "Whirlpool",
         "visited": ""
     }
 ]
