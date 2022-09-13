@@ -14,7 +14,7 @@ const controller = {
 	detail: (req, res) => {
 		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		const productFilter = products.find((p) => p.id == req.params.id);
-		res.render('products/product-detail',{producto:products,productFilter:productFilter});
+		res.render('products/product-detail',{products:products, productFilter:productFilter});
 	},
 	edit: (req, res) => {
 		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));

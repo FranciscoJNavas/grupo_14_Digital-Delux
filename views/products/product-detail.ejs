@@ -58,20 +58,26 @@
                 <section class="otros">
                     <h4>Productos del mismo vendedor</h4>
                     <div class="otros-articulos">
-                        <% for( let index = 0; index < 2; index++ ) { %>
-                            <%- include('../partials/product') %>
+                        <% for( producto of products ) { %>
+                            <% if (producto.vendor == productFilter.vendor && producto.id != productFilter.id) { %>
+                                <%- include('../partials/product') %> 
+                            <% } %>
                         <% } %>
                     </div>
                     <h4>Podría interesarte</h4>
                     <div class="otros-articulos">
-                        <% for( let index = 0; index < 2; index++ ) { %>
-                            <%- include('../partials/product') %>
+                        <% for( producto of products ) { %>
+                            <% if (producto.category == "visto recientemente" && producto.id != productFilter.id) { %>
+                                <%- include('../partials/product') %> 
+                            <% } %>
                         <% } %>
                     </div>
                     <h4>Productos relacionados</h4>
                     <div class="otros-articulos">
-                        <% for( let index = 0; index < 2; index++ ) { %>
-                            <%- include('../partials/product') %>
+                        <% for( producto of products ) { %>
+                            <% if (producto.section == productFilter.section && producto.id != productFilter.id) { %>
+                                <%- include('../partials/product') %> 
+                            <% } %>
                         <% } %>
                     </div>
                 </section>
