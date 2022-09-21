@@ -73,3 +73,7 @@ main .formulario .obligatorio{
     font-weight: bold;
 }
 
+.control-formulario p {
+    color: red;
+}
+

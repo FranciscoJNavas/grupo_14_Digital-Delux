@@ -4,45 +4,54 @@
 <body>
     <%- include('../partials/header') %>
     <main>
-        <form action="/register" method="POST" class="formulario">
+        <form action="/users/register" method="POST" class="formulario" enctype="multipart/form-data">
             <h3 class="frase">Bienvenido a Digital Delux.</h3>
             <p class="frase2">Regístrate y sé parte de nuestra tienda online.</p>
                 
             <div class="control-formulario">
                 <label class="titulo">Email</label>
-                <input type="email" name="email" class="control" required>
+                <input type="email" name="email" class="control">
+                <p><%= locals.errors?.email ? errors.email.msg : "" %></p>
             </div>
-        
             <div class="control-formulario">
                 <label class="titulo" >Contraseña</label>
-                <input type="password" name="contraseña" class="control" required>
-                
+                <input type="password" name="password1" class="control">
+                <p><%= locals.errors?.password1 ? errors.password1.msg : "" %></p>  
             </div>
         
             <div class="control-formulario">
-            <label class="titulo">Confirmar contraseña</label>
-            <input type="password" name="confirmar-contraseña" class="control" required>
+                <label class="titulo">Confirmar contraseña</label>
+                <input type="password" name="password" class="control">
+                <p><%= locals.errors?.password ? errors.password.msg : "" %></p>
             </div>
         
             <div class="control-formulario">
                 <label class="titulo">Nombre</label>
-                <input type="text" name="nombre" class="control" required>
-            
+                <input type="text" name="first_name" class="control">
+                <p><%= locals.errors?.first_name ? errors.first_name.msg : "" %></p>            
             </div>
         
             <div class="control-formulario">
                 <label class="titulo">Apellido</label>
-                <input type="text" name="apellido" class="control" required>
+                <input type="text" name="last_name" class="control">
+                <p><%= locals.errors?.last_name ? errors.last_name.msg : "" %></p> 
+            </div>
+
+            <div class="control-formulario">
+                <b><label for="image">Foto de Perfil:</label></b><br>
+                <input type="file" name="avatar" id="image" accept=".jpg">
             </div>
         
             <div class="control-formulario">
                 <label class="titulo">DNI</label>
-                <input type="number" name="dni" class="control" required>
+                <input type="number" name="dni" class="control">
+                <p><%= locals.errors?.dni ? errors.dni.msg : "" %></p>
             </div>
         
             <div class="control-formulario">
                 <label class="titulo">Fecha de Nacimiento</label>
-                <input type="date" nombre="fechaDeNacimiento" class="control" required>
+                <input type="date" nombre="date_birth" class="control">
+                <p><%= locals.errors?.date_birth ? errors.date_birth.msg : "" %></p>
             </div>
     
             <div>

@@ -4,18 +4,18 @@
 <body>
     <%- include('../partials/header') %>
     <main>
-        <form action="/login" method="post" class="formulario">
+        <form action="/users/login" method="post" class="formulario">
           
           <h3 class="frase-login">¡Hola!, favor de ingresar usuario y contraseña </h3>
           
           <div class="login-formulario">
-              <label class="titulo-login">Usuario</label>
-              <input type="text" name="usuario" required>
+              <label class="titulo-login">Email</label>
+              <input type="email" name="email">
           </div>
       
           <div class="login-formulario">
               <label class="titulo-login" >Contraseña</label>
-              <input type="password" name="contraseña" required>
+              <input type="password" name="password">
               
           </div>
     
