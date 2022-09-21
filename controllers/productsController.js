@@ -26,9 +26,22 @@ const controller = {
 
 		let productToUpgrade = products.find((p) => p.id == req.params.id);
 
-		let index = products.indexOf(productToUpgrade);
+		//let index = products.indexOf(productToUpgrade);
 
-		console.log(index);
+		//console.log(index);
+		productToUpgrade.name = req.body.name;
+		productToUpgrade.price = req.body.price;
+		productToUpgrade.discount = req.body.discount;
+		productToUpgrade.category = req.body.category;
+		productToUpgrade.description = req.body.description;
+		if(req.file){
+			fs.unlinkSync(join(productImagePath, productToUpgrade.image));
+			productToUpgrade.image = req.file.filename;
+		}
+		productToUpgrade.features = req.body.features;
+		productToUpgrade.section = req.body.section;3,
+		productToUpgrade.brand = req.body.brand;
+		/*		console.log(index);
 		products[index].name = req.body.name;
 		products[index].price = req.body.price;
 		products[index].discount = req.body.discount;
@@ -40,8 +53,30 @@ const controller = {
 		}
 		products[index].features = req.body.features;
 		products[index].section = req.body.section;
-		products[index].brand = req.body.brand;
+		products[index].brand = req.body.brand; */
+/* 
+let id = req.params.id;
+		let productToEdit = products.find(product => product.id == id)
+		let image
+		if(req.file != undefined){
+			image = req.file.filename
+		} else {
+			image = productToEdit.image
+		}
 
+		productToEdit = {
+			id: productToEdit.id,
+			...req.body,
+			image: image,
+		};
+		
+		let newProducts = products.map(product => {
+			if (product.id == productToEdit.id) {
+				return product = {...productToEdit};
+			}
+			return product;
+		})
+*/
 		fs.writeFileSync(productsFilePath,JSON.stringify(products));
 		res.redirect("/");
 	},
@@ -60,7 +95,8 @@ const controller = {
   			discount: req.body.discount,
   			category: req.body.category,
   			description: req.body.description,
-  			image: req.file.filename,
+  			//agregar imagen por defecto si no se carga una imagen
+			image: req.file.filename,
   			features:req.body.features,
   			vendor:"",
   			section: req.body.section,
