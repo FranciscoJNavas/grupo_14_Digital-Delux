@@ -11,6 +11,7 @@
           <div class="login-formulario">
               <label class="titulo-login">Email</label>
               <input type="email" name="email">
+              <p><%= locals.errors?.email ? errors.email.msg : "" %></p>
           </div>
       
           <div class="login-formulario">

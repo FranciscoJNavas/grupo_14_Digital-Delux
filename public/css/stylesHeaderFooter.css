@@ -100,7 +100,10 @@ header .top-header .iconos .icarrito{
     width: 30%;
     text-align: center;
 }
-
+header .top-header .iconos .user-login img {
+    width: 20%;
+    margin: 0 auto;
+}
 
 header .top-header .iconos .user-login h5 {
     font-size: calc(6px + 0.7vw);

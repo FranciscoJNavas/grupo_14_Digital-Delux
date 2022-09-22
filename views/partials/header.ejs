@@ -11,12 +11,21 @@
         </div>
         <div class="iconos">
             <div class="user-login">
+                <% if (locals.isLogged) { %>
+                    <a href="#" class="login">
+                        <img src="/images/avatars/<%= locals.userLogged.image %>" alt="User image">
+                    </a>
+                    <h5 class="nombre-usuario">
+                        <%= locals.userLogged.first_name %>
+                    </h5>
+                <% } else { %>
                     <a href="/users/login" class="login">
                         <i id="usuario" class="fa-solid fa-user"></i>
                     </a>
                     <h5 class="nombre-usuario">
                     Nombre Usuario
                     </h5>
+                <% } %>
             </div>
             <div class="ilike">    
                 <i id="like" class="fa-solid fa-thumbs-up"></i>
