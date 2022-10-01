@@ -1,25 +1,25 @@
 <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/styleCreacionYedicion.css">
+    <!-- <link rel="stylesheet" href="/css/styleCreacionYedicion.css"> -->
 </head>
 <body>
     <%- include('../partials/header') %>
 
     <main>
-    <form action="/products/edit/<%= productToEdit.id %>?_method=PUT" method="POST" class="formularioEdicion" enctype="multipart/form-data">
-        <div class="nombreFormulario">
-            <h3 class="FormularioCreacion"> Formulario de edición:</h3>
+    <form action="/products/edit/<%= productToEdit.id %>?_method=PUT" method="POST" class="product-form" enctype="multipart/form-data">
+        <div class="wellcome">
+            <h3> Formulario de edición:</h3>
         </div>
 
-       <div class="campoPrincipal">
+       <div class="main-fields">
 
-            <div class="campoEditable">
-                <b><label for="name">Nombre del producto:</label></b><br>
-                <input type="text" name="name" id="name" value="<%= productToEdit.name %>">
+            <div class="form-control">
+                <b><label class="input-title" for="name">Nombre del producto:</label></b><br>
+                <input type="text" name="name" id="name" value="<%= productToEdit.name %>" class="control">
             </div>
 
-            <div class="campoEditable">
-                <b><label for="section" >Sección:</label></b><br>
-                <select name="section" id="section">
+            <div class="form-control">
+                <b><label class="input-title" for="section" >Sección:</label></b><br>
+                <select name="section" id="section" class="control">
                     <option value="celular" <%= productToEdit.section == "celular" ? "selected":"" %>>Celular</option>
                     <option value="television" <%= productToEdit.section == "television" ? "selected":"" %>>Televisión</option>
                     <option value="computacion" <%= productToEdit.section == "computacion" ? "selected":"" %>>Computación</option>
@@ -27,19 +27,19 @@
                 </select>
             </div>
 
-            <div class="campoEditable">
-                <b><label for="price">Precio:</label></b><br>
-                <input type="number" name="price" id="price" value="<%= productToEdit.price %>">
+            <div class="form-control">
+                <b><label class="input-title" for="price">Precio:</label></b><br>
+                <input type="number" name="price" id="price" value="<%= productToEdit.price %>" class="control">
             </div>
 
-            <div class="campoEditable">
+            <div class="form-control">
                 <b><label for="discount" >Descuento:</label></b><br>
-                <input type="number" name="discount" id="discount" value="<%= productToEdit.discount %>">
+                <input type="number" name="discount" id="discount" value="<%= productToEdit.discount %>" class="control">
             </div>
 
-            <div class="campoEditable">
-                <b><label for="category" >Categoría:</label></b><br>
-                <select name="category" id="category">
+            <div class="form-control">
+                <b><label class="input-title" for="category" >Categoría:</label></b><br>
+                <select name="category" id="category" class="control">
                     <option value="" <%= productToEdit.category == "" ? "selected":"" %>></option>
                     <option value="in-sale" <%= productToEdit.category == "in-sale" ? "selected":"" %>>Oferta</option>
                     <option value="novedades" <%= productToEdit.category == "novedades" ? "selected":"" %>>Novedades</option>
@@ -47,30 +47,30 @@
                 </select>
             </div>
 
-            <div class="campoEditable">
-                <b><label for="brand" >Marca:</label></b><br>
-                <input type="text" name="brand" id="brand" value="<%= productToEdit.brand %>">
+            <div class="form-control">
+                <b><label class="input-title" for="brand" >Marca:</label></b><br>
+                <input type="text" name="brand" id="brand" value="<%= productToEdit.brand %>" class="control">
             </div>
 
-            <div class="campoEditable">
-                <b><label for="image">Imagen:</label></b><br>
-                <input type="file" name="imageProduct" id="image" accept=".jpg">
+            <div class="form-control">
+                <b><label class="input-title" for="image">Imagen:</label></b><br>
+                <input type="file" name="imageProduct" id="image" accept=".jpg" class="control">
             </div>
 
         </div>
 
-        <div class="campoEditable">
-            <b><label for="description">Descripción:</label></b><br>
-            <textarea name="description" id="description"><%= productToEdit.description %></textarea>
+        <div class="form-control">
+            <b><label class="input-title" for="description">Descripción:</label></b><br>
+            <textarea class="textarea" name="description" id="description"><%= productToEdit.description %></textarea>
         </div>
 
-        <div class="campoEditable">
-            <b><label for="features">Características:</label></b><br>
-            <textarea name="features" id="features"><%= productToEdit.features %></textarea>
+        <div class="form-control">
+            <b><label class="input-title" for="features">Características:</label></b><br>
+            <textarea class="textarea" name="features" id="features"><%= productToEdit.features %></textarea>
         </div>
 
-        <div class="guardarProducto">
-             <button id="button" type="submit">Guardar producto</button>
+        <div class="create-product">
+             <button id="button" type="submit" class="form-button">Guardar producto</button>
         </div>
 
     </form>

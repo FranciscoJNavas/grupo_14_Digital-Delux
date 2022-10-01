@@ -1,26 +1,26 @@
 <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/styleCreacionYedicion.css">
+    <!-- <link rel="stylesheet" href="/css/styleCreacionYedicion.css"> -->
 </head>
 <body>
     <%- include('../partials/header') %>
     <main>
 
-    <form class="formularioEdicion" action="/products/create" method="POST" enctype="multipart/form-data">
-        <div class="nombreFormulario">
-            <h3 class="FormularioCreacion"> Formulario de creación:</h3>
+    <form class="product-form" action="/products/create" method="POST" enctype="multipart/form-data">
+        <div class="wellcome">
+            <h3> Formulario de creación:</h3>
         </div>
 
-       <div class="campoPrincipal">
+       <div class="main-fields">
 
      
-            <div class="campoEditable">
-                <b><label for="name">Nombre del producto:</label></b><br>
-                <input type="text" name="name" id="name">
+            <div class="form-control">
+                <b><label class="input-title" for="name">Nombre del producto:</label></b><br>
+                <input type="text" name="name" id="name" class="control">
             </div>
 
-            <div class="campoEditable">
-                <b><label for="section" >Sección:</label></b><br>
-                <select name="section" id="section">
+            <div class="form-control">
+                <b><label class="input-title" for="section" >Sección:</label></b><br>
+                <select name="section" id="section" class="control">
                     <option value="celular">Celular</option>
                     <option value="television">Televisión</option>
                     <option value="computacion">Computación</option>
@@ -28,19 +28,19 @@
                 </select>
             </div>
 
-            <div class="campoEditable">
-                <b><label for="price">Precio:</label></b><br>
-                <input type="number" name="price" id="price">
+            <div class="form-control">
+                <b><labe class="input-title" for="price">Precio:</label></b><br>
+                <input type="number" name="price" id="price" class="control">
             </div>
             
-            <div class="campoEditable">
-                <b><label for="discount" >Descuento:</label></b><br>
-                <input type="number" name="discount" id="discount">
+            <div class="form-control">
+                <b><label class="input-title" for="discount" >Descuento:</label></b><br>
+                <input type="number" name="discount" id="discount" class="control">
             </div>
             
-            <div class="campoEditable">
-                <b><label for="category" >Categoría:</label></b><br>
-                <select name="category" id="category">
+            <div class="form-control">
+                <b><label class="input-title" for="category" >Categoría:</label></b><br>
+                <select name="category" id="category" class="control">
                     <option value=""></option>
                     <option value="in-sale">Oferta</option>
                     <option value="novedades">Novedades</option>
@@ -48,30 +48,30 @@
                 </select>
             </div>
 
-            <div class="campoEditable">
-                <b><label for="brand" >Marca:</label></b><br>
-                <input type="text" name="brand" id="brand">
+            <div class="form-control">
+                <b><label class="input-title" for="brand" >Marca:</label></b><br>
+                <input type="text" name="brand" id="brand" class="control">
             </div>
             
-            <div class="campoEditable">
-                <b><label for="image">Imagen:</label></b><br>
-                <input type="file" name="imageProduct" id="image" accept=".jpg">
+            <div class="form-control">
+                <b><label class="input-title" for="image">Imagen:</label></b><br>
+                <input type="file" name="imageProduct" id="image" accept=".jpg" class="control">
             </div>
 
         </div>
 
-        <div class="campoEditable">
-            <b><label for="description">Descripción:</label></b><br>
-            <textarea name="description" id="description"></textarea>
+        <div class="form-control">
+            <b><label class="input-title" for="description">Descripción:</label></b><br>
+            <textarea name="description" id="description" class="textarea"></textarea>
         </div>
 
-        <div class="campoEditable">
-            <b><label for="features">Características:</label></b><br>
-            <textarea name="features" id="features"></textarea>
+        <div class="form-control">
+            <b><label class="input-title" for="features">Características:</label></b><br>
+            <textarea name="features" id="features" class="textarea"></textarea>
         </div>
 
-        <div class="guardarProducto">
-             <button id="button" type="submit">Guardar producto</button>
+        <div class="create-product">
+             <button id="button" type="submit" class="form-button">Guardar producto</button>
         </div>
         
     </form>
