@@ -1,71 +1,71 @@
 <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <%- include('../partials/header') %>
     <main>
-        <form action="/users/register" method="POST" class="formulario" enctype="multipart/form-data">
-            <h3 class="frase">Bienvenido a Digital Delux.</h3>
-            <p class="frase2">Regístrate y sé parte de nuestra tienda online.</p>
-                
-            <div class="control-formulario">
-                <label class="titulo">Email</label>
+        <form action="/users/register" method="POST" class="register-form" enctype="multipart/form-data">
+            <div class="wellcome">
+                <h3>Bienvenido a Digital Delux.</h3>
+                <p>Regístrate y sé parte de nuestra tienda online.</p>
+            </div>
+            <div class="form-control">
+                <label class="input-title">Email</label>
                 <input type="email" name="email" class="control">
-                <p><%= locals.errors?.email ? errors.email.msg : "" %></p>
+                <p class="form-error"><%= locals.errors?.email ? errors.email.msg : "" %></p>
             </div>
-            <div class="control-formulario">
-                <label class="titulo" >Contraseña</label>
+            <div class="form-control">
+                <label class="input-title" >Contraseña</label>
                 <input type="password" name="password1" class="control">
-                <p><%= locals.errors?.password1 ? errors.password1.msg : "" %></p>  
+                <p class="form-error"><%= locals.errors?.password1 ? errors.password1.msg : "" %></p>  
             </div>
         
-            <div class="control-formulario">
-                <label class="titulo">Confirmar contraseña</label>
+            <div class="form-control">
+                <label class="input-title">Confirmar contraseña</label>
                 <input type="password" name="password" class="control">
-                <p><%= locals.errors?.password ? errors.password.msg : "" %></p>
+                <p class="form-error"><%= locals.errors?.password ? errors.password.msg : "" %></p>
             </div>
         
-            <div class="control-formulario">
-                <label class="titulo">Nombre</label>
+            <div class="form-control">
+                <label class="input-title">Nombre</label>
                 <input type="text" name="first_name" class="control">
-                <p><%= locals.errors?.first_name ? errors.first_name.msg : "" %></p>            
+                <p class="form-error"><%= locals.errors?.first_name ? errors.first_name.msg : "" %></p>            
             </div>
         
-            <div class="control-formulario">
-                <label class="titulo">Apellido</label>
+            <div class="form-control">
+                <label class="input-title">Apellido</label>
                 <input type="text" name="last_name" class="control">
-                <p><%= locals.errors?.last_name ? errors.last_name.msg : "" %></p> 
+                <p class="form-error"><%= locals.errors?.last_name ? errors.last_name.msg : "" %></p> 
             </div>
 
-            <div class="control-formulario">
+            <div class="form-control">
                 <b><label for="image">Foto de Perfil:</label></b><br>
                 <input type="file" name="avatar" id="image" accept=".jpg">
             </div>
         
-            <div class="control-formulario">
-                <label class="titulo">DNI</label>
+            <div class="form-control">
+                <label class="input-title">DNI</label>
                 <input type="number" name="dni" class="control">
-                <p><%= locals.errors?.dni ? errors.dni.msg : "" %></p>
+                <p class="form-error"><%= locals.errors?.dni ? errors.dni.msg : "" %></p>
             </div>
         
-            <div class="control-formulario">
-                <label class="titulo">Fecha de Nacimiento</label>
+            <div class="form-control">
+                <label class="input-title">Fecha de Nacimiento</label>
                 <input type="date" name="date_birth" class="control">
-                <p><%= locals.errors?.date_birth ? errors.date_birth.msg : "" %></p>
+                <p class="form-error"><%= locals.errors?.date_birth ? errors.date_birth.msg : "" %></p>
             </div>
     
             <div>
-                <h3 class="obligatorio">
+                <h3 class="required">
                     * Todos los campos son obligatorios
                 </h3>
             </div>
         
-            <button input type="submit" class="boton-formulario">Enviar</button>
+            <button type="submit" class="form-button">Enviar</button>
 
-            <div>
-                <h3 class="pregunta-de-registro">¿Ya estás registrado?</h3>
+            <div class="to-other-form">
+                <h3>¿Ya estás registrado?</h3>
+                <a href="/users/login">Haz click aquí</a>
             </div>
-            <a href="/users/login" class="otra-opciones-de-registro">Haz click aquí</a>
         </form>
      </main>       
      <%- include('../partials/footer') %>

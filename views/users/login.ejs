@@ -1,39 +1,47 @@
 <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/stylesLogin.css">
+
 </head>
 <body>
     <%- include('../partials/header') %>
     <main>
-        <form action="/users/login" method="post" class="formulario">
+        <form action="/users/login" method="post" class="login-form">
           
-          <h3 class="frase-login">¡Hola!, favor de ingresar usuario y contraseña </h3>
-          
-          <div class="login-formulario">
-              <label class="titulo-login">Email</label>
-              <input type="email" name="email">
-              <p><%= locals.errors?.email ? errors.email.msg : "" %></p>
-          </div>
-      
-          <div class="login-formulario">
-              <label class="titulo-login" >Contraseña</label>
-              <input type="password" name="password">
-              
-          </div>
-    
-          <h3 class="pregunta">¿Olvidaste tu contraseña?</h3>
+            <div class="wellcome">
+                <h3>¡Hola!, favor de ingresar usuario y contraseña </h3>
+            </div>
 
-          <label class="remember"><input type="checkbox" name="rememberMe" value="rememberme">Recordar mi usuario</label>
-    
-          <button type="submit" class="boton-login">Ingresar</button>
-    
-          <button type="submit" class="boton-apps">Ingresar con Google</button>
-    
-          <button type="submit" class="boton-apps">Ingresar con Facebook</button>
+            <div class="form-control">
+                <label class="input-title">Email</label>
+                <input type="email" name="email" class="control">
+                <p class="form-error"><%= locals.errors?.email ? errors.email.msg : "" %></p>
+            </div>
+        
+            <div class="form-control">
+                <label class="input-title" >Contraseña</label>
+                <input type="password" name="password" class="control">   
+            </div>
+
+            <div class="to-other-form">
+                <a href="#" class="pregunta">¿Olvidaste tu contraseña?</a>
+            </div>
+        
+            <div class="rememberme">
+                <label>
+                    <input class="checkbox" type="checkbox" name="rememberMe" value="rememberme">Recordar mi usuario
+                </label>
+            </div>
+
+            <button type="submit" class="form-button">Ingresar</button>
+        
+            <button type="submit" class="app-button">Ingresar con Google</button>
+        
+            <button type="submit" class="app-button">Ingresar con Facebook</button>
           
-          <div class="preguntas">
-              <h3 class="pregunta3">¿Todavía no estas registrado?</h3>
-              <a href="/users/register" class="pregunta2">Haz click aquí</a>
-          </div>
+            <div class="to-other-form">
+                <h3>¿Todavía no estas registrado?</h3>
+                <a href="/users/register">Haz click aquí</a>
+            </div>
+
       </form>
     </main>
     

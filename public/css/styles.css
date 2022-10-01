@@ -1,79 +1,293 @@
-main{
-    font-family: 'Roboto', sans-serif;
-    padding: 15px 0px;
-    width: 100%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del body */
+body {
+    font-family: 'Inter', sans-serif;
     background-color: #01000E;
+    width: 100%;   
 }
 
-main .formulario{
-  margin: 20px auto;
-  width: 50%;
-  min-width: 330px;
-  max-width: 500px;
-  padding: 10px;
-  background-color: #473f4a;
-  text-align: center;
+/* ======================================
+            Encabezado
+========================================= */
+
+header {
+    width: 100%;
+    background-color: rgba(0,0,0,0.57);
 }
 
-main .formulario .frase{
-    color: #dd5d20;
-    font-size: 17px;
-}
-
-main .formulario .frase2{
-    color: #dd5d20;
-    font-size: 16px;
-}
-
-main .formulario .control-formulario{
-    text-align: start;
-    margin: 15px auto;
-}
-
-main .formulario .control-formulario .titulo{
-    font-size: 18px;
-    color:black;
-    font-weight: bold;
-}
-
-main .formulario .control-formulario .control{
-        width: 95%;
-        padding: 8px 8px;
+    .top-header {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 3px;
+        align-items: center;
     }
 
-main .formulario .boton-formulario{
-    background-color: #dd5d20;
-    border:none;
-    font-size: 20px;
-    color:#000000;
-    padding:5px 10px;
-    border-radius: 8px;
-    margin: 10px auto;
-}   
+        .logo {
+            width: 30%;
+        }
 
-main .formulario .pregunta-de-registro{
-    color: #060e55;
-    font-size: 16px;
-    margin-top: 15px;
+        .logo img {
+            width: 100%;
+        }
+
+        .search-bar {
+            width: 40%;
+            position: relative;
+        }
+
+        .search-bar .form{
+            margin: auto;
+            padding: 5px 0;
+            padding-left: 25px;
+            border-radius: 5px;
+            border: none;
+            width: 80%;
+            font-size: 12px;
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        header div.top-header .search-bar #icono-busqueda {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 12%;
+        }
+
+        .top-header .iconos {
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .icon-header {
+            width: 25%;
+        }
+
+        .icon-header i {
+            display: block;
+            width: calc(15px + 0.8vw);
+            height: calc(15px + 0.8vw);
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            font-size: calc(10px + 0.6vw);
+            color: #DD5D20;
+            text-align: center;
+            padding: 3px;
+            margin: 0 auto;
+        }
+
+        .icon-header img {
+            display: block;
+            width: calc(15px + 0.8vw);
+            border-radius: 50%;
+        }
+
+        .user-login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+
+        .user-login h5 {
+            font-size: calc(3px + 1.1vw);
+            font-weight: normal;
+            color: #FFFFFF;
+            width: min-content;
+        }
+
+    .bottom-header {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        color: #DD5D20;
+        font-size: 12px;     
+    }
+
+        .bottom-header #navbar {
+            padding-left: 10px;
+        }
+
+        .bottom-header nav{
+            width: 80%;
+        }
+
+        .bottom-header nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+        }
+
+        .bottom-header nav ul li a{
+            text-decoration: none;
+            color: #DD5D20;
+            width: max-content;
+        }
+
+/* ======================================
+            Main
+========================================= */
+
+main {
+    padding: 10px;
 }
 
-main .formulario .otra-opciones-de-registro{
-    color:#060e55;
-    border:  none;
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: underline;
-    background-color: transparent;
-    padding:10px;
+
+/* ======================================
+            Forms
+========================================= */
+    
+        .register-form {
+          margin: 20px auto;
+          width: 50%;
+          min-width: 300px;
+          max-width: 500px;
+          padding: 10px;
+          background-color: #473f4a;
+          text-align: center;
+        }
+
+        .login-form {
+            background-color: #473f4a;
+            width: 260px;
+            margin: 20px auto;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .wellcome {
+            color: #dd5d20;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .wellcome h3 {
+            font-size: 17px;
+        }
+        
+        .wellcome p {
+            font-size: 16px;
+        }
+        
+        .form-control {
+            text-align: start;
+            margin: 15px auto;
+        }
+        
+        .form-error {
+            color: red;
+        }
+
+        .input-title {
+            font-size: 18px;
+            color:black;
+            font-weight: bold;
+        }
+        
+        .control {
+                width: 95%;
+                padding: 8px 8px;
+        }
+
+        .rememberme {
+            color: #060E55;
+            font-size: 15px;
+        }
+
+        .checkbox {
+            margin: 10px;
+        }
+        
+        .form-button {
+            display: block;
+            background-color: #dd5d20;
+            width: 40%;
+            border:none;
+            font-size: 20px;
+            color:#000000;
+            padding:5px 10px;
+            border-radius: 8px;
+            margin: 10px auto;
+        }
+
+        .app-button {
+            margin: 5px auto;
+            border-radius: 7px;
+            background-color: #DD5D20; 
+            height: 30px;
+            width: 95%;
+            border: none;
+         }
+
+        .to-other-form {
+            color: #060e55;
+            margin: 10px auto;
+
+        }
+        
+        .to-other-form h3 {
+            font-size: 16px;
+        }
+        
+        .to-other-form a {
+            color: #060e55;
+            font-size: 15px;
+        }
+        
+        .required {
+            font-size: 12px;
+            color:black;
+            font-weight: bold;
+        }
+        
+
+/* ======================================
+            Pie de página
+========================================= */
+
+footer {
+    background-color: #DD5D20;
+    color: #000;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-main .formulario .obligatorio{
-    font-size: 12px;
-    color:black;
-    font-weight: bold;
-}
+    footer div.redes-sociales {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 25px;
+        padding: 15px;
+    }
 
-.control-formulario p {
-    color: red;
-}
+    footer div.redes-sociales i {
+        margin: 0 5px;
+    }
 
+    footer div.copyright {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+    }
+
+    footer div.copyright h3 {
+        color: #FFFFFF;
+        margin-left: 10px;
+        font-weight: normal;
+    }

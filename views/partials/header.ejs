@@ -10,7 +10,7 @@
             <i id= "icono-busqueda" class="fa-solid fa-magnifying-glass" ></i>
         </div>
         <div class="iconos">
-            <div class="user-login">
+            <div class="icon-header user-login">
                 <% if (locals.isLogged) { %>
                     <a href="#" class="login">
                         <img src="/images/avatars/<%= locals.userLogged.image %>" alt="User image">
@@ -27,10 +27,10 @@
                     </h5>
                 <% } %>
             </div>
-            <div class="ilike">    
+            <div class="icon-header ilike">    
                 <i id="like" class="fa-solid fa-thumbs-up"></i>
             </div> 
-            <div class="icarrito">   
+            <div class="icon-header icarrito">   
                 <a href="/products/cart" class="carrito">
                     <i id="carrito" class="fa-solid fa-cart-shopping"></i>
                 </a>
