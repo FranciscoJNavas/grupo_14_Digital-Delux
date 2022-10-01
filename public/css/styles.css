@@ -256,10 +256,13 @@ Product-Detail
             .quantity {
                 display: flex;
                 align-items: center;
+                font-size: calc(12px + 0.6vw);
+                color: #DD5D20;
             }
 
             .quantity input {
-                width: 35px;
+                width: 5%;
+                min-width: 20px;
                 margin: 0 10px;
                 /* height: 100%; */
             }
@@ -270,7 +273,7 @@ Product-Detail
             }
 
             .add-remove i{
-                font-size: 17px;
+                font-size: calc(10px + 0.6vw);
                 margin: 4px 0;
             }
 
@@ -323,6 +326,114 @@ Product-Detail
 .info-detail {
     margin: 10px 0;
 }
+
+/* ======================================
+            Cart
+========================================= */
+
+.cart-page {
+    background-color: #473f4a;
+    margin: 15px;
+    width: 90%;
+    padding: 10px;
+    color: #DD5D20;
+}
+
+.product-cart {
+    width: 100%;
+    margin: 5px 0;
+    border: solid 1px grey;
+    
+}
+
+    .product-image-in-cart {
+        width: 30%;
+        margin-right: 5px;
+    }
+
+    /* .product-cart .cart-q {
+        width: 30%;
+        margin: 0 10px;
+    } */
+
+    .image-name {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: calc(8px + 1.2vw);
+        margin: 0 auto;
+    }
+
+    .buy-detail {
+        width: 90%;
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+        .price-delete {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 45%;
+        }
+
+        .cart-q {
+            width: 45%;
+        }
+
+    .send-buy {
+        width: 90%;
+        margin: 10px auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        font-size: 10px;
+    }
+
+    .send-buy div {
+        /* width: 35%; */
+        padding-right: 10%;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+    
+    }
+    
+    .send-buy div a {
+        font-size: 8px;
+    }
+    
+    .send-buy p{
+        width: 35%; 
+    }
+    
+    .total {
+        width: 90%;
+        margin: 10px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .total h3{
+        width: 65%;
+        padding-right: 20%;
+    
+    }
+    
+    .total p{
+        width: 35%;
+      
+    }
+/*     
+    .product-name {
+
+    } */
 
 /* ======================================
             Forms
@@ -587,5 +698,10 @@ footer {
 
     .main-fields .form-control {
         width: 45%;
+    }
+
+    .product-cart {
+        display: flex;
+        justify-content: space-between;
     }
 }
