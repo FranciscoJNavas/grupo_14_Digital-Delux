@@ -22,14 +22,15 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage });
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
+const isLoguedMiddleware = require('../middlewares/isLoguedMiddleware')
 
 
 // ************ LOGIN *************
-router.get('/login', usersController.login);
+router.get('/login', isLoguedMiddleware,  usersController.login);
 router.post('/login', loginMiddleware ,usersController.userLogin);
 
 // ************ REGISTER *************
-router.get('/register', usersController.register);
+router.get('/register', isLoguedMiddleware,  usersController.register);
 
 //****** Crear usuario **********
 router.post('/register', uploadFile.single('avatar'), registerMiddleware, usersController.newUser);

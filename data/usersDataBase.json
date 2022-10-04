@@ -8,5 +8,15 @@
   "image": "default-user.jpg",
   "dni": "33630169",
   "date_birth": "1988-09-14"
+ },
+ {
+  "id": 1664841716891,
+  "email": "jorgegarcia143@gmail.com",
+  "password": "$2a$10$SKy1wHRPOVr89sd5ywXOC.pwErM9d3BtUb4ial34nfrTuhiYU44wm",
+  "first_name": "Jorge",
+  "last_name": "Garcia",
+  "image": "default-user.jpg",
+  "dni": "34193612",
+  "date_birth": "1988-12-27"
  }
 ]

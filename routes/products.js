@@ -3,6 +3,8 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 
+
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         //luego crear una carpeta particular para los productos
@@ -19,6 +21,7 @@ const uploadFile = multer({ storage });
 
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
+const authMiddleware = require('../middlewares/authMiddleware')
 
 router.get('/', productsController.products);
 
@@ -28,7 +31,7 @@ router.get('/detail/:id/', productsController.detail);
 
 // Editar producto
 
-router.get('/edit/:id/', productsController.edit);
+router.get('/edit/:id/', authMiddleware, productsController.edit);
 router.put('/edit/:id/', uploadFile.single('imageProduct'), productsController.upgrade);
 
 // Crear producto
