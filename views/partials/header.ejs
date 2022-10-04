@@ -23,10 +23,20 @@
                         <i id="usuario" class="fa-solid fa-user"></i>
                     </a>
                     <h5 class="nombre-usuario">
-                    Nombre Usuario
+                    Ingresar
                     </h5>
                 <% } %>
             </div>
+            <% if (locals.isLogged) { %>
+                <div class="icon-header user-login">
+                    <a href="/users/logout" class="login">
+                        <i id="usuario" class="fa-solid fa-right-from-bracket"></i>
+                    </a>    
+                    <h5 class="nombre-usuario">
+                        Logout
+                    </h5>
+                </div>
+            <% } %>
             <div class="icon-header ilike">    
                 <i id="like" class="fa-solid fa-thumbs-up"></i>
             </div> 

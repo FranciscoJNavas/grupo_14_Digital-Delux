@@ -17,6 +17,9 @@ const controller = {
 			if(passwordOk){
 				console.log("Accediste");
 				req.session.userLogged = userToLogin;
+				if(req.body.rememberMe){ //si tengo tildado el recordar usuario creo la cookie sino no
+					res.cookie('userEmail', req.body.email , { maxAge: (1000*60*5)})
+				}
 				return res.redirect('/'); //saludo
 			}
 		}
@@ -62,6 +65,11 @@ const controller = {
 			return res.render('users/register',{errors:errors.mapped(), old: req.body});
 		}
 		// revisar validator, está funcionando crear usuario, agregar funciones para validar los campos.
+	},
+	logout: (req, res) => {
+		res.clearCookie('userEmail'); //elimino cookie
+		req.session.destroy(); // elimino sesión
+		res.redirect('/');
 	}
 };
 

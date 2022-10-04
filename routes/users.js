@@ -29,27 +29,14 @@ const isLoguedMiddleware = require('../middlewares/isLoguedMiddleware')
 router.get('/login', isLoguedMiddleware,  usersController.login);
 router.post('/login', loginMiddleware ,usersController.userLogin);
 
+// ************ LOGOUT *************
+router.get('/logout', usersController.logout);
+
+
 // ************ REGISTER *************
 router.get('/register', isLoguedMiddleware,  usersController.register);
 
-//****** Crear usuario **********
+//****** CREAR USUARIO **********
 router.post('/register', uploadFile.single('avatar'), registerMiddleware, usersController.newUser);
-/*
-
-
-// Editar producto
-
-router.get('/edit/:id/', productsController.edit);
-router.put('/edit/:id/', uploadFile.single('imageProduct'), productsController.upgrade);
-
-// Crear producto
-router.get('/create', productsController.create);
-
-// Borrar producto
-router.delete('/delete/:id', productsController.delete);
-
-
-*/
-
 
 module.exports = router;
