@@ -1,53 +1,27 @@
 main{
-    font-family: 'Roboto', sans-serif;
-    padding: 15px 0px;
     width: 100%;
-    background-color: #01000E;
 }
 
 .formulario{
-    background-color: #473f4a;
-    width: 280px;
-    margin: auto;
-    padding: 15px;
-    height: 600px;
-}
-
-.cage-Formulario{
-    margin-bottom: 25px;
-}
-
-#fingerprint{
-    padding-right: 5px;
-}
-
-#logo-email{
-    padding-right: 5px;
-}
-
-#logo-calendar{
-    padding-right: 7px;
-}
-
-#logo-dni{
-    padding-right: 5px;
+    background-color:  #473f4a;
+    height: 670px;
+    width: 85%;
+    margin-left: 8%;
+    margin-top: 34px;
+    margin-bottom: 34px;
 }
 
 .imageProfile{
-    margin-left: 20%;
-    margin-bottom: 20px;
-    margin-top: 30px;
-}
-​
-.name-user{
-  display: inline;
+    width: 50%;
+    margin: 20px 0px 30px 25%;
 }
 
-@media (max-width: 415px)
-{
-    main{
-        height: 662px;
-        margin-top: 10%;
-        margin-bottom: 10%;
-    }
+.cage-Formulario h3{
+    display: inline;
+    margin-left: 10px;
+}
+
+.cage-Formulario{
+    margin-bottom: 20px ;
+    margin-left: 10px;
 }
