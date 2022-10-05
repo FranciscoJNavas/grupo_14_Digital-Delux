@@ -39,4 +39,7 @@ router.get('/register', isLoguedMiddleware,  usersController.register);
 //****** CREAR USUARIO **********
 router.post('/register', uploadFile.single('avatar'), registerMiddleware, usersController.newUser);
 
+
+router.get('/userProfile', usersController.userProfile)
+
 module.exports = router;

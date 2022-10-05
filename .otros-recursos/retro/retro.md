@@ -50,6 +50,11 @@ Plus: Nuevamente tuvimos una comunicación activa por medio del grupo de Whatsap
 Como pusimos en la retrospectiva del sprint 2, a veces es complicado que todos puedan el mismo día y en el mismo horario, entonces lo que tratabamos de hacer es conectarnos obviamente cuando todos podían, pero en algunas ocasiones eso era bastante complicado entonces nos conectabamos igual para poder seguir avanzando con el sprint y luego se le comunicaba los cambios o los avances que habíamos tenido.
 
 
+# **RETROSPECTIVA SPRINT 4** <!-- Basado en la metodología Plus & Delta-->
+Plus: Nuevamentetratamos de realizar casi todo el sprint juntos para terminar de comprender bien los temas, al igual que como mencionamos en el sprint anterior hubieron momentos en los cuáles nos dividimos algunas tareas. 
+Delta: En este sprint no tuvimos tantas reuniones diarias, pero logramos concretarlo con exito.
+Plus: Al igual que lo mencionado en el sprint anterior, nuevamente tuvimos una comunicación activa por medio del grupo de Whatsapp. 
+Obviamente que sigue siendo complicado a veces poder conectarnos todos juntos pero lo bueno es que esa no es una traba para poder resolver de manera correcta el sprint. 
 
 
 

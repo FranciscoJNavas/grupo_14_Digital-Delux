@@ -70,6 +70,10 @@ const controller = {
 		res.clearCookie('userEmail'); //elimino cookie
 		req.session.destroy(); // elimino sesión
 		res.redirect('/');
+	},
+
+	userProfile:(req,res)=>{
+		res.render(path.join(__dirname, "/users/userProfile"))
 	}
 };
 

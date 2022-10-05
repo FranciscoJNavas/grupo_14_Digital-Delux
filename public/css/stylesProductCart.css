@@ -1,0 +1,328 @@
+
+main {
+    background-color: #473F4A;
+    color:#dd5d20;
+    padding: 15px;
+    font-size: 14px;
+    min-height: 505px;
+    
+}
+
+main .producto {
+    width: 100%;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+main .producto .imagen-nombre {
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+main .producto .imagen-nombre .nombre-caract {
+    margin-left: 10px;
+}
+
+
+main .producto .imagen-nombre .nombre-caract p {
+    font-size: 8px;
+
+}
+
+main .producto .cantidad {
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 10px;
+    margin: 0 1%;
+}
+
+main .producto .cantidad p {
+    width: 100%;
+}
+
+main .producto .cantidad input {
+    width: 25px;
+    height: 20px;
+    margin: 0 10px;
+    /* height: 100%; */
+}
+
+
+main .producto .cantidad div {
+    display: flex;
+    flex-direction: column;
+}
+
+main .producto .cantidad div i{
+    margin: 4px 0;
+}
+
+main .producto .precio-borrar {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+main .producto .precio-borrar i {
+    margin: auto 10px;
+}
+
+main .envio {
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 10px;
+}
+
+main .envio div {
+    /* width: 35%; */
+    padding-right: 10%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+}
+
+main .envio div a {
+    font-size: 8px;
+}
+
+main .envio p{
+    width: 35%; 
+}
+
+main .total {
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+main .total h3{
+    width: 65%;
+    padding-right: 20%;
+
+}
+
+main .total p{
+    width: 35%;
+  
+}
+
+main .comprar {
+    margin-left: 55%;
+}
+
+main .comprar button{
+    font-size: 20px;
+    width: 90%;
+    max-width: 150px;
+    background:  #dd5d20;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+}
+
+
+@media (max-width:415px){
+    main{
+        height: 705px;
+       
+    }
+}
+
+/* .nombreproducto1{
+    color:#dd5d20;
+    position: relative;
+    left:15%;
+    top:50px;
+}
+
+
+.destacada1{
+    position: relative;
+    left:15%;
+    top:50px;
+}
+
+.price1{
+    font-size: 16px;
+    position: relative;
+    left:70%;
+    top: 20px;
+    
+}
+
+#borrar1{
+    position: relative;
+    left:94%;
+    top:10%;
+    
+}
+
+.nombreproducto2{
+    color:#dd5d20;
+    font-size: 16px;
+    position: relative;
+    left:15%;
+    top:50px;
+}
+
+.destacada2{
+    font-size: 10px;
+    position: relative;
+    left:15%;
+    top:50px;
+}
+
+.price2{
+    font-size: 16px;
+    position: relative;
+    left:70%;
+    top: 20px;
+}
+
+#borrar2{
+    position: relative;
+    left:94%;
+    top:10%;
+}
+
+.envio{
+    font-size: 14px;
+    position: relative;
+    left:50%;
+    top:50px;
+}
+
+.price3{
+    font-size: 14px;
+    position: relative;
+    left:70%;
+    top: 32px;
+}
+
+.cambiarDireccion{
+    font-size: 9px;
+    position: relative;
+    left:47%;
+    top: 32px;
+    color:white;
+}
+
+.total{
+    font-size: 14px;
+    position: relative;
+    left:50%;
+    top:50px;
+}
+
+.price4{
+    font-size: 14px;
+    position: relative;
+    left:70%;
+    top: 32px;
+}
+
+
+.comprar{
+    font-size: 25px;
+    position: relative;
+    left:65%;
+    top:50px;
+    background-color: #dd5d20;
+    color:white;
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+}
+
+.foto1{
+    position: relative;
+    left:12%;
+    top: 85px;
+}
+
+.foto2{
+    position: relative;
+    left:12%;
+    top: 85px;
+} */
+
+/* @media (min-width:400px){
+    .comprar{
+        font-size: 25px;
+        position: relative;
+        left:50%;
+        top:50px;
+        background-color: #dd5d20;
+        color:white;
+        border-radius: 10px;
+        width: 150px;
+        height: 40px;
+
+    }
+
+    .cambiarDireccion{
+        font-size: 9px;
+        position: relative;
+        left:40%;
+        top: 32px;
+        color:white;
+    }
+    #borrar1{
+        position: relative;
+        left:80%;
+        top:10%;
+        
+    }
+    #borrar2{
+        position: relative;
+        left:80%;
+        top:20px;
+    }
+}
+
+
+@media (min-width:481px){
+    .comprar{
+        font-size: 25px;
+        position: relative;
+        left:65%;
+        top:50px;
+        background-color: #dd5d20;
+        color:white;
+        border-radius: 10px;
+        width: 150px;
+        height: 40px;
+    }
+    .cambiarDireccion{
+        font-size: 9px;
+        position: relative;
+        left:47%;
+        top: 32px;
+        color:white;
+    }
+    #borrar1{
+        position: relative;
+        left:80%;
+        top:10%;
+        
+    }
+    #borrar2{
+        position: relative;
+        left:80%;
+        top:10%;
+    }
+} */
