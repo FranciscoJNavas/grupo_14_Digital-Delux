@@ -73,7 +73,7 @@ const controller = {
 	},
 
 	userProfile:(req,res)=>{
-		res.render(path.join(__dirname, "/users/userProfile"))
+		res.render ("users/userProfile")
 	}
 };
 
