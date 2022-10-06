@@ -435,6 +435,63 @@ Product-Detail
 
     } */
 
+
+
+/* ======================================
+            Profile
+========================================= */
+.profile {
+    background-color: #473f4a;
+    width: 85%;
+    margin: 25px auto;
+    padding: 15px 5px;
+}
+
+    .profile-image {
+        width: 100%;
+        padding: 20px auto;
+        text-align: center;
+    }
+
+    .image-profile {
+        width: 50%;
+        max-width: 240px;
+        margin: 15px;
+    }
+
+    .main-user-data {
+        width: 95%;
+        margin: 20px auto;
+        border: 2px solid grey;
+    }
+
+    .profile-data {
+        width: 95%;
+        margin: 15px 0;
+        padding: 5px;
+        color: #DD5D20;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: calc(6px + 1.4vw);
+    }
+
+    .profile-data i {
+        width: 7%;
+    }
+
+    .profile-data h3 {
+        width: 90%;
+        margin-left: 5px;
+        /* width: fit-content; */
+    }
+
+.user-content {
+    width: 85%;
+    margin: 30px auto;
+    padding: 15px 5px;
+    color: #DD5D20;
+}
+
 /* ======================================
             Forms
 ========================================= */
@@ -704,4 +761,21 @@ footer {
         display: flex;
         justify-content: space-between;
     }
+
+    /* Profile  */
+
+    .profile {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .profile-image {
+        width: 30%;
+    }
+
+    .main-user-data {
+        width: 70%;
+    }
+
 }
