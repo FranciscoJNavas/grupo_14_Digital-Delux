@@ -20,7 +20,7 @@ const controller = {
 				if(req.body.rememberMe){ //si tengo tildado el recordar usuario creo la cookie sino no
 					res.cookie('userEmail', req.body.email , { maxAge: (1000*60*5)})
 				}
-				return res.redirect('/'); //saludo
+				return res.redirect('/users/user-profile'); //saludo
 			}
 		}
 		return res.render('users/login', {
@@ -73,7 +73,7 @@ const controller = {
 	},
 
 	userProfile:(req,res)=>{
-		res.render ("users/userProfile")
+		res.render ("users/user-profile")
 	}
 };
 

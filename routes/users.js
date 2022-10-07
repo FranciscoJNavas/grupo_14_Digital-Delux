@@ -22,7 +22,8 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage });
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
-const isLoguedMiddleware = require('../middlewares/isLoguedMiddleware')
+const isLoguedMiddleware = require('../middlewares/isLoguedMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 
 // ************ LOGIN *************
@@ -40,6 +41,6 @@ router.get('/register', isLoguedMiddleware,  usersController.register);
 router.post('/register', uploadFile.single('avatar'), registerMiddleware, usersController.newUser);
 
 
-router.get('/userProfile', usersController.userProfile)
+router.get('/user-profile', authMiddleware, usersController.userProfile)
 
 module.exports = router;
