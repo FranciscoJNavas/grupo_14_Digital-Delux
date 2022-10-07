@@ -18,6 +18,10 @@ const storage = multer.diskStorage({
     }
 })
 const uploadFile = multer({ storage });
+const fields = [
+    { name: 'imageProduct', maxCount: 1 },
+    { name: 'imagesMini', maxCount: 5 }
+  ];
 
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
@@ -36,7 +40,7 @@ router.put('/edit/:id/', uploadFile.single('imageProduct'), productsController.u
 
 // Crear producto
 router.get('/create', productsController.create);
-router.post('/create', uploadFile.single('imageProduct') ,productsController.newProduct);
+router.post('/create', uploadFile.fields(fields) , productsController.newProduct);
 
 // Borrar producto
 router.delete('/delete/:id', productsController.delete);

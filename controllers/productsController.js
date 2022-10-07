@@ -86,8 +86,10 @@ let id = req.params.id;
 	},
 	newProduct: (req, res) => {
 		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		// console.log("en new");
-		console.log(req.file);
+		let imagesNameArray = [];
+		req.files['imagesMini'].forEach( image => {
+			imagesNameArray.push(image.filename)
+		});
 		let newProduct={
 			id: Date.now(),
   			name: req.body.name,
@@ -96,7 +98,7 @@ let id = req.params.id;
   			category: req.body.category,
   			description: req.body.description,
   			//agregar imagen por defecto si no se carga una imagen
-			image: req.file.filename,
+			image: req.files['imageProduct'][0].filename,
   			features:req.body.features,
   			vendor:"",
   			section: req.body.section,
