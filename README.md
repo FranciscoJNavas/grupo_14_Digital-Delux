@@ -26,6 +26,8 @@ Con dedicación estoy formando mis conocimientos y experiencia para poder encara
 "Jorge Garcia, tengo 33 años y me recibí de Ingeniero Electrónico en el año 2013. Desde ese momento trabajé en diferentes industrias en áreas de ingeniería y mantenimiento. Siempre me gustó la programación, arranque aprendiendo lenguaje asembler y luego C y C++. Todo orientado a la programación de microcontroladores y PLCs. Desde hace un tiempo me comenzó a llamar la atención el desarrolló de páginas web y aplicaciones móviles, es por ello que realicé un curso intensivo de programación de APIs en JAVA a principio de año y ahora continúo ese camino con el curso de full stack en Digital House. La idea es seguir capacitándome y ver la posibilidad de un cambio de rumbo hacia la industria del software. 
 Mi hobbie, jugar al fútbol con amigos, sin dudas."
 
+"Lucila Guelman. Tengo 21 años. Actualmente me encuentro estudiando hebreo y trabajando, ya que mi idea es irme a estudiar ingeniería informática en Israel. Gané esta beca de mi comunidad judía y quería obtener las herramientas básicas para luego desarrollar esos conocimientos cuando tenga que realizar mi carrera en el exterior. Voy a trabajar en el ejército allí y mi idea es estar en el área de tecnología. Mi idea es poder tener todos los conocimientos necesarios para poder ampliarme en lo que es la tecnología y poder trabajar en empresas internacionales/exitosas."
+
 Inspiración en referentes del mercado:
 
 https://www.mercadolibre.com.ar/ <!-- Página de compra y venta de todo tipo de productos, se toma como ejemplo de diseño por su facilidad y funcionalidades-->
