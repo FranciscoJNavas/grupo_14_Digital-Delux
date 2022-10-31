@@ -18,7 +18,7 @@ const controller = {
 		
 	},
 	list: (req, res) => {
-		db.User.findByPk(2, {
+		db.User.findByPk(1, {
 			include: ['products']
 		})
 		.then((response)=>{
