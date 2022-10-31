@@ -56,5 +56,10 @@ Delta: En este sprint no tuvimos tantas reuniones diarias, pero logramos concret
 Plus: Al igual que lo mencionado en el sprint anterior, nuevamente tuvimos una comunicación activa por medio del grupo de Whatsapp. 
 Obviamente que sigue siendo complicado a veces poder conectarnos todos juntos pero lo bueno es que esa no es una traba para poder resolver de manera correcta el sprint. 
 
+# **RETROSPECTIVA SPRINT 5** <!-- Basado en la metodología Plus & Delta-->
+Plus: Al igual que en el sprint anterior realizamos casi todo el sprint juntos para terminar de comprender bien los temas, pero aunque suene repetitivo acá también nos dividimos algunas tareas para que sea mas ágil. 
+Delta: Tuvimos algunos encuentros por meet y nos comunicamos mucho por el grupo de whatsapp.
+Plus: Como recalcamos en la retrospectiva del sprint 4, sigue siendo complicado 
+a veces poder conectarnos todos juntos pero lo bueno es que esa no es una traba para poder resolver de manera correcta el sprint y terminarlo a tiempo. 
 
 
