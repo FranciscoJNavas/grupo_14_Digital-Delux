@@ -5,19 +5,19 @@ create DATABASE digital_delux_db;
 CREATE TABLE `digital_delux_db`.`brands` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`brand_id`));
+  PRIMARY KEY (`id`));
 
 -- Creación tabla de categoría
 CREATE TABLE `digital_delux_db`.`category` (
   `id` INT NOT NULL,
   `name` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`category_id`));
+  PRIMARY KEY (`id`));
 
 -- Creación tabla de secciones/apartados del sitio
 CREATE TABLE `digital_delux_db`.`section_of_site` (
   `id` INT NOT NULL,
   `name` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`section_of_site_id`));
+  PRIMARY KEY (`id`));
 
 -- Creación tabla de productos
 CREATE TABLE `digital_delux_db`.`products` (
