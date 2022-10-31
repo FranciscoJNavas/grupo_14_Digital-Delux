@@ -38,5 +38,15 @@
   "image": "default-user.jpg",
   "dni": "100027323",
   "date_birth": "2003-08-01"
+ },
+ {
+  "id": 1665104670991,
+  "email": "fnavas@email.com",
+  "password": "$2a$10$t26/idmASgVOB5pV0fe81.HeHFSp0gLJcqYXrOX9XaoRkz5ypfzm.",
+  "first_name": "José",
+  "last_name": "N",
+  "image": "default-user.jpg",
+  "dni": "32456897",
+  "date_birth": "1987-02-12"
  }
 ]
