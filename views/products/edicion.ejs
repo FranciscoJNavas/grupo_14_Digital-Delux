@@ -19,10 +19,10 @@
             <div class="form-control">
                 <b><label class="input-title" for="section" >Sección:</label></b><br>
                 <select name="section" id="section" class="control">
-                    <option value="celular" <%= productToEdit.section == "celular" ? "selected":"" %>>Celular</option>
-                    <option value="television" <%= productToEdit.section == "television" ? "selected":"" %>>Televisión</option>
-                    <option value="computacion" <%= productToEdit.section == "computacion" ? "selected":"" %>>Computación</option>
-                    <option value="otro" <%= productToEdit.section == "otro" ? "selected":"" %>>Otros</option>
+                    <% for (let section of sections) { %>
+                        <option value="<%=section.id%>" <%= productToEdit.section.name == section.name ? "selected":"" %>><%= section.name %></option>
+                        
+                    <% } %>
                 </select>
             </div>
 
@@ -39,16 +39,21 @@
             <div class="form-control">
                 <b><label class="input-title" for="category" >Categoría:</label></b><br>
                 <select name="category" id="category" class="control">
-                    <option value="" <%= productToEdit.category == "" ? "selected":"" %>></option>
-                    <option value="in-sale" <%= productToEdit.category == "in-sale" ? "selected":"" %>>Oferta</option>
-                    <option value="novedades" <%= productToEdit.category == "novedades" ? "selected":"" %>>Novedades</option>
-                    <option value="lo más destacado" <%= productToEdit.category == "lo más destacado" ? "selected":"" %>>Destacado</option>
+                    <% for (let category of categories) { %>
+                        <option value="<%=category.id%>" <%= productToEdit.category.name == category.name ? "selected":"" %>><%= category.name %></option>
+                        
+                    <% } %>
                 </select>
             </div>
 
             <div class="form-control">
                 <b><label class="input-title" for="brand" >Marca:</label></b><br>
-                <input type="text" name="brand" id="brand" value="<%= productToEdit.brand %>" class="control">
+                <select name="brand" id="brand" class="control">
+                    <% for (let brand of brands) { %>
+                        <option value="<%=brand.id%>" <%= productToEdit.brand.name == brand.name ? "selected":"" %>><%= brand.name %></option>
+                        
+                    <% } %>
+                </select>
             </div>
 
             <div class="form-control">

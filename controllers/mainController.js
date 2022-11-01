@@ -11,18 +11,26 @@ let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
 	index: (req, res) => {
-		products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		res.render('index',{ products :products, url:"inicio" });
+		let promProducts = db.Product.findAll({
+			include:  ['brand', 'category', 'section', 'users']
+		});
+		Promise.all([promProducts])
+		.then(products =>{
+			//return res.send(products[0]);
+			res.render('index',{ products :products[0], url:"inicio" });
+		})
+		// products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 	},
 	search: (req, res) => {
 		
 	},
 	list: (req, res) => {
-		db.User.findByPk(1, {
-			include: ['products']
+		db.Product.findAll({
+			include:  ['brand', 'category', 'section', 'users']
 		})
-		.then((response)=>{
-			res.send(response);
+		.then((products)=>{
+			return res.render('index',{ products :products, url:"list" });
+			// res.send(response);
 		})
 	}
 };

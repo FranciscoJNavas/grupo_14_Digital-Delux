@@ -9,13 +9,13 @@ CREATE TABLE `digital_delux_db`.`brands` (
 
 -- Creación tabla de categoría
 CREATE TABLE `digital_delux_db`.`category` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`));
 
 -- Creación tabla de secciones/apartados del sitio
 CREATE TABLE `digital_delux_db`.`section_of_site` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`));
 
@@ -48,11 +48,9 @@ CREATE TABLE `digital_delux_db`.`users` (
 
 -- Creación tabla usuarios-productos
 CREATE TABLE `digital_delux_db`.`user_product` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
   `product_id` INT NOT NULL,
-  `buyer` INT NULL,
-  `publication_date` DATE NOT NULL,
-  `buy_date` DATE NULL,
+  `buyer_id` INT NULL,
   PRIMARY KEY (`id`));
 

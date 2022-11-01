@@ -38,7 +38,7 @@ const controller = {
 	},
 	newUser: (req, res) => {
 		let errors = validationResult(req);
-		console.log(req.file);
+		// console.log(req.file);
 		
 		if(errors.isEmpty()){
 			db.User
@@ -61,7 +61,10 @@ const controller = {
 						newUser.avatar = req.file.filename;
 					}
 					db.User.create(newUser)
-					.then(()=>{
+					.then((userCreated)=>{
+						// return res.send(userCreated);
+						req.session.userLogged = userCreated;
+						return res.redirect('/users/user-profile');
 						return res.redirect("/"); //redireccionar a vista de perfil con datos creados
 					})
 					.catch((error)=>{

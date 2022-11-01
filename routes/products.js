@@ -8,7 +8,7 @@ const path = require('path');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         //luego crear una carpeta particular para los productos
-        cb(null, './public/images');
+        cb(null, './public/images/products');
     },
     // filename: function (req, file, cb) {
     //     cb(null, '${Date.now()}_img_${path.extname(file.originalname)}');

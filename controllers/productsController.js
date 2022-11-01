@@ -2,6 +2,8 @@ const fs = require('fs');
 const { join } = require('path');
 const path = require('path');
 const db = require('../database/models');
+const { Op } = require("sequelize");
+const moment = require('moment');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const productImagePath = path.join(__dirname, '../public/images');
@@ -13,82 +15,84 @@ const controller = {
 		res.render('products/cart');
 	},
 	detail: (req, res) => {
-		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		const productFilter = products.find((p) => p.id == req.params.id);
-		res.render('products/product-detail',{products:products, productFilter:productFilter});
+
+		let promProducts = db.Product.findAll({
+			include: ['brand', 'category', 'section', 'users']
+		});
+		let promProductFilter = db.Product.findByPk(req.params.id, {
+			include: ['brand', 'category', 'section', 'users']
+		});
+		Promise.all([promProducts, promProductFilter])
+		.then(([products, productFilter]) => {
+			// return res.send(productFilter.users[0]);
+			return res.render('products/product-detail',{products:products, productFilter:productFilter});
+		})
+		.catch((error)=>{
+			res.send(error);
+		});
 	},
 	edit: (req, res) => {
-		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		const productToEdit = products.find((p) => p.id == req.params.id);
-		res.render('products/edicion',{productToEdit:productToEdit});
+		let promProductToEdit = db.Product.findByPk(req.params.id, {
+			include: ['brand', 'category', 'section', 'users']
+		})
+		let promBrands = db.Brand.findAll();
+		let promCategory = db.Category.findAll();
+		let promSection = db.Section.findAll();
+		Promise.all([promProductToEdit, promBrands, promCategory, promSection])
+		.then(([productToEdit, brands, categories, sections])=>{
+			//return res.send(brands);
+			return res.render('products/edicion',{productToEdit:productToEdit, brands, categories, sections});
+		})
+
 	},
 	upgrade: (req, res) => {
-		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		let productId = req.params.id;
 
-		let productToUpgrade = products.find((p) => p.id == req.params.id);
+		let productToUpgrade = {
+			name: req.body.name,
+			price: req.body.price,
+			discount: req.body.discount,
+			category_id: req.body.category,
+			description: req.body.description,
+			//agregar imagen por defecto si no se carga una imagen
+		  	image: req.files['imageProduct'][0].filename,
+			features: req.body.features,
+			section_of_site_id: req.body.section,
+			brand_id: req.body.brand
+	  	};
+		// if(req.file){
+		// 	fs.unlinkSync(join(productImagePath, productToUpgrade.image));
+		// 	productToUpgrade.image = req.file.filename;
+		// }
 
-		//let index = products.indexOf(productToUpgrade);
-
-		//console.log(index);
-		productToUpgrade.name = req.body.name;
-		productToUpgrade.price = req.body.price;
-		productToUpgrade.discount = req.body.discount;
-		productToUpgrade.category = req.body.category;
-		productToUpgrade.description = req.body.description;
-		if(req.file){
-			fs.unlinkSync(join(productImagePath, productToUpgrade.image));
-			productToUpgrade.image = req.file.filename;
-		}
-		productToUpgrade.features = req.body.features;
-		productToUpgrade.section = req.body.section;3,
-		productToUpgrade.brand = req.body.brand;
-		/*		console.log(index);
-		products[index].name = req.body.name;
-		products[index].price = req.body.price;
-		products[index].discount = req.body.discount;
-		products[index].category = req.body.category;
-		products[index].description = req.body.description;
-		if(req.file){
-			fs.unlinkSync(join(productImagePath, products[index].image));
-			products[index].image = req.file.filename;
-		}
-		products[index].features = req.body.features;
-		products[index].section = req.body.section;
-		products[index].brand = req.body.brand; */
-/* 
-let id = req.params.id;
-		let productToEdit = products.find(product => product.id == id)
-		let image
-		if(req.file != undefined){
-			image = req.file.filename
-		} else {
-			image = productToEdit.image
-		}
-
-		productToEdit = {
-			id: productToEdit.id,
-			...req.body,
-			image: image,
-		};
-		
-		let newProducts = products.map(product => {
-			if (product.id == productToEdit.id) {
-				return product = {...productToEdit};
-			}
-			return product;
+		db.Product.update(productToUpgrade, 
+			{
+				where: {id: productId}
+			})
+		.then((showProduct)=>{
+			return res.send(showProduct);
 		})
-*/
-		fs.writeFileSync(productsFilePath,JSON.stringify(products));
-		res.redirect("/");
+		.catch((error)=>{
+			res.send(error);
+		});
+				
+		
 	},
 	create: (req, res) => {
-		res.render('products/creacion');
+		let promBrands = db.Brand.findAll();
+		let promCategory = db.Category.findAll();
+		let promSection = db.Section.findAll();
+		Promise.all([promBrands, promCategory, promSection])
+		.then(([brands, categories, sections])=>{
+			//return res.send(brands);
+			res.render('products/creacion', {brands, categories, sections});
+		})
 	},
 	newProduct: (req, res) => {
-		let imagesNameArray = [];
-		req.files['imagesMini'].forEach( image => {
-			imagesNameArray.push(image.filename)
-		});
+		// let imagesNameArray = [];
+		// req.files['imagesMini'].forEach( image => {
+		// 	imagesNameArray.push(image.filename)
+		// });
 		let newProduct={
   			name: req.body.name,
   			price: req.body.price,
@@ -97,28 +101,32 @@ let id = req.params.id;
   			description: req.body.description,
   			//agregar imagen por defecto si no se carga una imagen
 			image: req.files['imageProduct'][0].filename,
-  			features:req.body.features,
+  			features: req.body.features,
   			section_of_site_id: req.body.section,
   			brand_id: req.body.brand
 		};
 		db.Product.create(newProduct)
-					.then((response)=>{
-						db.UserProduct.create({
-							user_id: req.session.userLogged.id,
-							product_id: response.dataValues.id
-						})
-					})
-					.then((response2)=>{
-						return res.send(response2)
-					})
-					.catch((error)=>{
-						res.send(error);
-					});
+			.then((product)=>{
+				db.UserProduct.create({
+					user_id: req.session.userLogged.id,
+					product_id: product.dataValues.id
+				}) // se crea la relación entre usuario y producto
+				return product;
+			})
+			.then((showProduct)=>{
+				return res.send(showProduct);
+			})
+			.catch((error)=>{
+				res.send(error);
+			});
 	},
 	products: (req, res) => {
 		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		let productsToShow = products.filter((product) => product.section == req.query.section)
-
+		// db.Product.findAll({
+		// 	include: ['brand', 'category', 'section', 'users'],
+		// 	where: {}
+		// });
 		res.render('index',{products: productsToShow, url:"navbar"});
 	},
 	delete: (req,res)=>{

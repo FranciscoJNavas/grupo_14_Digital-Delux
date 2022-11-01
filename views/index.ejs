@@ -92,16 +92,16 @@
                     <section class="category">
                         <h3 class="featured-category">Lo más destacado...</h3>
                         <% for(producto of products){ %>
-                            <% if(producto.category == "lo más destacado") { %>
+                            <% if(producto.section.name == "Destacado") { %>
                                 <%- include('./partials/product') %>
                             <%}%>
                         <%}%>
                     </section>
         
                     <section class="category">
-                        <h3 class="featured-category">Visto recientemente...</h3>
+                        <h3 class="featured-category">Ofertas...</h3>
                         <% for(producto of products){ %>
-                            <% if(producto.category == "visto recientemente") { %>
+                            <% if(producto.section.name == "Oferta") { %>
                                 <%- include('./partials/product') %>
                             <%}%>
                         <%}%>
@@ -110,7 +110,7 @@
                     <section class="category">
                         <h3 class="featured-category">Novedades...</h3>
                         <% for(producto of products){ %>
-                            <% if(producto.category == "novedades") { %>
+                            <% if(producto.section.name == "Novedades") { %>
                                 <%- include('./partials/product') %>
                             <%}%>
                         <%}%>

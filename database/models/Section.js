@@ -13,6 +13,7 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
+        tableName: 'section_of_site',
         timestamps: false
     }
     const Section = sequelize.define(alias, cols, config); 

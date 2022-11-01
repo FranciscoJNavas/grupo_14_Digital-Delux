@@ -20,9 +20,11 @@
             <div class="form-control">
                 <b><label class="input-title" for="section" >Sección:</label></b><br>
                 <select name="section" id="section" class="control">
-                    <option value="1">Novedades</option>
-                    <option value="2">Destacado</option>
-                    <option value="3">Oferta</option>
+                    <% for (let section of sections) { %>
+                        <option value="<%=section.id%>"><%= section.name %></option>
+                        
+                    <% } %>
+                    
                 </select>
             </div>
 
@@ -39,16 +41,21 @@
             <div class="form-control">
                 <b><label class="input-title" for="category" >Categoría:</label></b><br>
                 <select name="category" id="category" class="control">
-                    <option value="1">Celular</option>
-                    <option value="2">Televisión</option>
-                    <option value="3">Computación</option>
-                    <option value="4">Otros</option>
+                    <% for (let category of categories) { %>
+                        <option value="<%=category.id%>"><%= category.name %></option>
+                        
+                    <% } %>
                 </select>
             </div>
 
             <div class="form-control">
                 <b><label class="input-title" for="brand" >Marca:</label></b><br>
-                <input type="text" name="brand" id="brand" class="control">
+                <select name="brand" id="brand" class="control">
+                    <% for (let brand of brands) { %>
+                        <option value="<%=brand.id%>"><%= brand.name %></option>
+                        
+                    <% } %>
+                </select>
             </div>
             
             <div class="form-control">
@@ -56,10 +63,10 @@
                 <input type="file" name="imageProduct" id="image" accept=".jpg" class="control">
             </div>
 
-            <div class="form-control">
+            <!-- <div class="form-control">
                 <b><label class="input-title" for="images">Imagenes Secundarias:</label></b><br>
                 <input type="file" name="imagesMini" id="images" accept=".jpg" class="control" multiple>
-            </div>
+            </div> -->
 
         </div>
 

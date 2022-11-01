@@ -11,7 +11,7 @@
             <article class="main-product">
 
                 <div class="main-pic">
-                    <img class="main-image" src="/images/<%= productFilter.image %>" alt="imagen-principal">
+                    <img class="main-image" src="/images/products/<%= productFilter.image %>" alt="imagen-principal">
                 </div>
 
                 <div class="main-features no-border">
@@ -81,7 +81,7 @@
                         <div class="category">
                             <h4 class="featured-category">Productos del mismo vendedor</h4>
                             <% for( producto of products ) { %>
-                                <% if (producto.vendor == productFilter.vendor && producto.id != productFilter.id) { %>
+                                <% if (producto.users[0].id == productFilter.users[0].id && producto.id != productFilter.id) { %>
                                     <%- include('../partials/product') %> 
                                 <% } %>
                             <% } %>
@@ -89,7 +89,7 @@
                         <div class="category">
                             <h4 class="featured-category">Podría interesarte</h4>
                             <% for( producto of products ) { %>
-                                <% if (producto.category == "visto recientemente" && producto.id != productFilter.id) { %>
+                                <% if (producto.section.name == productFilter.section.name && producto.id != productFilter.id) { %>
                                     <%- include('../partials/product') %> 
                                 <% } %>
                             <% } %>
@@ -97,7 +97,7 @@
                         <div class="category">
                             <h4 class="featured-category">Productos relacionados</h4>
                             <% for( producto of products ) { %>
-                                <% if (producto.section == productFilter.section && producto.id != productFilter.id) { %>
+                                <% if (producto.category.name == productFilter.category.name && producto.id != productFilter.id) { %>
                                     <%- include('../partials/product') %> 
                                 <% } %>
                             <% } %>
