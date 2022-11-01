@@ -61,7 +61,12 @@ const controller = {
 						newUser.avatar = req.file.filename;
 					}
 					db.User.create(newUser)
-					return res.redirect("/"); //redireccionar a vista de perfil con datos creados
+					.then(()=>{
+						return res.redirect("/"); //redireccionar a vista de perfil con datos creados
+					})
+					.catch((error)=>{
+						res.send(error);
+					});
 				}else {
 					return res.render('users/register',{errors:{email: {msg: "El usuario ya existe"}}, old: req.body});
 				}

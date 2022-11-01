@@ -45,5 +45,4 @@ router.post('/create', uploadFile.fields(fields) , productsController.newProduct
 // Borrar producto
 router.delete('/delete/:id', productsController.delete);
 
-
 module.exports = router;

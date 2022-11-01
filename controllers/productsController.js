@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { join } = require('path');
 const path = require('path');
+const db = require('../database/models');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const productImagePath = path.join(__dirname, '../public/images');
@@ -81,33 +82,38 @@ let id = req.params.id;
 		res.redirect("/");
 	},
 	create: (req, res) => {
-		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		res.render('products/creacion');
 	},
 	newProduct: (req, res) => {
-		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		let imagesNameArray = [];
 		req.files['imagesMini'].forEach( image => {
 			imagesNameArray.push(image.filename)
 		});
 		let newProduct={
-			id: Date.now(),
   			name: req.body.name,
   			price: req.body.price,
   			discount: req.body.discount,
-  			category: req.body.category,
+  			category_id: req.body.category,
   			description: req.body.description,
   			//agregar imagen por defecto si no se carga una imagen
 			image: req.files['imageProduct'][0].filename,
   			features:req.body.features,
-  			vendor:"",
-  			section: req.body.section,
-  			brand: req.body.brand,
-  			visited:""
+  			section_of_site_id: req.body.section,
+  			brand_id: req.body.brand
 		};
-		products.push(newProduct);
-		fs.writeFileSync(productsFilePath,JSON.stringify(products));
-		res.redirect("/");
+		db.Product.create(newProduct)
+					.then((response)=>{
+						db.UserProduct.create({
+							user_id: req.session.userLogged.id,
+							product_id: response.dataValues.id
+						})
+					})
+					.then((response2)=>{
+						return res.send(response2)
+					})
+					.catch((error)=>{
+						res.send(error);
+					});
 	},
 	products: (req, res) => {
 		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
