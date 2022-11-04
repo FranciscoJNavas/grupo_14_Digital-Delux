@@ -55,7 +55,7 @@ const controller = {
 			category_id: req.body.category,
 			description: req.body.description,
 			//agregar imagen por defecto si no se carga una imagen
-		  	image: req.files['imageProduct'][0].filename,
+		  	image: req.file.filename,
 			features: req.body.features,
 			section_of_site_id: req.body.section,
 			brand_id: req.body.brand
@@ -121,26 +121,44 @@ const controller = {
 			});
 	},
 	products: (req, res) => {
-		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		let productsToShow = products.filter((product) => product.section == req.query.section)
-		// db.Product.findAll({
-		// 	include: ['brand', 'category', 'section', 'users'],
-		// 	where: {}
-		// });
-		res.render('index',{products: productsToShow, url:"navbar"});
+		//let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		//let productsToShow = products.filter((product) => product.section == req.query.section)
+		db.Product.findAll({
+			include: ['brand', 'category', 'section', 'users'],
+			where: { 
+				//id : 1
+				"$category.name$": {[Op.like]: '%'+req.query.section+'%'}
+				//category: {}
+				// category: {[Op.like]: '%'+req.query.section+'%'}
+			 }
+		})
+		.then(productsToShow => {
+			//return res.send(product);
+			res.render('index',{products: productsToShow, url:"navbar"});
+
+		})
 	},
 	delete: (req,res)=>{
 		
-		let productToDelete = products.find (p => p.id == req.params.id);
+		let productId = req.params.id;
 		
-		const productResult = products.filter((p) => p.id != req.params.id);
-		fs.writeFileSync(productsFilePath,JSON.stringify(productResult));
-		
-		products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		//borrar foto
-		fs.unlinkSync(join(productImagePath, productToDelete.image));
+		db.UserProduct.destroy({
+			where: {product_id: productId} // Se elimina primero la relación con tabla pivot.
+		})
+		.then(()=>{
+			db.Product.destroy({
+				where: {id: productId} // Elimino el producto
+			})
 
-		res.redirect("/");
+		})
+		.then(()=>{
+			res.redirect("/");
+
+		})
+		.catch((error)=>{
+			res.send(error);
+		});
+
 	} 
 };
 

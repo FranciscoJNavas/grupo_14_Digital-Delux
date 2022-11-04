@@ -65,7 +65,7 @@ const controller = {
 						// return res.send(userCreated);
 						req.session.userLogged = userCreated;
 						return res.redirect('/users/user-profile');
-						return res.redirect("/"); //redireccionar a vista de perfil con datos creados
+						//return res.redirect("/"); //redireccionar a vista de perfil con datos creados
 					})
 					.catch((error)=>{
 						res.send(error);

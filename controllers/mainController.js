@@ -11,6 +11,7 @@ let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
 	index: (req, res) => {
+		
 		let promProducts = db.Product.findAll({
 			include:  ['brand', 'category', 'section', 'users']
 		});
@@ -25,6 +26,7 @@ const controller = {
 		
 	},
 	list: (req, res) => {
+		//return console.log("http://localhost:3000" + req.originalUrl);
 		db.Product.findAll({
 			include:  ['brand', 'category', 'section', 'users']
 		})
