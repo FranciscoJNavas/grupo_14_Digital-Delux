@@ -87,6 +87,15 @@ const controller = {
 
 	userProfile:(req,res)=>{
 		res.render ("users/user-profile")
+	},
+
+	userEdit: (req, res) => {
+		res.render('users/edit');
+	},
+
+	userUpdate: (req, res) => {
+		//hacer lógica de actualizacion de datos del perfil en BD, luego redireccionar a la vista perfil
+		res.send('Hola estoy editando');
 	}
 };
 

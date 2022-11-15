@@ -26,7 +26,13 @@
                                 <i class="fa-solid fa-id-card"></i><h3><%= locals.userLogged.dni %></h3>
                         </div>
                          
-                    </div> 
+                    </div>
+                    
+                    <div class="user-button">
+                        <a class="direct-link" href="/users/edit/<%= locals.userLogged.id %>">
+                            <button class="form-button">EDITAR PERFIL</button>
+                        </a>
+                    </div>
           </section>
 
           <section class="user-content">

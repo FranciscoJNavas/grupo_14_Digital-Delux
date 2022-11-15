@@ -1,0 +1,61 @@
+<%- include('../partials/head') %>
+
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <form action="/users/edit?_method=PUT" method="POST" class="register-form" enctype="multipart/form-data">
+            <div class="wellcome">
+                <h3>Bienvenido a Digital Delux.</h3>
+                <p>Modificar datos.</p>
+            </div>
+
+            <div class="form-control">
+                <label class="input-title">Nombre</label>
+                <input type="text" name="first_name" class="control" id="first-name" value="<%= locals.userLogged.first_name %>">
+                <p class="form-error"><%= locals.errors?.first_name ? errors.first_name.msg : "" %></p>
+                <p class="first-name-form-error error-fe"></p>           
+            </div>
+        
+            <div class="form-control">
+                <label class="input-title">Apellido</label>
+                <input type="text" name="last_name" class="control" id="last-name" value="<%= locals.userLogged.last_name %>">
+                <p class="form-error"><%= locals.errors?.last_name ? errors.last_name.msg : "" %></p>
+                <p class="last-name-form-error error-fe"></p> 
+            </div>
+
+            <div class="form-control">
+                <b><label for="image">Foto de Perfil:</label></b><br>
+                <input type="file" name="avatar" id="image" accept=".jpg">
+                <p class="avatar-form-error error-fe"></p>
+            </div>
+        
+            <div class="form-control">
+                <label class="input-title">DNI</label>
+                <input type="number" name="dni" class="control" id="dni" value="<%= locals.userLogged.dni %>">
+                <p class="form-error"><%= locals.errors?.dni ? errors.dni.msg : "" %></p>
+                <p class="dni-form-error error-fe"></p>
+            </div>
+        
+            <div class="form-control">
+                <label class="input-title">Fecha de Nacimiento</label>
+                <input type="date" name="date_birth" class="control" id="date-birth" value="<%= locals.userLogged.date_of_birth %>">
+                <p class="form-error"><%= locals.errors?.date_birth ? errors.date_birth.msg : "" %></p>
+                <p class="date-birth-form-error error-fe"></p>
+            </div>
+        
+            <div class="register-button">
+                <button type="submit" class="form-button">Editar</button>
+                <p class="button-form-error error-fe"></p>
+
+            </div>
+
+            <div class="to-other-form">
+                <h3>¿Ya estás registrado?</h3>
+                <a href="/users/login">Haz click aquí</a>
+            </div>
+        </form>
+     </main>       
+     <%- include('../partials/footer') %>
+     <!-- <script src="/js/userValidator.js"></script> -->
+</body>
+</html>
