@@ -11,21 +11,22 @@ const storage = multer.diskStorage({
         cb(null, './public/images/products');
     },
     // filename: function (req, file, cb) {
-    //     cb(null, '${Date.now()}_img_${path.extname(file.originalname)}');
-    // }
-    filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-    }
-})
-const uploadFile = multer({ storage });
-const fields = [
-    { name: 'imageProduct', maxCount: 1 },
-    { name: 'imagesMini', maxCount: 5 }
-  ];
-
-// ************ Controller Require ************
-const productsController = require('../controllers/productsController');
-const authMiddleware = require('../middlewares/authMiddleware')
+        //     cb(null, '${Date.now()}_img_${path.extname(file.originalname)}');
+        // }
+        filename: function (req, file, cb) {
+            cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+        }
+    })
+    const uploadFile = multer({ storage });
+    const fields = [
+        { name: 'imageProduct', maxCount: 1 },
+        { name: 'imagesMini', maxCount: 5 }
+    ];
+    
+    // ************ Controller Require ************
+    const productsController = require('../controllers/productsController');
+    const authMiddleware = require('../middlewares/authMiddleware')
+    const loadProductMiddleware = require('../middlewares/loadProductMiddleware');
 
 router.get('/', productsController.products);
 
@@ -36,11 +37,11 @@ router.get('/detail/:id/', productsController.detail);
 // Editar producto
 
 router.get('/edit/:id/', authMiddleware, productsController.edit);
-router.put('/edit/:id/', uploadFile.single('imageProduct'), productsController.upgrade);
+router.put('/edit/:id/', [uploadFile.single('imageProduct'), loadProductMiddleware], productsController.upgrade);
 
 // Crear producto
 router.get('/create', productsController.create);
-router.post('/create', uploadFile.fields(fields) , productsController.newProduct);
+router.post('/create', [uploadFile.fields(fields), loadProductMiddleware] , productsController.newProduct);
 
 // Borrar producto
 router.delete('/delete/:id', productsController.delete);

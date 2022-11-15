@@ -550,6 +550,11 @@ Product-Detail
             color: red;
         }
 
+        .error-fe {
+            color: orange;
+            font-size: 10px;
+        }
+
         .input-title {
             font-size: 15px;
             color:black;

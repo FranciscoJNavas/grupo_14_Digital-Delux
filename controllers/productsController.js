@@ -4,6 +4,7 @@ const path = require('path');
 const db = require('../database/models');
 const { Op } = require("sequelize");
 const moment = require('moment');
+const { validationResult } = require('express-validator' );
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const productImagePath = path.join(__dirname, '../public/images');
@@ -46,35 +47,53 @@ const controller = {
 
 	},
 	upgrade: (req, res) => {
+
 		let productId = req.params.id;
+		let errors = validationResult(req);
+		
+		if(errors.isEmpty()){
 
-		let productToUpgrade = {
-			name: req.body.name,
-			price: req.body.price,
-			discount: req.body.discount,
-			category_id: req.body.category,
-			description: req.body.description,
-			//agregar imagen por defecto si no se carga una imagen
-		  	image: req.file.filename,
-			features: req.body.features,
-			section_of_site_id: req.body.section,
-			brand_id: req.body.brand
-	  	};
-		// if(req.file){
-		// 	fs.unlinkSync(join(productImagePath, productToUpgrade.image));
-		// 	productToUpgrade.image = req.file.filename;
-		// }
-
-		db.Product.update(productToUpgrade, 
-			{
-				where: {id: productId}
+			let productToUpgrade = {
+				name: req.body.name,
+				price: req.body.price,
+				discount: req.body.discount,
+				category_id: req.body.category,
+				description: req.body.description,
+				//agregar imagen por defecto si no se carga una imagen
+				  image: req.file.filename,
+				features: req.body.features,
+				section_of_site_id: req.body.section,
+				brand_id: req.body.brand
+			  };
+			// if(req.file){
+			// 	fs.unlinkSync(join(productImagePath, productToUpgrade.image));
+			// 	productToUpgrade.image = req.file.filename;
+			// }
+	
+			db.Product.update(productToUpgrade, 
+				{
+					where: {id: productId}
+				})
+			.then((showProduct)=>{
+				return res.send(showProduct);
 			})
-		.then((showProduct)=>{
-			return res.send(showProduct);
-		})
-		.catch((error)=>{
-			res.send(error);
-		});
+			.catch((error)=>{
+				res.send(error);
+			});
+		} else {
+			let promProductToEdit = db.Product.findByPk(req.params.id, {
+				include: ['brand', 'category', 'section', 'users']
+			})
+			let promBrands = db.Brand.findAll();
+			let promCategory = db.Category.findAll();
+			let promSection = db.Section.findAll();
+			Promise.all([promProductToEdit, promBrands, promCategory, promSection])
+			.then(([productToEdit, brands, categories, sections])=>{
+				//return res.send(brands);
+				return res.render('products/edicion',{productToEdit:productToEdit, brands, categories, sections, errors:errors.mapped(), old: req.body});
+			})
+		}
+
 				
 		
 	},
@@ -89,6 +108,11 @@ const controller = {
 		})
 	},
 	newProduct: (req, res) => {
+
+		let errors = validationResult(req);
+		
+		if(errors.isEmpty()){
+
 		// let imagesNameArray = [];
 		// req.files['imagesMini'].forEach( image => {
 		// 	imagesNameArray.push(image.filename)
@@ -119,6 +143,17 @@ const controller = {
 			.catch((error)=>{
 				res.send(error);
 			});
+		} else {
+			let promBrands = db.Brand.findAll();
+			let promCategory = db.Category.findAll();
+			let promSection = db.Section.findAll();
+			Promise.all([promBrands, promCategory, promSection])
+			.then(([brands, categories, sections])=>{
+				//return res.send(brands);
+				res.render('products/creacion', {brands, categories, sections, errors:errors.mapped(), old: req.body});
+			})
+	
+		}
 	},
 	products: (req, res) => {
 		//let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));

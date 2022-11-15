@@ -49,7 +49,7 @@ const controller = {
 				if(!userFound){
 					let newUser={
 						email: req.body.email,
-						password: bcrypt.hashSync(req.body.password, 10),
+						password: bcrypt.hashSync(req.body.repassword, 10),
 						first_name: req.body.first_name,
 						last_name: req.body.last_name,
 						avatar: "default-user.jpg", // cargar imagen por defecto

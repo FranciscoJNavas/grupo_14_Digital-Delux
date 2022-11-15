@@ -10,48 +10,56 @@
             </div>
             <div class="form-control">
                 <label class="input-title">Email</label>
-                <input type="email" name="email" class="control">
+                <input type="email" name="email" class="control" id="email">
                 <p class="form-error"><%= locals.errors?.email ? errors.email.msg : "" %></p>
+                <p class="email-form-error error-fe"></p>
             </div>
             <div class="form-control">
                 <label class="input-title" >Contraseña</label>
-                <input type="password" name="password1" class="control">
-                <p class="form-error"><%= locals.errors?.password1 ? errors.password1.msg : "" %></p>  
+                <input type="password" name="password" class="control" id="password">
+                <p class="form-error"><%= locals.errors?.password ? errors.password.msg : "" %></p>
+                <p class="password-form-error error-fe"></p>
             </div>
         
             <div class="form-control">
                 <label class="input-title">Confirmar contraseña</label>
-                <input type="password" name="password" class="control">
-                <p class="form-error"><%= locals.errors?.password ? errors.password.msg : "" %></p>
+                <input type="password" name="repassword" class="control" id="repassword">
+                <p class="form-error"><%= locals.errors?.repassword ? errors.repassword.msg : "" %></p>
+                <p class="repassword-form-error error-fe"></p>
             </div>
         
             <div class="form-control">
                 <label class="input-title">Nombre</label>
-                <input type="text" name="first_name" class="control">
-                <p class="form-error"><%= locals.errors?.first_name ? errors.first_name.msg : "" %></p>            
+                <input type="text" name="first_name" class="control" id="first-name">
+                <p class="form-error"><%= locals.errors?.first_name ? errors.first_name.msg : "" %></p>
+                <p class="first-name-form-error error-fe"></p>           
             </div>
         
             <div class="form-control">
                 <label class="input-title">Apellido</label>
-                <input type="text" name="last_name" class="control">
-                <p class="form-error"><%= locals.errors?.last_name ? errors.last_name.msg : "" %></p> 
+                <input type="text" name="last_name" class="control" id="last-name">
+                <p class="form-error"><%= locals.errors?.last_name ? errors.last_name.msg : "" %></p>
+                <p class="last-name-form-error error-fe"></p> 
             </div>
 
             <div class="form-control">
                 <b><label for="image">Foto de Perfil:</label></b><br>
                 <input type="file" name="avatar" id="image" accept=".jpg">
+                <p class="avatar-form-error error-fe"></p>
             </div>
         
             <div class="form-control">
                 <label class="input-title">DNI</label>
-                <input type="number" name="dni" class="control">
+                <input type="number" name="dni" class="control" id="dni">
                 <p class="form-error"><%= locals.errors?.dni ? errors.dni.msg : "" %></p>
+                <p class="dni-form-error error-fe"></p>
             </div>
         
             <div class="form-control">
                 <label class="input-title">Fecha de Nacimiento</label>
-                <input type="date" name="date_birth" class="control">
+                <input type="date" name="date_birth" class="control" id="date-birth">
                 <p class="form-error"><%= locals.errors?.date_birth ? errors.date_birth.msg : "" %></p>
+                <p class="date-birth-form-error error-fe"></p>
             </div>
     
             <div>
@@ -60,7 +68,11 @@
                 </h3>
             </div>
         
-            <button type="submit" class="form-button">Enviar</button>
+            <div class="register-button">
+                <button type="submit" class="form-button">Enviar</button>
+                <p class="button-form-error error-fe"></p>
+
+            </div>
 
             <div class="to-other-form">
                 <h3>¿Ya estás registrado?</h3>
@@ -69,5 +81,6 @@
         </form>
      </main>       
      <%- include('../partials/footer') %>
+     <script src="/js/userValidator.js"></script>
 </body>
 </html>
