@@ -23,12 +23,12 @@ const usersController = {
 					if(passwordOk){
 						console.log("Accediste");
 						req.session.userLogged = userToLogin;
-						console.log(req.session.userLogged)
 						if(req.body.rememberMe){ //si tengo tildado el recordar usuario creo la cookie sino no
 							res.cookie('userEmail', req.body.email , { maxAge: (1000*60*5)})
 						}
 						let products = productListP.filter(product=>product.users[0].id == userToLogin.id)
-						return res.render('users/user-profile',{products:products});
+						// return res.render('users/user-profile',{products:products});
+						return res.redirect('/users/user-profile');
 					}
 				} else {
 					return res.render('users/login', {
