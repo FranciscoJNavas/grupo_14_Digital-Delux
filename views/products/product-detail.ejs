@@ -54,14 +54,15 @@
                 </div>
 
                 <div class="user-button">
-
-                    <a class="direct-link" href="/products/edit/<%= productFilter.id %>">
-                        <button class="form-button">EDITAR PRODUCTO</button>
-                    </a>
-                    
-                    <form action="/products/delete/<%= productFilter.id %>?_method=DELETE" method="POST">
-                        <button class="form-button" type="submit">ELIMINAR</button>
-                    </form>
+                    <% if (locals.userLogged?.id == productFilter.users[0].id) { %> 
+                        <a class="direct-link" href="/products/edit/<%= productFilter.id %>">
+                            <button class="form-button">EDITAR PRODUCTO</button>
+                        </a>
+                        
+                        <form action="/products/delete/<%= productFilter.id %>?_method=DELETE" method="POST">
+                            <button class="form-button" type="submit">ELIMINAR</button>
+                        </form>
+                    <% } %>
 
                 </div>
             </div>

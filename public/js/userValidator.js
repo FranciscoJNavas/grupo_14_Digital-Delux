@@ -18,6 +18,9 @@ window.addEventListener('load', function(){
     // const inputDateBirth = document.querySelector('#date-birth');
     // const errorDateBirth = document.querySelector('.date-birth-form-error');
 
+    const regex = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+
+
     //control de envío de formulario
     btnsubmit.addEventListener('click', function(e){
         e.preventDefault();
@@ -40,9 +43,9 @@ window.addEventListener('load', function(){
             errors.password = 'La contraseña debe tener al menos 8 caracteres';
         }
 
-        if(inputPassword.value !== inputRepassword.value){
-            errors.repassword = 'Las contraseñas deben coincidir';
-        }
+        // if(inputPassword.value !== inputRepassword.value){
+        //     errors.repassword = 'Las contraseñas deben coincidir';
+        // }
 
         if(Object.keys(errors).length >= 1){
             errorEmail.innerText = (errors.email) ? errors.email : '';
@@ -53,8 +56,8 @@ window.addEventListener('load', function(){
 
         } else {
             
-            console.log(Object.keys(errors).length)
-            //productForm.submit();
+            //console.log(Object.keys(errors).length)
+            productForm.submit();
         }
 
     })

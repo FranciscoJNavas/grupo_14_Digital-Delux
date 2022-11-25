@@ -1,4 +1,4 @@
-const {body} = require('express-validator');
+const {body, check} = require('express-validator');
 
 let validateRegister = [
     body('first_name')
@@ -21,12 +21,15 @@ let validateRegister = [
         minSymbols: 1       // mínimo 1 símbolo
     })
     .withMessage('La contraseña debe tener al menos 8 caracteres, debe contener al menos una mayúscula, una minúscula, un número y un símbolo'),
-    body('repassword').notEmpty().withMessage('La contraseña es obligatoria').bail()
-    // .custom((req) => {
-    //     console.log(req.body.password);
-    //     const pass = req.body.password;
-    //     const repass = req.body.repassword;
-    //   }) //.withMessage('Las contraseñas no coinciden'),
+    body('repassword').notEmpty().withMessage('La contraseña es obligatoria').bail(),
+    
+    check('repassword').custom(async(repassword, {req}) => {
+        const password = req.body.password;
+
+        if(password !== repassword){
+            throw new Error('Las contraseñas deben coincidir')
+        }
+    })
 ];
 
 module.exports = validateRegister;

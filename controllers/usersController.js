@@ -1,29 +1,35 @@
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator' );
 const db = require('../database/models');
+const { Op } = require("sequelize");
 
 
-const controller = {
+const usersController = {
 	login: (req, res) => {
 		res.render('users/login');
 	},
 	userLogin: (req, res) => {
-		db.User
-			.findOne({
-				where: {email: req.body.email}
-			})
-			.then(userToLogin => {
-				if(userToLogin){
-					let passwordOk = bcrypt.compareSync(req.body.password, userToLogin.password);
-					if(passwordOk){
-						console.log("Accediste");
-						req.session.userLogged = userToLogin;
-						if(req.body.rememberMe){ //si tengo tildado el recordar usuario creo la cookie sino no
-							res.cookie('userEmail', req.body.email , { maxAge: (1000*60*5)})
-						}
-						return res.redirect('/users/user-profile'); //saludo
+
+		let productList = db.Product.findAll({
+			include:  ['brand', 'category', 'section', 'users']
+		});
+		let foundUser = db.User.findOne({
+			where: {email: req.body.email}
+		});
+		Promise.all([foundUser, productList])
+		.then(([userToLogin, productList]) => {
+			if(userToLogin){
+				let passwordOk = bcrypt.compareSync(req.body.password, userToLogin.password);
+				if(passwordOk){
+					console.log("Accediste");
+					req.session.userLogged = userToLogin;
+					if(req.body.rememberMe){ //si tengo tildado el recordar usuario creo la cookie sino no
+						res.cookie('userEmail', req.body.email , { maxAge: (1000*60*5)})
 					}
+					let products = productList.filter(product=>product.users[0].id == userToLogin.id)
+					return res.render('users/user-profile',{products:products});
 				}
+			} else {
 				return res.render('users/login', {
 					errors: {
 						email : {
@@ -31,14 +37,16 @@ const controller = {
 						}
 					}
 				})
-			})
+			}
+		})
+
 	},
     register: (req, res) => {
 		res.render('users/register');
 	},
 	newUser: (req, res) => {
 		let errors = validationResult(req);
-		// console.log(req.file);
+		console.log(errors);
 		
 		if(errors.isEmpty()){
 			db.User
@@ -65,10 +73,9 @@ const controller = {
 						// return res.send(userCreated);
 						req.session.userLogged = userCreated;
 						return res.redirect('/users/user-profile');
-						//return res.redirect("/"); //redireccionar a vista de perfil con datos creados
 					})
-					.catch((error)=>{
-						res.send(error);
+					.catch((errors)=>{
+						res.send(errors);
 					});
 				}else {
 					return res.render('users/register',{errors:{email: {msg: "El usuario ya existe"}}, old: req.body});
@@ -86,7 +93,13 @@ const controller = {
 	},
 
 	userProfile:(req,res)=>{
-		res.render ("users/user-profile")
+		db.Product.findAll({
+			include:  ['brand', 'category', 'section', 'users'],
+			where: {"$users.id$": {[Op.like]: req.session.userLogged.id}}
+		})
+		.then((products)=>{
+			return res.render('users/user-profile',{ products:products});
+		})
 	},
 
 	userEdit: (req, res) => {
@@ -99,4 +112,4 @@ const controller = {
 	}
 };
 
-module.exports = controller;
+module.exports = usersController;

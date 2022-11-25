@@ -6,40 +6,53 @@
     <%- include('../partials/header') %>
     <main>
 
-          <section class="profile">
-                    <div class="profile-image">
-                        <img src="/images/avatars/<%= locals.userLogged.avatar %>" alt="" class="image-profile">
-                   </div>
-
-                   <div class="main-user-data">
-
-                        <div class="profile-data">
-                                <i class="fa-sharp fa-solid fa-fingerprint"></i><h3><%= locals.userLogged.first_name %>  <%= locals.userLogged.last_name %></h3>
-                        </div>  
-                        <div class="profile-data">
-                                <i class="fa-solid fa-envelope"></i><h3><%= locals.userLogged.email %></h3>
-                        </div>
-                        <div class="profile-data">
-                                <i class="fa-solid fa-calendar-days"></i><h3><%= locals.userLogged.date_birth %></h3>
-                        </div> 
-                        <div class="profile-data">
-                                <i class="fa-solid fa-id-card"></i><h3><%= locals.userLogged.dni %></h3>
-                        </div>
-                         
-                    </div>
-                    
-                    <div class="user-button">
-                        <a class="direct-link" href="/users/edit/<%= locals.userLogged.id %>">
-                            <button class="form-button">EDITAR PERFIL</button>
-                        </a>
-                    </div>
-          </section>
-
-          <section class="user-content">
-            <div class="user-products">
-                <p> Aquí vendrán las secciones de los productos del usuario </p>
+        <section class="profile">
+            <div class="profile-image">
+                <img src="/images/avatars/<%= locals.userLogged.avatar %>" alt="" class="image-profile">
             </div>
-          </section>
+
+            <div class="main-user-data">
+
+                <div class="profile-data">
+                    <i class="fa-sharp fa-solid fa-fingerprint"></i><h3><%= locals.userLogged.first_name %>  <%= locals.userLogged.last_name %></h3>
+                </div>  
+                <div class="profile-data">
+                    <i class="fa-solid fa-envelope"></i><h3><%= locals.userLogged.email %></h3>
+                </div>
+                <div class="profile-data">
+                    <i class="fa-solid fa-calendar-days"></i><h3><%= locals.userLogged.date_of_birth %></h3>
+                </div> 
+                <div class="profile-data">
+                    <i class="fa-solid fa-id-card"></i><h3><%= locals.userLogged.dni %></h3>
+                </div>
+                         
+            </div>
+                    
+            <div class="user-button">
+                <a class="direct-link" href="/users/edit/<%= locals.userLogged.id %>">
+                    <button class="form-button">EDITAR PERFIL</button>
+                </a>
+
+            </div>
+        </section>
+                
+        <section class="user-content">
+            <div>
+                <a class="direct-link" href="/products/create">
+                    <button class="form-button">Agregar Producto</button>
+                </a>
+            </div>  
+            <div class="user-products">
+                <div class="category">
+                    <h4 class="featured-category">Productos publicados</h4>
+                    <% for( producto of products ) { %>
+                        <% if (producto.users[0].id == locals.userLogged.id) { %>
+                            <%- include('../partials/product') %> 
+                        <% } %>
+                    <% } %>
+                </div>
+            </div>
+        </section>
           
     </main>
     <%- include('../partials/footer') %>

@@ -9,21 +9,19 @@ const moment = require('moment');
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const controller = {
+const mainController = {
 	index: (req, res) => {
 		
 		let promProducts = db.Product.findAll({
 			include:  ['brand', 'category', 'section', 'users']
 		});
 		Promise.all([promProducts])
-		.then(products =>{
-			//return res.send(products[0]);
-			res.render('index',{ products :products[0], url:"inicio" });
+		.then(([products]) =>{
+			res.render('index',{ products :products, url:"inicio" });
 		})
-		// products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 	},
 	search: (req, res) => {
-		
+		// FALTA REALIZAR!!!!!!!!
 	},
 	list: (req, res) => {
 		//return console.log("http://localhost:3000" + req.originalUrl);
@@ -37,4 +35,4 @@ const controller = {
 	}
 };
 
-module.exports = controller;
+module.exports = mainController;

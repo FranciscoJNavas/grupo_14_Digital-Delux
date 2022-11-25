@@ -10,7 +10,7 @@ const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const productImagePath = path.join(__dirname, '../public/images');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const controller = {
+const productsController = {
 	cart: (req, res) => {
         // console.log("En cart");
 		res.render('products/cart');
@@ -59,8 +59,8 @@ const controller = {
 				discount: req.body.discount,
 				category_id: req.body.category,
 				description: req.body.description,
-				//agregar imagen por defecto si no se carga una imagen
-				  image: req.file.filename,
+			  	// revisar la carga de varias imágenes
+				image: req.file.filename,
 				features: req.body.features,
 				section_of_site_id: req.body.section,
 				brand_id: req.body.brand
@@ -69,13 +69,25 @@ const controller = {
 			// 	fs.unlinkSync(join(productImagePath, productToUpgrade.image));
 			// 	productToUpgrade.image = req.file.filename;
 			// }
-	
 			db.Product.update(productToUpgrade, 
-				{
-					where: {id: productId}
+				{	
+					where: {id: productId},
+			})
+			.then(()=>{
+
+				let promProducts = db.Product.findAll({
+					include: ['brand', 'category', 'section', 'users']
+				});
+	
+				let promProductFilter = db.Product.findByPk(productId, {
+					include: ['brand', 'category', 'section', 'users']
+				});
+				Promise.all([promProducts, promProductFilter])
+				.then(([products, productFilter]) => {
+					
+					// return res.send(productFilter.users[0]);
+					return res.render('products/product-detail',{products:products, productFilter:productFilter});
 				})
-			.then((showProduct)=>{
-				return res.send(showProduct);
 			})
 			.catch((error)=>{
 				res.send(error);
@@ -156,15 +168,11 @@ const controller = {
 		}
 	},
 	products: (req, res) => {
-		//let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		//let productsToShow = products.filter((product) => product.section == req.query.section)
 		db.Product.findAll({
 			include: ['brand', 'category', 'section', 'users'],
 			where: { 
-				//id : 1
 				"$category.name$": {[Op.like]: '%'+req.query.section+'%'}
-				//category: {}
-				// category: {[Op.like]: '%'+req.query.section+'%'}
 			 }
 		})
 		.then(productsToShow => {
@@ -187,7 +195,14 @@ const controller = {
 
 		})
 		.then(()=>{
-			res.redirect("/");
+			let promProducts = db.Product.findAll({
+				include:  ['brand', 'category', 'section', 'users']
+			});
+			Promise.all([promProducts])
+			.then(products =>{
+				//return res.send(products[0]);
+				res.render('index',{ products :products[0], url:"inicio" });
+			})
 
 		})
 		.catch((error)=>{
@@ -197,4 +212,4 @@ const controller = {
 	} 
 };
 
-module.exports = controller;
+module.exports = productsController;
