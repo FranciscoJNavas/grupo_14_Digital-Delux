@@ -8,38 +8,40 @@ const usersController = {
 	login: (req, res) => {
 		res.render('users/login');
 	},
-	userLogin: (req, res) => {
+	userLogin: async (req, res) => {
 
-		let productList = db.Product.findAll({
-			include:  ['brand', 'category', 'section', 'users']
-		});
-		let foundUser = db.User.findOne({
-			where: {email: req.body.email}
-		});
-		Promise.all([foundUser, productList])
-		.then(([userToLogin, productList]) => {
-			if(userToLogin){
-				let passwordOk = bcrypt.compareSync(req.body.password, userToLogin.password);
-				if(passwordOk){
-					console.log("Accediste");
-					req.session.userLogged = userToLogin;
-					if(req.body.rememberMe){ //si tengo tildado el recordar usuario creo la cookie sino no
-						res.cookie('userEmail', req.body.email , { maxAge: (1000*60*5)})
-					}
-					let products = productList.filter(product=>product.users[0].id == userToLogin.id)
-					return res.render('users/user-profile',{products:products});
-				}
-			} else {
-				return res.render('users/login', {
-					errors: {
-						email : {
-							msg: "Las credenciales son inválidas"
+		try {
+			let productList = db.Product.findAll({
+				include:  ['brand', 'category', 'section', 'users']
+			});
+			let foundUser = db.User.findOne({
+				where: {email: req.body.email}
+			});
+			let [userToLogin, productListP] = await Promise.all([foundUser, productList])
+				if(userToLogin){
+					let passwordOk = bcrypt.compareSync(req.body.password, userToLogin.password);
+					if(passwordOk){
+						console.log("Accediste");
+						req.session.userLogged = userToLogin;
+						console.log(req.session.userLogged)
+						if(req.body.rememberMe){ //si tengo tildado el recordar usuario creo la cookie sino no
+							res.cookie('userEmail', req.body.email , { maxAge: (1000*60*5)})
 						}
+						let products = productListP.filter(product=>product.users[0].id == userToLogin.id)
+						return res.render('users/user-profile',{products:products});
 					}
-				})
-			}
-		})
-
+				} else {
+					return res.render('users/login', {
+						errors: {
+							email : {
+								msg: "Las credenciales son inválidas"
+							}
+						}
+					})
+				}
+		} catch (error) {
+			console.log(error);
+		}
 	},
     register: (req, res) => {
 		res.render('users/register');

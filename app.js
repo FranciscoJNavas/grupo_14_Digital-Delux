@@ -27,9 +27,16 @@ const productsRouter = require('./routes/products'); // Rutas /products
 const usersRouter = require('./routes/users'); // Rutas /users
 const { cookie } = require('express-validator');
 
+//rutas Api
+const apiUsersRouter = require('./routes/api/users');
+const apiProductsRouter = require('./routes/api/products');
+
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
+
+app.use('/api/users', apiUsersRouter);
+app.use('/api/products', apiProductsRouter);
 
 
 app.set('puerto', process.env.PORT || 3000);
