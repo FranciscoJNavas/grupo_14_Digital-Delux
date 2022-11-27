@@ -4,9 +4,11 @@ const methodOverride =  require('method-override'); // Pasar poder usar los mét
 const session = require('express-session');
 const cookies = require('cookie-parser');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+var cors = require('cors')
 const app = express();
 
-app.use(express.static(path.join(__dirname, '/public')))
+app.use(cors());
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride("_method"));
