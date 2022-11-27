@@ -4,14 +4,30 @@ const { Op } = require("sequelize");
 
 const productsApiController = {
 	productsList: (req, res) => {
+		let countByCategory = {};
+		db.Category.findAll()
+			.then(categories => {
+				categories.forEach(category => {
+					countByCategory[category.dataValues.name] = 0;
+				});
+			})
+
 		db.Product.findAll({
 			include: ['brand', 'category', 'section', 'users']
 		})
 			.then(products => {
+				products.forEach(product => {
+					for (const key in countByCategory) {
+						if (product.category.name == key) {
+							countByCategory[key] += 1;
+						}
+					}
+				})
 				let respuesta = {
 					meta: {
 						status: 200,
 						total: products.length,
+						countByCategory: countByCategory,
 						url: '/api/products'
 					},
 					data: products
