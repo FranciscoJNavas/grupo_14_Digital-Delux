@@ -5,8 +5,10 @@ const { Op } = require("sequelize");
 const productsApiController = {
 	productsList: (req, res) => {
 		let countByCategory = {};
+		let totalCategories = 0;
 		db.Category.findAll()
 			.then(categories => {
+				totalCategories = categories.length;
 				categories.forEach(category => {
 					countByCategory[category.dataValues.name] = 0;
 				});
@@ -27,6 +29,7 @@ const productsApiController = {
 					meta: {
 						status: 200,
 						total: products.length,
+						totalCategories: totalCategories,
 						countByCategory: countByCategory,
 						url: '/api/products'
 					},
