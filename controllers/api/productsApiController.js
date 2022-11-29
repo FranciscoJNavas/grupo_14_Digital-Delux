@@ -6,14 +6,11 @@ const productsApiController = {
 	productsList: (req, res) => {
 		let countByCategory = {};
 		let totalCategories = 0;
-		let arrayCategories = [];
 		db.Category.findAll()
 			.then(categories => {
-				console.log(categories);
 				totalCategories = categories.length;
 				categories.forEach(category => {
 					countByCategory[category.dataValues.name] = 0;
-					arrayCategories.push(category.dataValues.name);
 				});
 			})
 
@@ -33,7 +30,6 @@ const productsApiController = {
 						status: 200,
 						total: products.length,
 						totalCategories: totalCategories,
-						arrayCategories: arrayCategories,
 						countByCategory: countByCategory,
 						url: '/api/products'
 					},
