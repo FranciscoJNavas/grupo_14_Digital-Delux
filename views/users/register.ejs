@@ -12,20 +12,27 @@
                 <label class="input-title">Email</label>
                 <input type="email" name="email" class="control" id="email">
                 <p class="form-error"><%= locals.errors?.email ? errors.email.msg : "" %></p>
-                <p class="email-form-error error-fe"></p>
+                <p class="email-form-error error-fe no-show">El email no es válido</p>
             </div>
             <div class="form-control">
                 <label class="input-title" >Contraseña</label>
                 <input type="password" name="password" class="control" id="password">
                 <p class="form-error"><%= locals.errors?.password ? errors.password.msg : "" %></p>
-                <p class="password-form-error error-fe"></p>
+                <ul class="password-form-error">
+                    <li class="lower-case error-fe no-show">Debe contener al menos una minúscula</li>
+                    <li class="upper-case error-fe no-show">Debe contener al menos una mayúscula</li>
+                    <li class="digit error-fe no-show">Debe contener al menos un número</li>
+                    <li class="simbol error-fe no-show">Debe contener al menos uno de estos símbolos (@$!%?&)</li>
+                    <li class="str-length error-fe no-show">Debe contener al menos 8 caracteres</li>
+                    <li class="no-valid error-fe no-show">Caracter no válido</li>
+                </ul>
             </div>
         
             <div class="form-control">
                 <label class="input-title">Confirmar contraseña</label>
                 <input type="password" name="repassword" class="control" id="repassword">
                 <p class="form-error"><%= locals.errors?.repassword ? errors.repassword.msg : "" %></p>
-                <p class="repassword-form-error error-fe"></p>
+                <p class="repassword-form-error error-fe no-show">Las contraseñas deben coincidir</p>
             </div>
         
             <div class="form-control">
@@ -62,11 +69,11 @@
                 <p class="date-birth-form-error error-fe"></p>
             </div>
     
-            <div>
+            <!-- <div>
                 <h3 class="required">
                     * Todos los campos son obligatorios
                 </h3>
-            </div>
+            </div> -->
         
             <div class="register-button">
                 <button type="submit" class="form-button">Enviar</button>

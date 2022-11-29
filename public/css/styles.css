@@ -548,11 +548,21 @@ Product-Detail
         
         .form-error {
             color: red;
+            font-size: 10px;
         }
 
         .error-fe {
             color: orange;
             font-size: 10px;
+            margin: 3px 0;
+        }
+
+        .no-show {
+            display: none;
+        }
+
+        .password-form-error {
+            padding-left: 10px;
         }
 
         .input-title {
