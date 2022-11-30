@@ -2,9 +2,9 @@ window.addEventListener('load', function(){
     //capturar elementos
 
     let botonComprar = document.querySelector(".comprar");
+    let numeroCarrito = document.querySelector(".numero-carrito");
 
     botonComprar.addEventListener("click",(e) => {
-        // console.log(e.target.dataset.id);
         if(localStorage.carrito){
             let carrito = JSON.parse(localStorage.carrito);
             let index = carrito.findIndex(
@@ -25,6 +25,8 @@ window.addEventListener('load', function(){
                 quantity: 1
             }]))
         }
+        alert("Agregaste el producto al carrito");
+        numeroCarrito.innerText = carrito.length();
     })
     
 

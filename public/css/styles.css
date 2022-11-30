@@ -113,6 +113,16 @@ header {
             width: min-content;
         }
 
+        .icarrito h5 {
+            font-size: calc(3px + 1.1vw);
+            font-weight: normal;
+            color: #FFFFFF;
+            /* width: min-content; */
+            width: 20%;
+            background-color: red;
+            border-radius: 10%;
+        }
+
     .bottom-header {
         width: 100%;
         padding: 10px;
