@@ -1,80 +1,88 @@
 <%- include('../partials/head') %>
-    
 
-<body>
-    <%- include('../partials/header') %>
 
-    <main class="detail">
-        <div>
-            
-        </div>
-            <article class="main-product">
+    <body>
+        <%- include('../partials/header') %>
 
-                <div class="main-pic">
-                    <img class="main-image" src="/images/products/<%= productFilter.image %>" alt="imagen-principal">
+            <main class="detail">
+                <div>
+
                 </div>
+                <article class="main-product">
 
-                <div class="main-features no-border">
+                    <div class="main-pic">
+                        <img class="main-image" src="/images/products/<%= productFilter.image %>"
+                            alt="imagen-principal">
+                    </div>
 
-                    <h3 class="description"><%= productFilter.name  %></h3>
-                    <h3 class="price">$<%= productFilter.price  %></h3>
+                    <div class="main-features no-border">
 
-                    <div class="quantity">
+                        <h3 class="description">
+                            <%= productFilter.name %>
+                        </h3>
+                        <h3 class="price">$<%= productFilter.price %>
+                        </h3>
 
-                        <p>Cantidad</p>
-                        <input type="number">
+                        <div class="quantity">
 
-                        <div class="add-remove">
-                            <!-- <button type="button"><i class="fas fa-plus-circle"></i></button>
+                            <p>Cantidad</p>
+                            <input type="number">
+
+                            <div class="add-remove">
+                                <!-- <button type="button"><i class="fas fa-plus-circle"></i></button>
                             <button type="button"><i class="fas fa-minus-circle"></i></button> -->
-                            <i class="fas fa-plus-circle"></i>
-                            <i class="fas fa-minus-circle"></i>
+                                <i class="fas fa-plus-circle"></i>
+                                <i class="fas fa-minus-circle"></i>
+                            </div>
+
                         </div>
 
+                        <div class="add-to-cart">
+
+                            <p>Agregar al carrito</p>
+                            <!-- <button type="button"><i class="fas fa-cart-plus"></i></button> -->
+                            <i class="fas fa-cart-plus"></i>
+
+                        </div>
+
+                        <button class="comprar form-button" data-id="<%= productFilter.id %>">Comprar</button>
+
+                    </div>
+                </article>
+
+                <div class="extra-pic-user-b">
+                    <div class="extra-pic">
+                        <% for (let i=0; i<5 ; i++ ) { %>
+                            <img class="tiny-image" src="/images/<%= productFilter.image  %>" alt="imagen-sec-1">
+                            <% } %>
                     </div>
 
-                    <div class="add-to-cart">
+                    <div class="user-button">
+                        <% if (locals.userLogged?.id==productFilter.users[0].id) { %>
+                            <a class="direct-link" href="/products/edit/<%= productFilter.id %>">
+                                <button class="form-button">EDITAR PRODUCTO</button>
+                            </a>
 
-                        <p>Agregar al carrito</p>
-                        <!-- <button type="button"><i class="fas fa-cart-plus"></i></button> -->
-                        <i class="fas fa-cart-plus"></i>
+                            <form action="/products/delete/<%= productFilter.id %>?_method=DELETE" method="POST">
+                                <button class="form-button" type="submit">ELIMINAR</button>
+                            </form>
+                            <% } %>
 
                     </div>
-                    <form action="#" method="post">
-                        <button class="comprar form-button" type="submit">Comprar</button>
-                    </form>
                 </div>
-            </article>
-            
-            <div class="extra-pic-user-b">
-                <div class="extra-pic">
-                    <% for (let i=0; i<5 ; i++ ) { %>
-                        <img class="tiny-image" src="/images/<%= productFilter.image  %>" alt="imagen-sec-1">
-                        <% } %>
-                </div>
-
-                <div class="user-button">
-                    <% if (locals.userLogged?.id == productFilter.users[0].id) { %> 
-                        <a class="direct-link" href="/products/edit/<%= productFilter.id %>">
-                            <button class="form-button">EDITAR PRODUCTO</button>
-                        </a>
-                        
-                        <form action="/products/delete/<%= productFilter.id %>?_method=DELETE" method="POST">
-                            <button class="form-button" type="submit">ELIMINAR</button>
-                        </form>
-                    <% } %>
-
-                </div>
-            </div>
                 <section class="info-others">
                     <section class="info">
                         <div class="info-detail">
                             <h4>Detalles del producto</h4>
-                            <p><%= productFilter.description  %></p>
+                            <p>
+                                <%= productFilter.description %>
+                            </p>
                         </div>
                         <div class="info-detail">
                             <h4>Características</h4>
-                            <p><%= productFilter.features  %></p>
+                            <p>
+                                <%= productFilter.features %>
+                            </p>
                         </div>
                     </section>
 
@@ -82,34 +90,39 @@
                         <div class="category">
                             <h4 class="featured-category">Productos del mismo vendedor</h4>
                             <% for( producto of products ) { %>
-                                <% if (producto.users[0].id == productFilter.users[0].id && producto.id != productFilter.id) { %>
-                                    <%- include('../partials/product') %> 
-                                <% } %>
-                            <% } %>
+                                <% if (producto.users[0].id==productFilter.users[0].id && producto.id
+                                    !=productFilter.id) { %>
+                                    <%- include('../partials/product') %>
+                                        <% } %>
+                                            <% } %>
                         </div>
                         <div class="category">
                             <h4 class="featured-category">Podría interesarte</h4>
                             <% for( producto of products ) { %>
-                                <% if (producto.section.name == productFilter.section.name && producto.id != productFilter.id) { %>
-                                    <%- include('../partials/product') %> 
-                                <% } %>
-                            <% } %>
+                                <% if (producto.section.name==productFilter.section.name && producto.id
+                                    !=productFilter.id) { %>
+                                    <%- include('../partials/product') %>
+                                        <% } %>
+                                            <% } %>
                         </div>
                         <div class="category">
                             <h4 class="featured-category">Productos relacionados</h4>
                             <% for( producto of products ) { %>
-                                <% if (producto.category.name == productFilter.category.name && producto.id != productFilter.id) { %>
-                                    <%- include('../partials/product') %> 
-                                <% } %>
-                            <% } %>
+                                <% if (producto.category.name==productFilter.category.name && producto.id
+                                    !=productFilter.id) { %>
+                                    <%- include('../partials/product') %>
+                                        <% } %>
+                                            <% } %>
                         </div>
                     </section>
                 </section>
-            
-        
-    </main>
 
-    <%- include('../partials/footer') %>
-    
-</body>
-</html>
+
+            </main>
+
+            <%- include('../partials/footer') %>
+                <script src="/js/product-detail.js"></script>
+
+    </body>
+
+    </html>
