@@ -1,6 +1,6 @@
 window.addEventListener('load', function(){
-    //capturar elementos
-
+    
+    //captura de elementos
     const btnsubmit = document.querySelector('.form-button');
     const productForm = document.querySelector('.register-form');
     const inputEmail = document.querySelector('#email');
@@ -85,7 +85,7 @@ window.addEventListener('load', function(){
             }
         },
         repeat:(inputValue) => {
-            if(inputPassword.value !== inputRepassword.value){
+            if(inputPassword.value !== inputValue){
                 errorRepassword.classList.remove('no-show');
                 formError = true;
             } else {
@@ -99,6 +99,15 @@ window.addEventListener('load', function(){
                 formError = true;
             } else {
                 errorEmail.classList.add('no-show');
+                formError = false;
+            }
+        },
+        firstName: (inputValue) => {
+            if(inputValue.length < 2){
+                errorFirstName.classList.remove('no-show');
+                formError = true;
+            } else {
+                errorFirstName.classList.add('no-show');
                 formError = false;
             }
         }
@@ -127,6 +136,13 @@ window.addEventListener('load', function(){
     inputEmail.addEventListener('keyup', function(e){
             
         regex.emailValidate(e.target.value);
+
+    })
+
+    // verificación de nombre
+    inputFirstName.addEventListener('blur', function(e){
+            
+        regex.firstName(e.target.value);
 
     })
 

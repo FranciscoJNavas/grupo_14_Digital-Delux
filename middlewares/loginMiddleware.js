@@ -1,6 +1,6 @@
 const {body} = require('express-validator');
 
-let validateRegister = [
+let validateLogin = [
     body('email')
         .notEmpty().withMessage('El email es obligatorio').bail()
         .isEmail().withMessage('Debe insertar un email válido'),
@@ -8,4 +8,4 @@ let validateRegister = [
     .isLength({min:2}).withMessage('La contraseña debe tener más de 4 caractéres'),
 ];
 
-module.exports = validateRegister;
+module.exports = validateLogin;

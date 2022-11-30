@@ -639,6 +639,12 @@ Product-Detail
             height: 60px;
             margin-top: 5px;
         }
+
+        .load-product-image {
+            width: 95%;
+            display: flex;
+            flex-wrap: wrap;
+        }
      
 
 /* ======================================

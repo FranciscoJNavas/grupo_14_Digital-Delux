@@ -70,7 +70,10 @@
 
             <div class="form-control">
                 <b><label class="input-title" for="image">Imagen:</label></b><br>
-                <input type="file" name="imageProduct" id="image" accept=".jpg" class="control">
+                <div class="load-product-image">
+                    <input type="file" name="imageProduct" id="image" accept=".jpg" class="control">
+                    <img src="/images/products/<%= productToEdit.image %>" alt="">
+                </div>
                 <p class="form-error"><%= locals.errors?.image ? errors.image.msg : "" %></p>
                 <p class="image-form-error error-fe"></p>
             </div>

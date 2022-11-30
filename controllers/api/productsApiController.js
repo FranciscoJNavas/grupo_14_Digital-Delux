@@ -9,7 +9,7 @@ const productsApiController = {
 		let arrayCategories = [];
 		db.Category.findAll()
 			.then(categories => {
-				console.log(categories);
+				// console.log(categories);
 				totalCategories = categories.length;
 				categories.forEach(category => {
 					countByCategory[category.dataValues.name] = 0;

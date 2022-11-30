@@ -23,8 +23,8 @@ const usersController = {
 						res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60 * 5) })
 					}
 					return res.redirect('/users/user-profile');
-				}
-			} else {
+				} else {
+				console.log("no accediste")
 				return res.render('users/login', {
 					errors: {
 						email: {
@@ -32,6 +32,7 @@ const usersController = {
 						}
 					}
 				})
+				}
 			}
 		} catch (error) {
 			console.log(error);

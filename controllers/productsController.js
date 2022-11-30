@@ -60,7 +60,7 @@ const productsController = {
 				category_id: req.body.category,
 				description: req.body.description,
 			  	// revisar la carga de varias imágenes
-				image: req.file.filename,
+				image: req.file?.filename,
 				features: req.body.features,
 				section_of_site_id: req.body.section,
 				brand_id: req.body.brand
