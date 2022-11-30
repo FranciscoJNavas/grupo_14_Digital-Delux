@@ -25,10 +25,7 @@ const usersApiController = {
 	oneUser: (req, res) => {
         db.User.findByPk(req.params.id)
             .then(user => {
-<<<<<<< HEAD
-				// console.log(user);
-=======
->>>>>>> 6f7fcacc5f0550bba7ece67f66d4b18f46e2c4ef
+				console.log(user);
 				let userInfo= {
 					id: user.id,
 					name: user.first_name +" "+ user.last_name,
