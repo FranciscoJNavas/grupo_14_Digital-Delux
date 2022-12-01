@@ -1,29 +1,29 @@
-    <%- include('./partials/head') %>
+<%- include('./partials/head') %>
 
-<body>
-    <%- include('./partials/header') %>
-    <main>
-        
-        <!-- Sección para el banner -->
-        <div class="top-banner">
-            <img src="/images/banner-prueba.jpg" alt="Imagen banner">
-            <div class="banner-slider">
-                <i class="fa-solid fa-angle-left"></i>
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-        </div>
-        <!-- Slider para indicar el orden de imagen que tiene el banner -->
-        <div class="banner-image-select">
-            <i id="first" class="fa-solid fa-circle"></i>
-            <i id="second" class="fa-solid fa-circle"></i>
-            <i id="third" class="fa-solid fa-circle"></i>
-            <i id="fourth" class="fa-solid fa-circle"></i>
-            <i id="fifth" class="fa-solid fa-circle"></i>
-        </div>
-    
-        <div class="main-products">
-            <!-- Filtro de producto (convenientemente debería verse solo en tablet o desktop) -->
-            <!-- <section class="filter">
+    <body>
+        <%- include('./partials/header') %>
+            <main>
+
+                <!-- Sección para el banner -->
+                <div class="top-banner">
+                    <img src="/images/banner-prueba.jpg" alt="Imagen banner">
+                    <div class="banner-slider">
+                        <i class="fa-solid fa-angle-left"></i>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                </div>
+                <!-- Slider para indicar el orden de imagen que tiene el banner -->
+                <div class="banner-image-select">
+                    <i id="first" class="fa-solid fa-circle"></i>
+                    <i id="second" class="fa-solid fa-circle"></i>
+                    <i id="third" class="fa-solid fa-circle"></i>
+                    <i id="fourth" class="fa-solid fa-circle"></i>
+                    <i id="fifth" class="fa-solid fa-circle"></i>
+                </div>
+
+                <div class="main-products">
+                    <!-- Filtro de producto (convenientemente debería verse solo en tablet o desktop) -->
+                    <!-- <section class="filter">
                 <h4>Aplicar filtros</h4>
                 
                 <div class="filter-category">
@@ -87,51 +87,50 @@
                 </div>
     
             </section> -->
-            <section class="home-products">
-                <% if (url=="inicio") { %>
-                    <section class="category">
-                        <h3 class="featured-category">Lo más destacado...</h3>
-                        <% for(producto of products){ %>
-                            <% if(producto.section.name == "Destacado") { %>
-                                <%- include('./partials/product') %>
-                            <%}%>
-                        <%}%>
-                    </section>
-        
-                    <section class="category">
-                        <h3 class="featured-category">Ofertas...</h3>
-                        <% for(producto of products){ %>
-                            <% if(producto.section.name == "Oferta") { %>
-                                <%- include('./partials/product') %>
-                            <%}%>
-                        <%}%>
-                    </section>
-        
-                    <section class="category">
-                        <h3 class="featured-category">Novedades...</h3>
-                        <% for(producto of products){ %>
-                            <% if(producto.section.name == "Novedades") { %>
-                                <%- include('./partials/product') %>
-                            <%}%>
-                        <%}%>
-                    </section>
-                <% } else { %>
-                    <section class="category">
-                        <h3 class="featured-category">Su elección...</h3>
-                        <% for(producto of products){ %>
-                                <%- include('./partials/product') %>
-                        <%}%>
-                    </section>
-                <% } %>
-                
-            </section>
-        </div>
-    
-    </main>
-    
-    <%- include('./partials/footer') %>
-</body>
-</html>
+                    <section class="home-products">
+                        <% if (url=="inicio" ) { %>
+                            <section class="category">
+                                <h3 class="featured-category">Lo más destacado...</h3>
+                                <% for(producto of products){ %>
+                                    <% if(producto.section.name=="Destacado" ) { %>
+                                        <%- include('./partials/product') %>
+                                            <%}%>
+                                                <%}%>
+                            </section>
 
+                            <section class="category">
+                                <h3 class="featured-category">Ofertas...</h3>
+                                <% for(producto of products){ %>
+                                    <% if(producto.section.name=="Oferta" ) { %>
+                                        <%- include('./partials/product') %>
+                                            <%}%>
+                                                <%}%>
+                            </section>
 
+                            <section class="category">
+                                <h3 class="featured-category">Novedades...</h3>
+                                <% for(producto of products){ %>
+                                    <% if(producto.section.name=="Novedades" ) { %>
+                                        <%- include('./partials/product') %>
+                                            <%}%>
+                                                <%}%>
+                            </section>
+                            <% } else { %>
+                                <section class="category">
+                                    <h3 class="featured-category">Su elección...</h3>
+                                    <% for(producto of products){ %>
+                                        <%- include('./partials/product') %>
+                                            <%}%>
+                                </section>
+                                <% } %>
 
+                    </section>
+                </div>
+
+            </main>
+
+            <%- include('./partials/footer') %>
+                <script src="/js/product-detail.js"></script>
+    </body>
+
+    </html>
