@@ -46,38 +46,37 @@ const usersController = {
 		console.log(errors);
 
 		if (errors.isEmpty()) {
-			db.User
-				.findOne({
-					where: { email: req.body.email }
-				})
-				.then(userFound => {
-					if (!userFound) {
-						let newUser = {
-							email: req.body.email,
-							password: bcrypt.hashSync(req.body.repassword, 10),
-							first_name: req.body.first_name,
-							last_name: req.body.last_name,
-							avatar: "default-user.jpg", // cargar imagen por defecto
-							dni: req.body.dni,
-							date_of_birth: req.body.date_birth,
-							role: 1
-						};
-						if (req.file) {
-							newUser.avatar = req.file.filename;
-						}
-						db.User.create(newUser)
-							.then((userCreated) => {
-								// return res.send(userCreated);
-								req.session.userLogged = userCreated;
-								return res.redirect('/users/user-profile');
-							})
-							.catch((errors) => {
-								res.send(errors);
-							});
-					} else {
-						return res.render('users/register', { errors: { email: { msg: "El usuario ya existe" } }, old: req.body });
+			db.User.findOne({
+				where: { email: req.body.email }
+			})
+			.then(userFound => {
+				if (!userFound) {
+					let newUser = {
+						email: req.body.email,
+						password: bcrypt.hashSync(req.body.repassword, 10),
+						first_name: req.body.first_name,
+						last_name: req.body.last_name,
+						avatar: "default-user.jpg", // cargar imagen por defecto
+						dni: req.body.dni,
+						date_of_birth: req.body.date_birth,
+						role: 1
+					};
+					if (req.file) {
+						newUser.avatar = req.file.filename;
 					}
-				})
+					db.User.create(newUser)
+					.then((userCreated) => {
+						// return res.send(userCreated);
+						req.session.userLogged = userCreated;
+						return res.redirect('/users/user-profile');
+					})
+					.catch((errors) => {
+						res.send(errors);
+					});
+				} else {
+					return res.render('users/register', { errors: { email: { msg: "El usuario ya existe" } }, old: req.body });
+				}
+			})
 		} else {
 			return res.render('users/register', { errors: errors.mapped(), old: req.body });
 		}
@@ -105,7 +104,38 @@ const usersController = {
 
 	userUpdate: (req, res) => {
 		//hacer lógica de actualizacion de datos del perfil en BD, luego redireccionar a la vista perfil
-		res.send('Hola estoy editando');
+		let errors = validationResult(req);
+		// console.log(req.session.userLogged);
+		let userId = req.session.userLogged.id;
+
+		if (errors.isEmpty()) {
+			let userToUpdate = {
+				first_name: req.body.first_name,
+				last_name: req.body.last_name,
+				dni: req.body.dni,
+				date_of_birth: req.body.date_birth
+			};
+			if (req.file) {
+				userToUpdate.avatar = req.file.filename;
+			}
+			db.User.update(userToUpdate, 
+				{
+					where: { id: userId },
+			})
+			.then( () => {
+				db.User.findByPk(userId)
+				.then((userEdited) => {
+					// console.log(userEdited.dataValues);
+					req.session.userLogged = userEdited.dataValues;
+					return res.redirect('/users/user-profile');
+				})
+			})
+			.catch((errors) => {
+				res.send("No se pudo editar el usuario");
+			});
+		} else {
+			return res.render('users/edit', { errors: errors.mapped(), old: req.body });
+		}
 	}
 };
 

@@ -104,10 +104,7 @@ const productsController = {
 				//return res.send(brands);
 				return res.render('products/edicion',{productToEdit:productToEdit, brands, categories, sections, errors:errors.mapped(), old: req.body});
 			})
-		}
-
-				
-		
+		}		
 	},
 	create: (req, res) => {
 		let promBrands = db.Brand.findAll();

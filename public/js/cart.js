@@ -18,5 +18,5 @@ if (localStorage.carrito) {
             })
     });
 } else {
-    console.log("No hay carro")
+    console.log("No hay productos en el carrito")
 }
