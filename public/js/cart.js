@@ -1,5 +1,14 @@
-let cardRows = document.querySelector(".cardRows")
-console.log(cardRows);
+let cardRows = document.querySelector(".cartRows");
+let totalCart = document.querySelector(".totalAmount");
+let products = [];
+
+function sumarTotalCarrito(arrayProducts){
+    return arrayProducts.reduce(
+        (acum,product) => (acum += product.price * product.quantity),
+        0
+    );
+}
+
 
 if (localStorage.carrito) {
     let carrito = JSON.parse(localStorage.carrito);
@@ -14,7 +23,18 @@ if (localStorage.carrito) {
                         <td>$${product.data.price}</td>
                         <td>${carrito[index].quantity}</td>
                         <td>$${carrito[index].quantity*product.data.price}</td>
+                        <td><button><i class="fas fa-trash"></i></button></td>
+                        
                     </tr>`
+                    products.push({
+                        productId: product.data.id,
+                        name: product.data.name,
+                        price: product.data.price,
+                        quantity: item.quantity
+                    })
+            })
+            .then(()=>{
+                totalCart.innerText = `$ ${sumarTotalCarrito(products)}` ;
             })
     });
 } else {

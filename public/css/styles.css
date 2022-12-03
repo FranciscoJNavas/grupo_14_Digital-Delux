@@ -354,6 +354,21 @@ Product-Detail
     color: white
 }
 
+.total-cart {
+    padding-top: 20px;
+    margin-left: 80%;
+}
+
+.finish-buy{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.finish-buy-col{
+    padding-top: 5px;
+}
+
 .product-cart {
     width: 100%;
     margin: 5px 0;
