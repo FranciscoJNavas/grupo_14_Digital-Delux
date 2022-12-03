@@ -32,6 +32,7 @@ const { cookie } = require('express-validator');
 //rutas Api
 const apiUsersRouter = require('./routes/api/users');
 const apiProductsRouter = require('./routes/api/products');
+const apiOrdersRouter = require('./routes/api/orders');
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
@@ -39,6 +40,7 @@ app.use('/users', usersRouter);
 
 app.use('/api/users', apiUsersRouter);
 app.use('/api/products', apiProductsRouter);
+app.use('/api/orders', apiOrdersRouter);
 
 
 app.set('puerto', process.env.PORT || 3001);
