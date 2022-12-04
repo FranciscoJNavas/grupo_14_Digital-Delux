@@ -2,7 +2,12 @@ const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
 const { Op } = require("sequelize");
+const fs = require('fs');
+const { join } = require('path');
+const path = require('path');
 
+
+const userImagePath = path.join(__dirname, '../public/images/avatars');
 
 const usersController = {
 	login: (req, res) => {
@@ -33,6 +38,15 @@ const usersController = {
 					}
 				})
 				}
+			} else {
+				console.log("no accediste")
+				return res.render('users/login', {
+					errors: {
+						email: {
+							msg: "Las credenciales son inválidas"
+						}
+					}
+				})
 			}
 		} catch (error) {
 			console.log(error);
@@ -103,7 +117,6 @@ const usersController = {
 	},
 
 	userUpdate: (req, res) => {
-		//hacer lógica de actualizacion de datos del perfil en BD, luego redireccionar a la vista perfil
 		let errors = validationResult(req);
 		// console.log(req.session.userLogged);
 		let userId = req.session.userLogged.id;
@@ -117,6 +130,10 @@ const usersController = {
 			};
 			if (req.file) {
 				userToUpdate.avatar = req.file.filename;
+				// borrar avatar anterior si no era la imagen por defecto
+				if(!(req.session.userLogged.avatar == "default-user.jpg")){
+					fs.unlinkSync(join(userImagePath, req.session.userLogged.avatar));
+				}
 			}
 			db.User.update(userToUpdate, 
 				{

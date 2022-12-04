@@ -51,7 +51,7 @@
 
             <div class="form-control">
                 <b><label for="image">Foto de Perfil:</label></b><br>
-                <input type="file" name="avatar" id="image" accept=".jpg" src="/images/avatars/default-user.jpg" width="30px">
+                <input type="file" name="avatar" id="image" accept=".jpg, .jpeg, .png">
                 <p class="avatar-form-error error-fe no-show"></p>
             </div>
         
@@ -88,6 +88,7 @@
         </form>
      </main>       
      <%- include('../partials/footer') %>
+     <script src="/js/product-detail.js"></script>
      <script src="/js/userValidator.js"></script>
 </body>
 </html>
