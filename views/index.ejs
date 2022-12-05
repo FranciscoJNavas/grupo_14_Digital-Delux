@@ -117,10 +117,14 @@
                             </section>
                             <% } else { %>
                                 <section class="category">
+                                <% if (products.length > 0) { %>
                                     <h3 class="featured-category">Su elección...</h3>
                                     <% for(producto of products){ %>
                                         <%- include('./partials/product') %>
                                             <%}%>
+                                <% } else { %>
+                                    <h3 class="featured-category">No se encuentra producto que coincida con la búsqueda</h3>
+                                <% } %>
                                 </section>
                                 <% } %>
 

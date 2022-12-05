@@ -5,9 +5,13 @@ const db = require('../database/models');
 const { Op } = require("sequelize");
 const moment = require('moment');
 const { validationResult } = require('express-validator' );
+const { URLSearchParams } = require('url');;
+
+
+const userImagePath = path.join(__dirname, '../public/images/avatars');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const productImagePath = path.join(__dirname, '../public/images');
+const productImagePath = path.join(__dirname, '../public/images/products');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const productsController = {
@@ -47,64 +51,74 @@ const productsController = {
 
 	},
 	upgrade: (req, res) => {
-
+		
 		let productId = req.params.id;
 		let errors = validationResult(req);
+		let imageToUpgrade = "";
+
+		db.Product.findByPk(productId)
+		.then((productToEdit)=>{
+			console.log(productToEdit);
+			imageToUpgrade = productToEdit.dataValues.image;
+			console.log(imageToUpgrade);
 		
-		if(errors.isEmpty()){
-
-			let productToUpgrade = {
-				name: req.body.name,
-				price: req.body.price,
-				discount: req.body.discount,
-				category_id: req.body.category,
-				description: req.body.description,
-			  	// revisar la carga de varias imágenes
-				image: req.file?.filename,
-				features: req.body.features,
-				section_of_site_id: req.body.section,
-				brand_id: req.body.brand
-			  };
-			// if(req.file){
-			// 	fs.unlinkSync(join(productImagePath, productToUpgrade.image));
-			// 	productToUpgrade.image = req.file.filename;
-			// }
-			db.Product.update(productToUpgrade, 
-				{	
-					where: {id: productId},
-			})
-			.then(()=>{
-
-				let promProducts = db.Product.findAll({
-					include: ['brand', 'category', 'section', 'users']
-				});
+			console.log("///////////-----------////////////");
+			console.log(imageToUpgrade);
 	
-				let promProductFilter = db.Product.findByPk(productId, {
-					include: ['brand', 'category', 'section', 'users']
-				});
-				Promise.all([promProducts, promProductFilter])
-				.then(([products, productFilter]) => {
-					
-					// return res.send(productFilter.users[0]);
-					return res.render('products/product-detail',{products:products, productFilter:productFilter});
+			if(errors.isEmpty()){
+	
+				let productToUpgrade = {
+					name: req.body.name,
+					price: req.body.price,
+					discount: req.body.discount,
+					category_id: req.body.category,
+					description: req.body.description,
+					features: req.body.features,
+					section_of_site_id: req.body.section,
+					brand_id: req.body.brand
+				  };
+				if(req.file){
+					fs.unlinkSync(join(productImagePath, imageToUpgrade));
+					productToUpgrade.image = req.file.filename;
+				}
+				db.Product.update(productToUpgrade, 
+					{	
+						where: {id: productId},
 				})
-			})
-			.catch((error)=>{
-				res.send(error);
-			});
-		} else {
-			let promProductToEdit = db.Product.findByPk(req.params.id, {
-				include: ['brand', 'category', 'section', 'users']
-			})
-			let promBrands = db.Brand.findAll();
-			let promCategory = db.Category.findAll();
-			let promSection = db.Section.findAll();
-			Promise.all([promProductToEdit, promBrands, promCategory, promSection])
-			.then(([productToEdit, brands, categories, sections])=>{
-				//return res.send(brands);
-				return res.render('products/edicion',{productToEdit:productToEdit, brands, categories, sections, errors:errors.mapped(), old: req.body});
-			})
-		}		
+				.then(()=>{
+	
+					let promProducts = db.Product.findAll({
+						include: ['brand', 'category', 'section', 'users']
+					});
+		
+					let promProductFilter = db.Product.findByPk(productId, {
+						include: ['brand', 'category', 'section', 'users']
+					});
+					Promise.all([promProducts, promProductFilter])
+					.then(([products, productFilter]) => {
+						
+						// return res.send(productFilter.users[0]);
+						return res.render('products/product-detail',{products:products, productFilter:productFilter});
+					})
+				})
+				.catch((error)=>{
+					res.send(error);
+				});
+			} else {
+				let promProductToEdit = db.Product.findByPk(req.params.id, {
+					include: ['brand', 'category', 'section', 'users']
+				})
+				let promBrands = db.Brand.findAll();
+				let promCategory = db.Category.findAll();
+				let promSection = db.Section.findAll();
+				Promise.all([promProductToEdit, promBrands, promCategory, promSection])
+				.then(([productToEdit, brands, categories, sections])=>{
+					//return res.send(brands);
+					return res.render('products/edicion',{productToEdit:productToEdit, brands, categories, sections, errors:errors.mapped(), old: req.body});
+				})
+			}		
+		})
+
 	},
 	create: (req, res) => {
 		let promBrands = db.Brand.findAll();
@@ -132,12 +146,17 @@ const productsController = {
   			discount: req.body.discount,
   			category_id: req.body.category,
   			description: req.body.description,
-  			//agregar imagen por defecto si no se carga una imagen
-			image: req.files['imageProduct'][0].filename,
+  			//agregar imagen por defecto
+			image: "default-product-image.png",
   			features: req.body.features,
   			section_of_site_id: req.body.section,
   			brand_id: req.body.brand
 		};
+		if(req.file){
+			// si existe un archivo de imagen, cargarlo al nuevo producto
+			newProduct.image = req.files['imageProduct'][0].filename;
+		}
+
 		db.Product.create(newProduct)
 			.then((product)=>{
 				db.UserProduct.create({
@@ -158,18 +177,27 @@ const productsController = {
 			let promSection = db.Section.findAll();
 			Promise.all([promBrands, promCategory, promSection])
 			.then(([brands, categories, sections])=>{
-				//return res.send(brands);
 				res.render('products/creacion', {brands, categories, sections, errors:errors.mapped(), old: req.body});
 			})
 	
 		}
 	},
 	products: (req, res) => {
-		//let productsToShow = products.filter((product) => product.section == req.query.section)
+
+		let querySearch;
+		let toSearch;
+		if(req.body.q){
+			querySearch = "name";
+			toSearch = req.body.q;
+		} else if (req.query.section){
+			querySearch = "$category.name$";
+			toSearch = req.query.section;
+		}
+		
 		db.Product.findAll({
 			include: ['brand', 'category', 'section', 'users'],
 			where: { 
-				"$category.name$": {[Op.like]: '%'+req.query.section+'%'}
+				[querySearch]: {[Op.like]: '%'+toSearch+'%'}
 			 }
 		})
 		.then(productsToShow => {

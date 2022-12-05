@@ -29,6 +29,7 @@ const storage = multer.diskStorage({
     const loadProductMiddleware = require('../middlewares/loadProductMiddleware');
 
 router.get('/', productsController.products);
+router.post('/', productsController.products);
 
 router.get('/cart', productsController.cart);
 

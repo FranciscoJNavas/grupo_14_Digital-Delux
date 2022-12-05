@@ -5,11 +5,13 @@
                 <img src="/images/Logo Digital-Delux (original letras gris y blanca).png" alt="Logo Digital-Delux">
             </a>
         </div>
-        <div class="search-bar">
+        <form class="search-bar" action="/products" method="POST">
             <!-- revisar funcionalidad de búsqueda -->
-            <input class="form" action="/user/login" method="POST" placeholder="Buscar..."/>
-            <i id= "icono-busqueda" class="fa-solid fa-magnifying-glass" ></i>
-        </div>
+            <input class="search" placeholder="Buscar..." name="q"/>
+            <button type="submit" id="icono-busqueda">
+                <i class="fa-solid fa-magnifying-glass" ></i>
+            </button>
+        </form>
         <div class="iconos">
             <div class="icon-header user-login">
                 <% if (locals.isLogged) { %>

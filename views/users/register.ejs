@@ -12,6 +12,7 @@
                 <label class="input-title">Email</label>
                 <input type="email" name="email" class="control" id="email">
                 <p class="form-error"><%= locals.errors?.email ? errors.email.msg : "" %></p>
+                <p class="email-form-error-2 error-fe no-show">El email es obligatorio</p>
                 <p class="email-form-error error-fe no-show">El email no es válido</p>
             </div>
             <div class="form-control">
@@ -66,7 +67,7 @@
                 <label class="input-title">Fecha de Nacimiento</label>
                 <input type="date" name="date_birth" class="control" id="date-birth">
                 <p class="form-error"><%= locals.errors?.date_birth ? errors.date_birth.msg : "" %></p>
-                <p class="date-birth-form-error error-fe"></p>
+                <p class="date-birth-form-error error-fe no-show">Debes ser mayor a 18 años</p>
             </div>
     
             <!-- <div>

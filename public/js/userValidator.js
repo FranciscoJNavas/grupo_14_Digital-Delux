@@ -2,9 +2,10 @@ window.addEventListener('load', function(){
     
     //captura de elementos
     const btnsubmit = document.querySelector('.form-button');
-    const productForm = document.querySelector('.register-form');
+    const registerForm = document.querySelector('.register-form');
     const inputEmail = document.querySelector('#email');
     const errorEmail = document.querySelector('.email-form-error');
+    const errorEmail2 = document.querySelector('.email-form-error-2');
     const inputPassword = document.querySelector('#password');
     const passLCase = document.querySelector('.lower-case');
     const passUCase = document.querySelector('.upper-case');
@@ -12,7 +13,6 @@ window.addEventListener('load', function(){
     const simbol = document.querySelector('.simbol');
     const strLength = document.querySelector('.str-length');
     const noValid = document.querySelector('.no-valid');
-    const errorPassword = document.querySelector('.password-form-error');
     const inputRepassword = document.querySelector('#repassword');
     const errorRepassword = document.querySelector('.repassword-form-error');
     const inputFirstName = document.querySelector('#first-name');
@@ -21,8 +21,8 @@ window.addEventListener('load', function(){
     const errorLastName = document.querySelector('.last-name-form-error');
     // const inputDni = document.querySelector('#dni');
     // const errorDni = document.querySelector('.dni-form-error');
-    // const inputDateBirth = document.querySelector('#date-birth');
-    // const errorDateBirth = document.querySelector('.date-birth-form-error');
+    const inputDateBirth = document.querySelector('#date-birth');
+    const errorDateBirth = document.querySelector('.date-birth-form-error');
 
     const regexForPassword = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/; // para contraseña
     const regexForEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -31,7 +31,7 @@ window.addEventListener('load', function(){
 
     const regex = {
         lowerCase:(inputValue) => {
-            if(!(/[a-z]/.test(inputValue))){
+            if(!(/[a-z]/.test(inputValue)) && !(inputValue.trim() == 0)){
                 passLCase.classList.remove('no-show');
                 formError = true;
             } else {
@@ -40,7 +40,7 @@ window.addEventListener('load', function(){
             }
         },
         upperCase:(inputValue) => {
-            if(!(/[A-Z]/.test(inputValue))){
+            if(!(/[A-Z]/.test(inputValue)) && !(inputValue.trim() == 0)){
                 passUCase.classList.remove('no-show');
                 formError = true;
             } else {
@@ -49,7 +49,7 @@ window.addEventListener('load', function(){
             }
         },
         digit:(inputValue) => {
-            if(!(/[0-9]/.test(inputValue))){
+            if(!(/[0-9]/.test(inputValue)) && !(inputValue.trim() == 0)){
                 digit.classList.remove('no-show');
                 formError = true;
             } else {
@@ -58,7 +58,7 @@ window.addEventListener('load', function(){
             }
         },
         simbol:(inputValue) => {
-            if(!(/[@$!%?&]/.test(inputValue))){
+            if(!(/[@$!%?&]/.test(inputValue)) && !(inputValue.trim() == 0)){
                 simbol.classList.remove('no-show');
                 formError = true;
             } else {
@@ -67,7 +67,7 @@ window.addEventListener('load', function(){
             }
         },
         passLength:(inputValue) => {
-            if(inputValue.length < 8){
+            if((inputValue.length < 8) && !(inputValue.trim() == 0)){
                 strLength.classList.remove('no-show');
                 formError = true;
             } else {
@@ -76,7 +76,7 @@ window.addEventListener('load', function(){
             }
         },
         valid:(inputValue) => {
-            if((/[^a-zA-Z0-9@$!%?&]/.test(inputValue))){
+            if((/[^a-zA-Z0-9@$!%?&]/.test(inputValue)) && !(inputValue.trim() == 0)){
                 noValid.classList.remove('no-show');
                 formError = true;
             } else {
@@ -85,7 +85,7 @@ window.addEventListener('load', function(){
             }
         },
         repeat:(inputValue) => {
-            if(inputPassword.value !== inputValue){
+            if((inputPassword.value !== inputValue) && !(inputValue.trim() == 0)){
                 errorRepassword.classList.remove('no-show');
                 formError = true;
             } else {
@@ -94,7 +94,7 @@ window.addEventListener('load', function(){
             }
         },
         emailValidate:(inputValue) => {
-            if(!(regexForEmail.test(inputValue))){
+            if(!(regexForEmail.test(inputValue)) && !(inputValue.trim() == 0)){
                 errorEmail.classList.remove('no-show');
                 formError = true;
             } else {
@@ -102,12 +102,49 @@ window.addEventListener('load', function(){
                 formError = false;
             }
         },
+        emailEmpty: (inputValue) => {
+            if((inputValue.trim() == 0)){
+                errorEmail2.classList.remove('no-show');
+                formError = true;
+            } else {
+                errorEmail2.classList.add('no-show');
+                formError = false;
+            }
+        },
         firstName: (inputValue) => {
-            if(inputValue.length < 2){
+            if((inputValue.length < 2) || !(inputValue.trim() == 0)){
                 errorFirstName.classList.remove('no-show');
                 formError = true;
             } else {
                 errorFirstName.classList.add('no-show');
+                formError = false;
+            }
+        },
+        lastName: (inputValue) => {
+            if((inputValue.length < 2) || !(inputValue.trim() == 0)){
+                errorLastName.classList.remove('no-show');
+                formError = true;
+            } else {
+                errorLastName.classList.add('no-show');
+                formError = false;
+            }
+        },
+        adultAge: (inputValue) => {
+            let today = new Date();
+            let dateBirth = new Date(inputValue);
+            let age = today.getFullYear() - dateBirth.getFullYear();
+            let m = today.getMonth() - dateBirth.getMonth();
+            
+            if (m < 0 || (m === 0 && today.getDate() < dateBirth.getDate()+1)) {
+                age--;
+            }
+            console.log(age);
+
+            if(age < 18){
+                errorDateBirth.classList.remove('no-show');
+                formError = true;
+            } else {
+                errorDateBirth.classList.add('no-show');
                 formError = false;
             }
         }
@@ -138,6 +175,11 @@ window.addEventListener('load', function(){
         regex.emailValidate(e.target.value);
 
     })
+    inputEmail.addEventListener('blur', function(e){
+            
+        regex.emailEmpty(e.target.value);
+
+    })
 
     // verificación de nombre
     inputFirstName.addEventListener('blur', function(e){
@@ -146,39 +188,30 @@ window.addEventListener('load', function(){
 
     })
 
+    // verificación de apellido
+    inputLastName.addEventListener('blur', function(e){
+            
+        regex.lastName(e.target.value);
+
+    })
+
+    // verificación de edad
+    inputDateBirth.addEventListener('blur', function(e){
+        //console.log(e.target.value)   
+        regex.adultAge(e.target.value);
+
+    })
+
     //control de envío de formulario
     btnsubmit.addEventListener('click', function(e){
         e.preventDefault();
-        let errors = {};
-
-        if(inputEmail.value.length == 0){
-            console.log("El Email es obligatorio");
-            errors.email = 'El email es obligatorio';
-        }
-
-        if(inputFirstName.value.length < 2){
-            errors.firstName = 'El nombre es obligatorio y debe tener al menos 2 caracteres';
-        }
-
-        if(inputLastName.value.length < 2){
-            errors.lastName = 'El apellido es obligatorio y debe tener al menos 2 caracteres';
-        }
-
-        if(formError == 1){
-            errors.password = 'La contraseña no es válida';
-        }
 
 
-        if(Object.keys(errors).length >= 1){
-            errorEmail.innerText = (errors.email) ? errors.email : '';
-            errorPassword.innerText = (errors.password) ? errors.password : '';
-            errorRepassword.innerText = (errors.repassword) ? errors.repassword : '';
-            errorFirstName.innerText = (errors.firstName) ? errors.firstName : '';
-            errorLastName.innerText = (errors.lastName) ? errors.lastName : '';
+        if(formError){
             alert("¡El formulario presenta errores!");
 
         } else {
-            productForm.submit();
+            registerForm.submit();
         }
 
     })

@@ -41,7 +41,7 @@ header {
             position: relative;
         }
 
-        .search-bar .form{
+        .search-bar .search{
             margin: auto;
             padding: 5px 0;
             padding-left: 25px;
@@ -59,7 +59,9 @@ header {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            left: 12%;
+            left: 11%;
+            background-color: transparent;
+            border: none;
         }
 
         .top-header .iconos {
@@ -158,6 +160,7 @@ header {
 
 main {
     padding: 10px;
+    min-height: 600px;
 }
 
 
@@ -715,7 +718,8 @@ footer {
     }
 
     .home-products {
-        width: 65%;
+        width: 95%;
+        margin: 0 auto;
     }
 
     /* Product Detail  */
