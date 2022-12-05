@@ -60,10 +60,6 @@ const productsController = {
 		.then((productToEdit)=>{
 			console.log(productToEdit);
 			imageToUpgrade = productToEdit.dataValues.image;
-			console.log(imageToUpgrade);
-		
-			console.log("///////////-----------////////////");
-			console.log(imageToUpgrade);
 	
 			if(errors.isEmpty()){
 	
