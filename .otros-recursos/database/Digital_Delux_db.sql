@@ -64,6 +64,61 @@ INSERT INTO `category` VALUES (1,'Celulares'),(2,'Computación'),(3,'Televisores
 UNLOCK TABLES;
 
 --
+-- Table structure for table `orderitems`
+--
+
+DROP TABLE IF EXISTS `orderitems`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orderitems` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `orderId` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orderitems`
+--
+
+LOCK TABLES `orderitems` WRITE;
+/*!40000 ALTER TABLE `orderitems` DISABLE KEYS */;
+INSERT INTO `orderitems` VALUES (1,1,20,'Auriculares in-ear inalámbricos Samsung Wave 100TWS black',11499.00,1),(2,1,4,'Samsung Galaxy S20',120000.00,1);
+/*!40000 ALTER TABLE `orderitems` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `total` decimal(10,2) NOT NULL,
+  `paymentMethod` varchar(25) NOT NULL,
+  `shippingMethod` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,2,131499.00,'Efectivo','Cadete');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `products`
 --
 
@@ -172,7 +227,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'navas.francisco.j@gmail.com','$2a$10$E9ZrIyO1PHD4uxQEU2oR5uHT.yfzvLaMI.fwjLyeaDmb7DCoqTTny','Francisco','Navas','default-user.jpg',33630169,'1988-09-14',1),(2,'jorgegarcia143@gmail.com','$2a$10$txt19O.v9EZ5xdac59QEc.E4v3b6S6zGxGt1LXW1WtMWgz3l3ZiRS','Jorge','Garcia','default-user.jpg',34192766,'1988-12-27',1),(3,'micaweiss@mail.com','$2a$10$7G2sMeNI2X0dORbXkrxtC.X8quQmB12buQSFLe39EA8ZlGCm2LYVW','Micaela','Weiss','default-user.jpg',40557766,'2002-02-15',1),(4,'luliguelman@outlook.com','$2a$10$D7EewY.dODzRv1rW8Bnl8OlrqJtxaOPCXmW4snl4T8ny5AI6cjVk6','Lucila','Guelman','default-user.jpg',40993322,'2002-05-16',1),(5,'juandiegotamayo@gmail.com','$2a$10$jZmGW1BB5WOmYBNF9fMR3uloD1RVXx73u.08ZKa/KDZA1.2ustV3e','Juan Diego','Tamayo','default-user.jpg',42775588,'2004-08-06',1),(6,'micaweiss@gmail.com','$2a$10$6soyfGtTQ.UK6JjLouXFCO/fK9eBLmHTM2MqoQMdHjCGnhE7L2WlK','Micaela','Weiss','default-user.jpg',43920193,'2002-02-22',1);
+INSERT INTO `users` VALUES (1,'navas.francisco.j@gmail.com','$2a$10$E9ZrIyO1PHD4uxQEU2oR5uHT.yfzvLaMI.fwjLyeaDmb7DCoqTTny','Francisco','Navas','default-user.jpg',33630169,'1988-09-14',1),(2,'jorgegarcia143@gmail.com','$2a$10$txt19O.v9EZ5xdac59QEc.E4v3b6S6zGxGt1LXW1WtMWgz3l3ZiRS','Jorge','Garcia','default-user.jpg',34193612,'1988-12-27',1),(3,'micaweiss@mail.com','$2a$10$7G2sMeNI2X0dORbXkrxtC.X8quQmB12buQSFLe39EA8ZlGCm2LYVW','Micaela','Weiss','default-user.jpg',40557766,'2002-02-15',1),(4,'luliguelman@outlook.com','$2a$10$D7EewY.dODzRv1rW8Bnl8OlrqJtxaOPCXmW4snl4T8ny5AI6cjVk6','Lucila','Guelman','default-user.jpg',40993322,'2002-05-16',1),(5,'juandiegotamayo@gmail.com','$2a$10$jZmGW1BB5WOmYBNF9fMR3uloD1RVXx73u.08ZKa/KDZA1.2ustV3e','Juan Diego','Tamayo','default-user.jpg',42775588,'2004-08-06',1),(6,'micaweiss@gmail.com','$2a$10$6soyfGtTQ.UK6JjLouXFCO/fK9eBLmHTM2MqoQMdHjCGnhE7L2WlK','Micaela','Weiss','default-user.jpg',43920193,'2002-02-22',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -185,4 +240,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-04 19:24:19
+-- Dump completed on 2022-12-04 22:11:00
