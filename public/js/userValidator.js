@@ -103,7 +103,7 @@ window.addEventListener('load', function(){
             }
         },
         emailEmpty: (inputValue) => {
-            if((inputValue.trim() == 0)){
+            if((inputValue.trim().length == 0)){
                 errorEmail2.classList.remove('no-show');
                 formError = true;
             } else {
@@ -112,7 +112,7 @@ window.addEventListener('load', function(){
             }
         },
         firstName: (inputValue) => {
-            if((inputValue.length < 2) || !(inputValue.trim() == 0)){
+            if((inputValue.length < 2)){
                 errorFirstName.classList.remove('no-show');
                 formError = true;
             } else {
@@ -121,7 +121,7 @@ window.addEventListener('load', function(){
             }
         },
         lastName: (inputValue) => {
-            if((inputValue.length < 2) || !(inputValue.trim() == 0)){
+            if((inputValue.length < 2)){
                 errorLastName.classList.remove('no-show');
                 formError = true;
             } else {
