@@ -8,6 +8,9 @@ function sumarTotalCarrito(arrayProducts) {
         0
     );
 }
+function vaciarCarrito(){
+    localStorage.removeItem("carrito");
+}
 
 
 if (localStorage.carrito) {
@@ -19,12 +22,11 @@ if (localStorage.carrito) {
                 cardRows.innerHTML +=
                     `<tr>
                         <th>${index + 1}</th>
-                        <td>${product.data.name}</td>
-                        <td>$${product.data.price}</td>
-                        <td>${carrito[index].quantity}</td>
-                        <td>$${carrito[index].quantity * product.data.price}</td>
-                        <td><button><i class="fas fa-trash"></i></button></td>
-                        
+                        <th>${product.data.name}</th>
+                        <th>$${product.data.price}</th>
+                        <th>${carrito[index].quantity}</th>
+                        <th>$${carrito[index].quantity * product.data.price}</th>
+                        <th><button><i class="fas fa-trash"></i></button></th>
                     </tr>`
                 products.push({
                     productId: product.data.id,
@@ -60,7 +62,10 @@ checkoutCart.onsubmit = (e) => {
     })
         .then((r) => r.json())
         .then((res) => {
-            console.log(res)
+            if(res.ok){
+                vaciarCarrito();
+                location.href = `/orders/${res.order.id}`;
+            }
         })
 };
 
