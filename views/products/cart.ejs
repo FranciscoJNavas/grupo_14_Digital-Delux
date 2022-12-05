@@ -3,51 +3,74 @@
     <body>
         <%- include('../partials/header') %>
             <main>
+                <div class="wellcome">
+                    <h3>Productos en mi carrito</h3>
+                </div>
                 <section class="cart-page">
                     <div>
                         <div>
                             <table>
                                 <thead>
                                     <tr>
-                                        <th style="width: 10%;">
+                                        <th style="width: 10%">
                                             <strong>#</strong>
                                         </th>
-                                        <th style="width: 30%;">
+                                        <th style="width: 30%">
                                             <strong>Producto</strong>
                                         </th>
-                                        <th style="width: 20%;">
+                                        <th style="width: 20%">
                                             <strong>Precio</strong>
                                         </th>
-                                        <th style="width: 30%;">
+                                        <th style="width: 30%">
                                             <strong>Cantidad</strong>
                                         </th>
-                                        <th style="width: 5%;">
+                                        <th style="width: 5%">
                                             <strong>Subtotal</strong>
                                         </th>
-                                        <th style="width: 0px;"></th>
+                                        <th style="width: 4%"></th>
                                     </tr>
                                 </thead>
-                                <tbody class="cardRows">
+                                <tbody class="cartRows">
                                 </tbody>
                             </table>
-                            <div>
-                                <h2>Total: <span>$ 456789</span></h2>
-                            </div>
                         </div>
                     </div>
-
-                    <div class="buy-now">
-                        <button type="submit" class="form-button">Comprar</button>
+                    <div class="total-cart">
+                        <h3>Total: <span class="totalAmount">$ 0</span></h3>
                     </div>
                 </section>
 
+                <div class="wellcome">
+                    <h3>Terminar la compra</h3>
+                </div>
                 <section class="cart-page">
-                    <div class="send-buy">
-                        <div>
-                            <h3>Envío</h3>
-                            <a href="#" class="change-address">Cambiar dirección de envío</a>
-                        </div>
-                        <p class="price">$99.999</p>
+                    <div>
+                        <form id="checkoutCart">
+                            <div class="finish-buy">
+                                <div class="finish-buy-col">
+                                    <label for="country">Tipo Envio</label>
+                                    <br>
+                                    <select id="shippingMethod" name=" shippingMethod" required="">
+                                        <option value="">Elegir...</option>
+                                        <option value="Cadete">Cadete</option>
+                                        <option value="Correo">Correo Argentino</option>
+                                        <option value="Andreani">Andreani</option>
+                                        <option value="DHL">DHL</option>
+                                    </select>
+                                </div>
+                                <div class="finish-buy-col">
+                                    <label for="country">Medio de pago</label>
+                                    <br>
+                                    <select id="paymentMethod" name="paymentMethod" required="">
+                                        <option value="">Elegir...</option>
+                                        <option value="Efectivo">Efectivo</option>
+                                        <option value="Débito">Tarjeta Débito</option>
+                                        <option value="Crédito">Tarjeta Crédito</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="form-button" type="submit">Comprar</button>
+                        </form>
                     </div>
                 </section>
             </main>

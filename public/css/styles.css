@@ -351,10 +351,25 @@ Product-Detail
 .cart-page {
     background-color: #473f4a;
     margin: 10px auto;
-    width: 60%;
+    width: 80%;
     padding: 5px;
     /* color: #DD5D20; */
     color: white
+}
+
+.total-cart {
+    padding-top: 20px;
+    margin-left: 80%;
+}
+
+.finish-buy{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.finish-buy-col{
+    padding-top: 5px;
 }
 
 .product-cart {
@@ -819,3 +834,5 @@ footer {
     }
 
 }
+
+
