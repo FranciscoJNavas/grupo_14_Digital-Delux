@@ -1,61 +1,125 @@
 <%- include('../partials/head') %>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9d932f94a5.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <%- include('../partials/header') %>
-    <main>
+    </head>
 
-        <section class="profile">
-            <div class="profile-image">
-                <img src="/images/avatars/<%= locals.userLogged.avatar %>" alt="" class="image-profile">
-            </div>
+    <body>
+        <%- include('../partials/header') %>
+            <main>
 
-            <div class="main-user-data">
+                <section class="profile">
+                    <div class="profile-image">
+                        <img src="/images/avatars/<%= locals.userLogged.avatar %>" alt="" class="image-profile">
+                    </div>
 
-                <div class="profile-data">
-                    <i class="fa-sharp fa-solid fa-fingerprint"></i><h3><%= locals.userLogged.first_name %>  <%= locals.userLogged.last_name %></h3>
-                </div>  
-                <div class="profile-data">
-                    <i class="fa-solid fa-envelope"></i><h3><%= locals.userLogged.email %></h3>
-                </div>
-                <div class="profile-data">
-                    <i class="fa-solid fa-calendar-days"></i><h3><%= locals.userLogged.date_of_birth %></h3>
-                </div> 
-                <div class="profile-data">
-                    <i class="fa-solid fa-id-card"></i><h3><%= locals.userLogged.dni %></h3>
-                </div>
-                         
-            </div>
-                    
-            <div class="user-button">
-                <a class="direct-link" href="/users/edit/<%= locals.userLogged.id %>">
-                    <button class="form-button">EDITAR PERFIL</button>
-                </a>
+                    <div class="main-user-data">
 
-            </div>
-        </section>
-                
-        <section class="user-content">
-            <div>
-                <a class="direct-link" href="/products/create">
-                    <button class="form-button">Agregar Producto</button>
-                </a>
-            </div>  
-            <div class="user-products">
-                <div class="category">
-                    <h4 class="featured-category">Productos publicados</h4>
-                    <% for( producto of products ) { %>
-                        <% if (producto.users[0].id == locals.userLogged.id) { %>
-                            <%- include('../partials/product') %> 
-                        <% } %>
-                    <% } %>
-                </div>
-            </div>
-        </section>
-          
-    </main>
-    <%- include('../partials/footer') %>
-    <script src="/js/product-detail.js"></script>
-</body>
-</html>
+                        <div class="profile-data">
+                            <i class="fa-sharp fa-solid fa-fingerprint"></i>
+                            <h3>
+                                <%= locals.userLogged.first_name %>
+                                    <%= locals.userLogged.last_name %>
+                            </h3>
+                        </div>
+                        <div class="profile-data">
+                            <i class="fa-solid fa-envelope"></i>
+                            <h3>
+                                <%= locals.userLogged.email %>
+                            </h3>
+                        </div>
+                        <div class="profile-data">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <h3>
+                                <%= locals.userLogged.date_of_birth %>
+                            </h3>
+                        </div>
+                        <div class="profile-data">
+                            <i class="fa-solid fa-id-card"></i>
+                            <h3>
+                                <%= locals.userLogged.dni %>
+                            </h3>
+                        </div>
+
+                    </div>
+
+                    <div class="user-button">
+                        <a class="direct-link" href="/users/edit/<%= locals.userLogged.id %>">
+                            <button class="form-button">EDITAR PERFIL</button>
+                        </a>
+
+                    </div>
+                </section>
+
+                <section class="order-page">
+                    <div>
+                        <div>
+                            <% if (orders.length==0) { %>
+                                <h4 class="featured-category">El usuario no registra compras</h4>
+                                <% } else { %>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 10%;">
+                                                    <strong>Orden N°</strong>
+                                                </th>
+                                                <th style="width: 30%;">
+                                                    <strong>Total</strong>
+                                                </th>
+                                                <th style="width: 30%;">
+                                                    <strong>Método de pago</strong>
+                                                </th>
+                                                <th style="width: 30%;">
+                                                    <strong>Método de envío</strong>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="cartRows">
+                                            <% for( let i=0; i < orders.length; i++ ) { %>
+                                                <tr>
+                                                    <th>
+                                                        <a href="/orders/<%= orders[i].id %>">
+                                                            <%= orders[i].id %>
+                                                        </a>
+                                                    </th>
+                                                    <th>
+                                                        $ <%= orders[i].total %>
+                                                    </th>
+                                                    <th>
+                                                        <%= orders[i].paymentMethod %>
+                                                    </th>
+                                                    <th>
+                                                        <%= orders[i].shippingMethod %>
+                                                    </th>
+                                                </tr>
+                                                <% } %>
+                                        </tbody>
+                                    </table>
+                                    <% } %>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="user-content">
+                    <div>
+                        <a class="direct-link" href="/products/create">
+                            <button class="form-button">Agregar Producto</button>
+                        </a>
+                    </div>
+                    <div class="user-products">
+                        <div class="category">
+                            <h4 class="featured-category">Productos publicados</h4>
+                            <% for( producto of products ) { %>
+                                <% if (producto.users[0].id==locals.userLogged.id) { %>
+                                    <%- include('../partials/product') %>
+                                        <% } %>
+                                            <% } %>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+            <%- include('../partials/footer') %>
+                <script src="/js/product-detail.js"></script>
+    </body>
+
+    </html>
