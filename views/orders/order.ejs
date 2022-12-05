@@ -34,10 +34,10 @@
                                     <% for( let i=0; i < order.dataValues.orderItems.length; i++ ) { %>
                                         <tr>
                                             <th><%= i+1 %></th>
-                                            <td><%= order.dataValues.orderItems[i].name %></td>
-                                            <td><%= order.dataValues.orderItems[i].price %></td>
-                                            <td><%= order.dataValues.orderItems[i].quantity %></td>
-                                            <td>$<%= order.dataValues.orderItems[i].price * order.dataValues.orderItems[i].quantity  %></td>
+                                            <th><%= order.dataValues.orderItems[i].name %></th>
+                                            <th>$ <%= order.dataValues.orderItems[i].price %></th>
+                                            <th><%= order.dataValues.orderItems[i].quantity %></th>
+                                            <th>$<%= order.dataValues.orderItems[i].price * order.dataValues.orderItems[i].quantity  %></th>
                                         </tr>
                                         <% } %>
                                 </tbody>

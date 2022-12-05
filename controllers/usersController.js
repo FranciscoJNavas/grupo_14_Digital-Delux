@@ -29,14 +29,14 @@ const usersController = {
 					}
 					return res.redirect('/users/user-profile');
 				} else {
-				console.log("no accediste")
-				return res.render('users/login', {
-					errors: {
-						email: {
-							msg: "Las credenciales son inválidas"
+					console.log("no accediste")
+					return res.render('users/login', {
+						errors: {
+							email: {
+								msg: "Las credenciales son inválidas"
+							}
 						}
-					}
-				})
+					})
 				}
 			} else {
 				console.log("no accediste")
@@ -63,34 +63,34 @@ const usersController = {
 			db.User.findOne({
 				where: { email: req.body.email }
 			})
-			.then(userFound => {
-				if (!userFound) {
-					let newUser = {
-						email: req.body.email,
-						password: bcrypt.hashSync(req.body.repassword, 10),
-						first_name: req.body.first_name,
-						last_name: req.body.last_name,
-						avatar: "default-user.jpg", // cargar imagen por defecto
-						dni: req.body.dni,
-						date_of_birth: req.body.date_birth,
-						role: 1
-					};
-					if (req.file) {
-						newUser.avatar = req.file.filename;
+				.then(userFound => {
+					if (!userFound) {
+						let newUser = {
+							email: req.body.email,
+							password: bcrypt.hashSync(req.body.repassword, 10),
+							first_name: req.body.first_name,
+							last_name: req.body.last_name,
+							avatar: "default-user.jpg", // cargar imagen por defecto
+							dni: req.body.dni,
+							date_of_birth: req.body.date_birth,
+							role: 1
+						};
+						if (req.file) {
+							newUser.avatar = req.file.filename;
+						}
+						db.User.create(newUser)
+							.then((userCreated) => {
+								// return res.send(userCreated);
+								req.session.userLogged = userCreated;
+								return res.redirect('/users/user-profile');
+							})
+							.catch((errors) => {
+								res.send(errors);
+							});
+					} else {
+						return res.render('users/register', { errors: { email: { msg: "El usuario ya existe" } }, old: req.body });
 					}
-					db.User.create(newUser)
-					.then((userCreated) => {
-						// return res.send(userCreated);
-						req.session.userLogged = userCreated;
-						return res.redirect('/users/user-profile');
-					})
-					.catch((errors) => {
-						res.send(errors);
-					});
-				} else {
-					return res.render('users/register', { errors: { email: { msg: "El usuario ya existe" } }, old: req.body });
-				}
-			})
+				})
 		} else {
 			return res.render('users/register', { errors: errors.mapped(), old: req.body });
 		}
@@ -102,14 +102,20 @@ const usersController = {
 		res.redirect('/');
 	},
 
-	userProfile: (req, res) => {
-		db.Product.findAll({
+	userProfile: async (req, res) => {
+		let products = await db.Product.findAll({
 			include: ['brand', 'category', 'section', 'users'],
 			where: { "$users.id$": { [Op.like]: req.session.userLogged.id } }
-		})
-			.then((products) => {
-				return res.render('users/user-profile', { products: products });
-			})
+		});
+
+		let orders = await db.Order.findAll({
+			where: { userId: req.session.userLogged.id }
+		});
+
+		console.log(orders.length);
+			
+		return res.render('users/user-profile', { products: products, orders: orders });
+			
 	},
 
 	userEdit: (req, res) => {
@@ -131,25 +137,25 @@ const usersController = {
 			if (req.file) {
 				userToUpdate.avatar = req.file.filename;
 				// borrar avatar anterior si no era la imagen por defecto
-				if(!(req.session.userLogged.avatar == "default-user.jpg")){
+				if (!(req.session.userLogged.avatar == "default-user.jpg")) {
 					fs.unlinkSync(join(userImagePath, req.session.userLogged.avatar));
 				}
 			}
-			db.User.update(userToUpdate, 
+			db.User.update(userToUpdate,
 				{
 					where: { id: userId },
-			})
-			.then( () => {
-				db.User.findByPk(userId)
-				.then((userEdited) => {
-					// console.log(userEdited.dataValues);
-					req.session.userLogged = userEdited.dataValues;
-					return res.redirect('/users/user-profile');
 				})
-			})
-			.catch((errors) => {
-				res.send("No se pudo editar el usuario");
-			});
+				.then(() => {
+					db.User.findByPk(userId)
+						.then((userEdited) => {
+							// console.log(userEdited.dataValues);
+							req.session.userLogged = userEdited.dataValues;
+							return res.redirect('/users/user-profile');
+						})
+				})
+				.catch((errors) => {
+					res.send("No se pudo editar el usuario");
+				});
 		} else {
 			return res.render('users/edit', { errors: errors.mapped(), old: req.body });
 		}
