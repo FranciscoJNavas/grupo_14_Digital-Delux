@@ -46,29 +46,30 @@
                         </div>
 
                         <button class="comprar form-button" data-id="<%= productFilter.id %>">Comprar</button>
+                        
+                        <div class="user-button">
+                            <% if (locals.userLogged?.id==productFilter.users[0].id) { %>
+                                <a class="user-button-div direct-link" href="/products/edit/<%= productFilter.id %>">
+                                    <button class="user-product-button">EDITAR PRODUCTO</button>
+                                </a>
+        
+                                <form class="user-button-div" action="/products/delete/<%= productFilter.id %>?_method=DELETE" method="POST">
+                                    <button class="user-product-button" type="submit">ELIMINAR</button>
+                                </form>
+                                <% } %>
+        
+                        </div>
 
                     </div>
                 </article>
 
                 <div class="extra-pic-user-b">
-                    <div class="extra-pic">
-                        <% for (let i=0; i<5 ; i++ ) { %>
-                            <img class="tiny-image" src="/images/<%= productFilter.image  %>" alt="imagen-sec-1">
-                            <% } %>
-                    </div>
+                    <!-- <div class="extra-pic">
+                        <%# for (let i=0; i<5 ; i++ ) { %>
+                            <img class="tiny-image" src="/images/<%#= productFilter.image  %>" alt="imagen-sec-1">
+                            <%# } %>
+                    </div> -->
 
-                    <div class="user-button">
-                        <% if (locals.userLogged?.id==productFilter.users[0].id) { %>
-                            <a class="direct-link" href="/products/edit/<%= productFilter.id %>">
-                                <button class="form-button">EDITAR PRODUCTO</button>
-                            </a>
-
-                            <form action="/products/delete/<%= productFilter.id %>?_method=DELETE" method="POST">
-                                <button class="form-button" type="submit">ELIMINAR</button>
-                            </form>
-                            <% } %>
-
-                    </div>
                 </div>
                 <section class="info-others">
                     <section class="info">

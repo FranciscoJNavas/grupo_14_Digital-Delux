@@ -197,7 +197,7 @@ window.addEventListener('load', function(){
 
     // verificación de edad
     inputDateBirth.addEventListener('blur', function(e){
-        //console.log(e.target.value)   
+        console.log(e.target.value)   
         regex.adultAge(e.target.value);
 
     })

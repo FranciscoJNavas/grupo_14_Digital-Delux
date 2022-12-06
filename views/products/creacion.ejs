@@ -16,7 +16,7 @@
                 <b><label class="input-title" for="name">Nombre del producto:</label></b><br>
                 <input type="text" name="name" id="name" class="control">
                 <p class="form-error"><%= locals.errors?.name ? errors.name.msg : "" %></p>
-                <p class="name-form-error error-fe"></p>
+                <p class="name-form-error error-fe no-show">El nombre es obligatorio y debe tener al menos 5 caracteres</p>
             </div>
 
             <div class="form-control">
@@ -29,21 +29,21 @@
                     
                 </select>
                 <p class="form-error"><%= locals.errors?.section ? errors.section.msg : "" %></p>
-                <p class="section-form-error error-fe"></p>
+                <p class="section-form-error error-fe no-show"></p>
             </div>
 
             <div class="form-control">
                 <b><labe class="input-title" for="price">Precio:</label></b><br>
                 <input type="number" name="price" id="price" class="control">
                 <p class="form-error"><%= locals.errors?.price ? errors.price.msg : "" %></p>
-                <p class="price-form-error error-fe"></p>
+                <p class="price-form-error error-fe no-show"></p>
             </div>
             
             <div class="form-control">
                 <b><label class="input-title" for="discount" >Descuento:</label></b><br>
                 <input type="number" name="discount" id="discount" class="control">
                 <p class="form-error"><%= locals.errors?.discount ? errors.discount.msg : "" %></p>
-                <p class="discount-form-error error-fe"></p>
+                <p class="discount-form-error error-fe no-show"></p>
             </div>
             
             <div class="form-control">
@@ -55,7 +55,7 @@
                     <% } %>
                 </select>
                 <p class="form-error"><%= locals.errors?.category ? errors.category.msg : "" %></p>
-                <p class="category-form-error error-fe"></p>
+                <p class="category-form-error error-fe no-show"></p>
             </div>
 
             <div class="form-control">
@@ -67,14 +67,14 @@
                     <% } %>
                 </select>
                 <p class="form-error"><%= locals.errors?.brand ? errors.brand.msg : "" %></p>
-                <p class="brand-form-error error-fe"></p>
+                <p class="brand-form-error error-fe no-show"></p>
             </div>
             
             <div class="form-control">
                 <b><label class="input-title" for="image">Imagen:</label></b><br>
                 <input type="file" name="imageProduct" id="image" accept=".jpg, .jpeg, .png" class="control">
                 <p class="form-error"><%= locals.errors?.image ? errors.image.msg : "" %></p>
-                <p class="image-form-error error-fe"></p>
+                <p class="image-form-error error-fe no-show"></p>
             </div>
 
             <!-- <div class="form-control">
@@ -88,19 +88,19 @@
             <b><label class="input-title" for="description">Descripción:</label></b><br>
             <textarea name="description" id="description" class="textarea"></textarea>
             <p class="form-error"><%= locals.errors?.description ? errors.description.msg : "" %></p>
-            <p class="description-form-error error-fe"></p>
+            <p class="description-form-error error-fe no-show">La descripción es obligatoria y debe tener al menos 20 caracteres</p>
         </div>
 
         <div class="form-control">
             <b><label class="input-title" for="features">Características:</label></b><br>
             <textarea name="features" id="features" class="textarea"></textarea>
             <p class="form-error"><%= locals.errors?.features ? errors.features.msg : "" %></p>
-            <p class="features-form-error error-fe"></p>
+            <p class="features-form-error error-fe no-show"></p>
         </div>
 
         <div class="create-product">
              <button id="button" type="submit" class="form-button">Guardar producto</button>
-             <p class="button-form-error error-fe"></p>
+             <p class="button-form-error error-fe no-show"></p>
         </div>
         
     </form>
