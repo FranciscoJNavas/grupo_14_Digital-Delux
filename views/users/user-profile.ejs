@@ -52,50 +52,48 @@
 
                 <section class="order-page">
                     <div>
-                        <div>
-                            <% if (orders.length==0) { %>
-                                <h4 class="featured-category">El usuario no registra compras</h4>
-                                <% } else { %>
-                                    <table>
-                                        <thead>
+                        <% if (orders.length==0) { %>
+                            <h4 class="featured-category">El usuario no registra compras</h4>
+                            <% } else { %>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%;">
+                                                <strong>Orden N°</strong>
+                                            </th>
+                                            <th style="width: 20%;">
+                                                <strong>Total</strong>
+                                            </th>
+                                            <th style="width: 35%;">
+                                                <strong>Método de pago</strong>
+                                            </th>
+                                            <th style="width: 35%;">
+                                                <strong>Método de envío</strong>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cartRows">
+                                        <% for( let i=0; i < orders.length; i++ ) { %>
                                             <tr>
-                                                <th style="width: 10%;">
-                                                    <strong>Orden N°</strong>
-                                                </th>
-                                                <th style="width: 30%;">
-                                                    <strong>Total</strong>
-                                                </th>
-                                                <th style="width: 30%;">
-                                                    <strong>Método de pago</strong>
-                                                </th>
-                                                <th style="width: 30%;">
-                                                    <strong>Método de envío</strong>
-                                                </th>
+                                                <td>
+                                                    <a href="/orders/<%= orders[i].id %>">
+                                                        <%= orders[i].id %>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    $ <%= orders[i].total %>
+                                                </td>
+                                                <td>
+                                                    <%= orders[i].paymentMethod %>
+                                                </td>
+                                                <td>
+                                                    <%= orders[i].shippingMethod %>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody class="cartRows">
-                                            <% for( let i=0; i < orders.length; i++ ) { %>
-                                                <tr>
-                                                    <th>
-                                                        <a href="/orders/<%= orders[i].id %>">
-                                                            <%= orders[i].id %>
-                                                        </a>
-                                                    </th>
-                                                    <th>
-                                                        $ <%= orders[i].total %>
-                                                    </th>
-                                                    <th>
-                                                        <%= orders[i].paymentMethod %>
-                                                    </th>
-                                                    <th>
-                                                        <%= orders[i].shippingMethod %>
-                                                    </th>
-                                                </tr>
-                                                <% } %>
-                                        </tbody>
-                                    </table>
-                                    <% } %>
-                        </div>
+                                            <% } %>
+                                    </tbody>
+                                </table>
+                                <% } %>
                     </div>
                 </section>
 

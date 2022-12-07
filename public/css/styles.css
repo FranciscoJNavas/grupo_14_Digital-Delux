@@ -386,15 +386,29 @@ Product-Detail
 .order-page {
     background-color: #473f4a;
     margin: 10px auto;
-    width: 60%;
+    width: 85%;
     padding: 5px;
     /* color: #DD5D20; */
     color: white
 }
 
-.cartRows tr th a{
+    .order-page table {
+    width: 100%;
+    }
+
+    .order-page table thead {
+        font-size: small;
+    }
+
+.cartRows tr td a{
     text-decoration: none;
-    color: #DD5D20;
+    color: white;
+}
+
+.cartRows tr{
+    font-size: small;
+    background-color: #DD5D20;
+    text-align: center;
 }
 
 .total-cart {
