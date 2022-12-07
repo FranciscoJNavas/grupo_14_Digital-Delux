@@ -17,7 +17,7 @@ if (localStorage.carrito) {
     let carrito = JSON.parse(localStorage.carrito);
     carrito.forEach((item, index) => {
         // fetch(`http://localhost:3001/api/products/${item.id}`)
-        fetch(`https://digital-deploy.herokuapp.com//api/products/${item.id}`)
+        fetch(`https://digital-deploy.herokuapp.com/api/products/${item.id}`)
             .then(response => response.json())
             .then(product => {
                 cardRows.innerHTML +=
