@@ -4,11 +4,13 @@ const { Op } = require("sequelize");
 
 const productsApiController = {
 	productsList: (req, res) => {
+		console.log(req.query.limit,req.query.offset);
+		let limit = (req.query.limit==undefined) ? 200 : Number(req.query.limit);
+		let offset = (req.query.offset==undefined) ? 0 : Number(req.query.offset);
 		let countByCategory = {};
 		let totalCategories = 0;
 		db.Category.findAll()
 			.then(categories => {
-				console.log(categories);
 				totalCategories = categories.length;
 				categories.forEach(category => {
 					countByCategory[category.dataValues.name] = 0;
@@ -16,7 +18,9 @@ const productsApiController = {
 			})
 
 		db.Product.findAll({
-			include: ['brand', 'category', 'section', 'users']
+			include: ['brand', 'category', 'section', 'users'],
+			limit: limit,
+			offset: offset
 		})
 			.then(products => {
 				products.forEach(product => {
