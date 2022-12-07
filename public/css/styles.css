@@ -377,7 +377,7 @@ Product-Detail
 .cart-page {
     background-color: #473f4a;
     margin: 10px auto;
-    width: 80%;
+    width: 85%;
     padding: 5px;
     /* color: #DD5D20; */
     color: white
@@ -413,8 +413,13 @@ Product-Detail
 
 .total-cart {
     padding-top: 20px;
-    margin-left: 80%;
 }
+
+    .total-cart h3 {
+    max-width: fit-content;
+    margin-left: auto;
+    font-size:medium;
+    }
 
 .finish-buy{
     display: flex;

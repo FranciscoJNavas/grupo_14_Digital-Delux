@@ -22,12 +22,12 @@ if (localStorage.carrito) {
             .then(product => {
                 cardRows.innerHTML +=
                     `<tr>
-                        <th>${index + 1}</th>
-                        <th>${product.data.name}</th>
-                        <th>$${product.data.price}</th>
-                        <th>${carrito[index].quantity}</th>
-                        <th>$${carrito[index].quantity * product.data.price}</th>
-                        <th><button><i class="fas fa-trash"></i></button></th>
+                        <td>${index + 1}</td>
+                        <td>${product.data.name}</td>
+                        <td>$${product.data.price}</td>
+                        <td>${carrito[index].quantity}</td>
+                        <td>$${carrito[index].quantity * product.data.price}</td>
+                        <td><button><i class="fas fa-trash"></i></button></td>
                     </tr>`
                 products.push({
                     productId: product.data.id,
